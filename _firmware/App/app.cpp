@@ -50,18 +50,6 @@ void setup()
 */
 void loop()
 {
-    // uint32_t data = 0b111100001111000011110000;
-    // uint32_t buffer[24];
-    // for (int8_t index = 0; index < 24; index++)
-    // {
-    //     if (data & (0b1 << index))
-    //         buffer[23-index] = 60-1;
-    //     else
-    //         buffer[23-index] = 30-1;
-    // }
-
-    // HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *)buffer, 48);
-
     // led.send();
 }
 

@@ -13,6 +13,9 @@ extern "C" {
 typedef enum
 {
     WS2812B_DEFAULT_LEDS_COUNT = 60,
+    WS2812B_DMA_INCREMENT_16BIT = 2,
+    WS2812B_DMA_INCREMENT_8BIT = 4,
+    WS2812B_DMA_INCREMENT_32BIT = 1,
 };
 
 class WS2812B
@@ -26,11 +29,13 @@ public:
     TIM_HandleTypeDef *_PWMgenerator;
     uint16_t _ledsCount;
     uint32_t _channel;
+    uint32_t _BIT_1_HIGH, _BIT_0_HIGH;
     uint32_t *_colorData;
     uint32_t *_buffer;
+    uint8_t _bufferDataMultiplier;
 
 public:
-    void init();
+    void init(uint8_t DMAincrement = WS2812B_DMA_INCREMENT_16BIT);
     void solidColor(uint32_t color, uint16_t start, uint16_t end);
     void render();
 
