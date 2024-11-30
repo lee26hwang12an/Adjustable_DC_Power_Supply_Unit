@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -47,7 +47,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 1
   19:App/app.cpp   ****     return ch;
   20:App/app.cpp   **** }
   21:App/app.cpp   **** 
-  22:App/app.cpp   **** WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 5);
+  22:App/app.cpp   **** WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 60);
   23:App/app.cpp   **** 
   24:App/app.cpp   **** 
   25:App/app.cpp   **** /*
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 1
   30:App/app.cpp   **** void setup()
   31:App/app.cpp   **** {
   32:App/app.cpp   ****     HAL_Delay(1000);
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 2
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 2
 
 
   33:App/app.cpp   **** 
@@ -73,14 +73,14 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 1
   42:App/app.cpp   **** */
   43:App/app.cpp   **** void loop()
   44:App/app.cpp   **** {
-  45:App/app.cpp   ****     led.solidColor(0xFF0000, 0, 1);
-  46:App/app.cpp   ****     led.solidColor(0x000000, 2, 2);
-  47:App/app.cpp   ****     led.solidColor(0x000000, 3, 4);
+  45:App/app.cpp   ****     led.solidColor(0xFF0000, 0, 29);
+  46:App/app.cpp   ****     // led.solidColor(0x000000, 2, 2);
+  47:App/app.cpp   ****     led.solidColor(0x000000, 30, 59);
   48:App/app.cpp   ****     led.render();
   49:App/app.cpp   ****     HAL_Delay(200);
-  50:App/app.cpp   ****     led.solidColor(0x000000, 0, 1);
-  51:App/app.cpp   ****     led.solidColor(0x000000, 2, 2);
-  52:App/app.cpp   ****     led.solidColor(0x0000FF, 3, 4);
+  50:App/app.cpp   ****     led.solidColor(0x000000, 0, 29);
+  51:App/app.cpp   ****     // led.solidColor(0x000000, 2, 2);
+  52:App/app.cpp   ****     led.solidColor(0x0000FF, 30, 59);
   53:App/app.cpp   ****     led.render();
   54:App/app.cpp   ****     HAL_Delay(200);
   55:App/app.cpp   ****     // led.solidColor(0xFF0000, 0, 1);
@@ -115,10 +115,10 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 1
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 3, -8
   35              		.cfi_offset 14, -4
-  22:App/app.cpp   **** WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 5);
-  36              		.loc 1 22 47 is_stmt 0 view .LVU1
-  37 0002 0523     		movs	r3, #5
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 3
+  22:App/app.cpp   **** WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 60);
+  36              		.loc 1 22 48 is_stmt 0 view .LVU1
+  37 0002 3C23     		movs	r3, #60
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 3
 
 
   38 0004 0022     		movs	r2, #0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 1
   89 0010 FFF7FEFF 		bl	HAL_UART_Transmit
   90              	.LVL3:
   19:App/app.cpp   ****     return ch;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 4
 
 
   91              		.loc 1 19 5 is_stmt 1 view .LVU8
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 1
  140              	.L12:
  141              		.align	2
  142              	.L11:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 5
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 5
 
 
  143 0014 00000000 		.word	led
@@ -265,247 +265,227 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 1
  165              		.cfi_def_cfa_offset 8
  166              		.cfi_offset 4, -8
  167              		.cfi_offset 14, -4
-  45:App/app.cpp   ****     led.solidColor(0xFF0000, 0, 1);
+  45:App/app.cpp   ****     led.solidColor(0xFF0000, 0, 29);
  168              		.loc 1 45 5 view .LVU17
-  45:App/app.cpp   ****     led.solidColor(0xFF0000, 0, 1);
+  45:App/app.cpp   ****     led.solidColor(0xFF0000, 0, 29);
  169              		.loc 1 45 19 is_stmt 0 view .LVU18
- 170 0002 194C     		ldr	r4, .L15
- 171 0004 0123     		movs	r3, #1
+ 170 0002 134C     		ldr	r4, .L15
+ 171 0004 1D23     		movs	r3, #29
  172 0006 0022     		movs	r2, #0
  173 0008 4FF47F01 		mov	r1, #16711680
  174 000c 2046     		mov	r0, r4
  175 000e FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
  176              	.LVL6:
-  46:App/app.cpp   ****     led.solidColor(0x000000, 2, 2);
- 177              		.loc 1 46 5 is_stmt 1 view .LVU19
-  46:App/app.cpp   ****     led.solidColor(0x000000, 2, 2);
- 178              		.loc 1 46 19 is_stmt 0 view .LVU20
- 179 0012 0223     		movs	r3, #2
- 180 0014 1A46     		mov	r2, r3
+  47:App/app.cpp   ****     led.solidColor(0x000000, 30, 59);
+ 177              		.loc 1 47 5 is_stmt 1 view .LVU19
+  47:App/app.cpp   ****     led.solidColor(0x000000, 30, 59);
+ 178              		.loc 1 47 19 is_stmt 0 view .LVU20
+ 179 0012 3B23     		movs	r3, #59
+ 180 0014 1E22     		movs	r2, #30
  181 0016 0021     		movs	r1, #0
  182 0018 2046     		mov	r0, r4
  183 001a FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
  184              	.LVL7:
-  47:App/app.cpp   ****     led.solidColor(0x000000, 3, 4);
- 185              		.loc 1 47 5 is_stmt 1 view .LVU21
-  47:App/app.cpp   ****     led.solidColor(0x000000, 3, 4);
- 186              		.loc 1 47 19 is_stmt 0 view .LVU22
- 187 001e 0423     		movs	r3, #4
- 188 0020 0322     		movs	r2, #3
- 189 0022 0021     		movs	r1, #0
- 190 0024 2046     		mov	r0, r4
- 191 0026 FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
- 192              	.LVL8:
   48:App/app.cpp   ****     led.render();
- 193              		.loc 1 48 5 is_stmt 1 view .LVU23
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 6
+ 185              		.loc 1 48 5 is_stmt 1 view .LVU21
+  48:App/app.cpp   ****     led.render();
+ 186              		.loc 1 48 15 is_stmt 0 view .LVU22
+ 187 001e 2046     		mov	r0, r4
+ 188 0020 FFF7FEFF 		bl	_ZN7WS2812B6renderEv
+ 189              	.LVL8:
+  49:App/app.cpp   ****     HAL_Delay(200);
+ 190              		.loc 1 49 5 is_stmt 1 view .LVU23
+  49:App/app.cpp   ****     HAL_Delay(200);
+ 191              		.loc 1 49 14 is_stmt 0 view .LVU24
+ 192 0024 C820     		movs	r0, #200
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 6
 
 
-  48:App/app.cpp   ****     led.render();
- 194              		.loc 1 48 15 is_stmt 0 view .LVU24
- 195 002a 2046     		mov	r0, r4
- 196 002c FFF7FEFF 		bl	_ZN7WS2812B6renderEv
- 197              	.LVL9:
-  49:App/app.cpp   ****     HAL_Delay(200);
- 198              		.loc 1 49 5 is_stmt 1 view .LVU25
-  49:App/app.cpp   ****     HAL_Delay(200);
- 199              		.loc 1 49 14 is_stmt 0 view .LVU26
- 200 0030 C820     		movs	r0, #200
- 201 0032 FFF7FEFF 		bl	HAL_Delay
+ 193 0026 FFF7FEFF 		bl	HAL_Delay
+ 194              	.LVL9:
+  50:App/app.cpp   ****     led.solidColor(0x000000, 0, 29);
+ 195              		.loc 1 50 5 is_stmt 1 view .LVU25
+  50:App/app.cpp   ****     led.solidColor(0x000000, 0, 29);
+ 196              		.loc 1 50 19 is_stmt 0 view .LVU26
+ 197 002a 1D23     		movs	r3, #29
+ 198 002c 0022     		movs	r2, #0
+ 199 002e 1146     		mov	r1, r2
+ 200 0030 2046     		mov	r0, r4
+ 201 0032 FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
  202              	.LVL10:
-  50:App/app.cpp   ****     led.solidColor(0x000000, 0, 1);
- 203              		.loc 1 50 5 is_stmt 1 view .LVU27
-  50:App/app.cpp   ****     led.solidColor(0x000000, 0, 1);
- 204              		.loc 1 50 19 is_stmt 0 view .LVU28
- 205 0036 0123     		movs	r3, #1
- 206 0038 0022     		movs	r2, #0
- 207 003a 1146     		mov	r1, r2
+  52:App/app.cpp   ****     led.solidColor(0x0000FF, 30, 59);
+ 203              		.loc 1 52 5 is_stmt 1 view .LVU27
+  52:App/app.cpp   ****     led.solidColor(0x0000FF, 30, 59);
+ 204              		.loc 1 52 19 is_stmt 0 view .LVU28
+ 205 0036 3B23     		movs	r3, #59
+ 206 0038 1E22     		movs	r2, #30
+ 207 003a FF21     		movs	r1, #255
  208 003c 2046     		mov	r0, r4
  209 003e FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
  210              	.LVL11:
-  51:App/app.cpp   ****     led.solidColor(0x000000, 2, 2);
- 211              		.loc 1 51 5 is_stmt 1 view .LVU29
-  51:App/app.cpp   ****     led.solidColor(0x000000, 2, 2);
- 212              		.loc 1 51 19 is_stmt 0 view .LVU30
- 213 0042 0223     		movs	r3, #2
- 214 0044 1A46     		mov	r2, r3
- 215 0046 0021     		movs	r1, #0
- 216 0048 2046     		mov	r0, r4
- 217 004a FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
- 218              	.LVL12:
-  52:App/app.cpp   ****     led.solidColor(0x0000FF, 3, 4);
- 219              		.loc 1 52 5 is_stmt 1 view .LVU31
-  52:App/app.cpp   ****     led.solidColor(0x0000FF, 3, 4);
- 220              		.loc 1 52 19 is_stmt 0 view .LVU32
- 221 004e 0423     		movs	r3, #4
- 222 0050 0322     		movs	r2, #3
- 223 0052 FF21     		movs	r1, #255
- 224 0054 2046     		mov	r0, r4
- 225 0056 FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
- 226              	.LVL13:
   53:App/app.cpp   ****     led.render();
- 227              		.loc 1 53 5 is_stmt 1 view .LVU33
+ 211              		.loc 1 53 5 is_stmt 1 view .LVU29
   53:App/app.cpp   ****     led.render();
- 228              		.loc 1 53 15 is_stmt 0 view .LVU34
- 229 005a 2046     		mov	r0, r4
- 230 005c FFF7FEFF 		bl	_ZN7WS2812B6renderEv
- 231              	.LVL14:
+ 212              		.loc 1 53 15 is_stmt 0 view .LVU30
+ 213 0042 2046     		mov	r0, r4
+ 214 0044 FFF7FEFF 		bl	_ZN7WS2812B6renderEv
+ 215              	.LVL12:
   54:App/app.cpp   ****     HAL_Delay(200);
- 232              		.loc 1 54 5 is_stmt 1 view .LVU35
+ 216              		.loc 1 54 5 is_stmt 1 view .LVU31
   54:App/app.cpp   ****     HAL_Delay(200);
- 233              		.loc 1 54 14 is_stmt 0 view .LVU36
- 234 0060 C820     		movs	r0, #200
- 235 0062 FFF7FEFF 		bl	HAL_Delay
- 236              	.LVL15:
+ 217              		.loc 1 54 14 is_stmt 0 view .LVU32
+ 218 0048 C820     		movs	r0, #200
+ 219 004a FFF7FEFF 		bl	HAL_Delay
+ 220              	.LVL13:
   65:App/app.cpp   **** }
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 7
-
-
- 237              		.loc 1 65 1 view .LVU37
- 238 0066 10BD     		pop	{r4, pc}
- 239              	.L16:
- 240              		.align	2
- 241              	.L15:
- 242 0068 00000000 		.word	led
- 243              		.cfi_endproc
- 244              	.LFE68:
- 245              		.fnend
- 247              		.section	.text.HAL_TIM_PWM_PulseFinishedCallback,"ax",%progbits
- 248              		.align	1
- 249              		.global	HAL_TIM_PWM_PulseFinishedCallback
- 250              		.syntax unified
- 251              		.thumb
- 252              		.thumb_func
- 254              	HAL_TIM_PWM_PulseFinishedCallback:
- 255              		.fnstart
- 256              	.LVL16:
- 257              	.LFB69:
+ 221              		.loc 1 65 1 view .LVU33
+ 222 004e 10BD     		pop	{r4, pc}
+ 223              	.L16:
+ 224              		.align	2
+ 225              	.L15:
+ 226 0050 00000000 		.word	led
+ 227              		.cfi_endproc
+ 228              	.LFE68:
+ 229              		.fnend
+ 231              		.section	.text.HAL_TIM_PWM_PulseFinishedCallback,"ax",%progbits
+ 232              		.align	1
+ 233              		.global	HAL_TIM_PWM_PulseFinishedCallback
+ 234              		.syntax unified
+ 235              		.thumb
+ 236              		.thumb_func
+ 238              	HAL_TIM_PWM_PulseFinishedCallback:
+ 239              		.fnstart
+ 240              	.LVL14:
+ 241              	.LFB69:
   74:App/app.cpp   **** {
- 258              		.loc 1 74 1 is_stmt 1 view -0
- 259              		.cfi_startproc
- 260              		@ args = 0, pretend = 0, frame = 0
- 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 7
+
+
+ 242              		.loc 1 74 1 is_stmt 1 view -0
+ 243              		.cfi_startproc
+ 244              		@ args = 0, pretend = 0, frame = 0
+ 245              		@ frame_needed = 0, uses_anonymous_args = 0
   74:App/app.cpp   **** {
- 262              		.loc 1 74 1 is_stmt 0 view .LVU39
- 263 0000 08B5     		push	{r3, lr}
- 264              		.save {r3, lr}
- 265              	.LCFI6:
- 266              		.cfi_def_cfa_offset 8
- 267              		.cfi_offset 3, -8
- 268              		.cfi_offset 14, -4
+ 246              		.loc 1 74 1 is_stmt 0 view .LVU35
+ 247 0000 08B5     		push	{r3, lr}
+ 248              		.save {r3, lr}
+ 249              	.LCFI6:
+ 250              		.cfi_def_cfa_offset 8
+ 251              		.cfi_offset 3, -8
+ 252              		.cfi_offset 14, -4
   75:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
- 269              		.loc 1 75 5 is_stmt 1 view .LVU40
+ 253              		.loc 1 75 5 is_stmt 1 view .LVU36
   75:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
- 270              		.loc 1 75 25 is_stmt 0 view .LVU41
- 271 0002 0021     		movs	r1, #0
- 272 0004 0348     		ldr	r0, .L19
- 273              	.LVL17:
+ 254              		.loc 1 75 25 is_stmt 0 view .LVU37
+ 255 0002 0021     		movs	r1, #0
+ 256 0004 0348     		ldr	r0, .L19
+ 257              	.LVL15:
   75:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
- 274              		.loc 1 75 25 view .LVU42
- 275 0006 FFF7FEFF 		bl	HAL_TIM_PWM_Stop_DMA
- 276              	.LVL18:
+ 258              		.loc 1 75 25 view .LVU38
+ 259 0006 FFF7FEFF 		bl	HAL_TIM_PWM_Stop_DMA
+ 260              	.LVL16:
   76:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
- 277              		.loc 1 76 5 is_stmt 1 view .LVU43
+ 261              		.loc 1 76 5 is_stmt 1 view .LVU39
   76:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
- 278              		.loc 1 76 22 is_stmt 0 view .LVU44
- 279 000a 034B     		ldr	r3, .L19+4
- 280 000c 0122     		movs	r2, #1
- 281 000e 1A70     		strb	r2, [r3]
- 282              		.loc 1 77 1 view .LVU45
- 283 0010 08BD     		pop	{r3, pc}
- 284              	.L20:
- 285 0012 00BF     		.align	2
- 286              	.L19:
- 287 0014 00000000 		.word	htim1
- 288 0018 00000000 		.word	led
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 8
+ 262              		.loc 1 76 22 is_stmt 0 view .LVU40
+ 263 000a 034B     		ldr	r3, .L19+4
+ 264 000c 0122     		movs	r2, #1
+ 265 000e 1A70     		strb	r2, [r3]
+ 266              		.loc 1 77 1 view .LVU41
+ 267 0010 08BD     		pop	{r3, pc}
+ 268              	.L20:
+ 269 0012 00BF     		.align	2
+ 270              	.L19:
+ 271 0014 00000000 		.word	htim1
+ 272 0018 00000000 		.word	led
+ 273              		.cfi_endproc
+ 274              	.LFE69:
+ 275              		.fnend
+ 277              		.section	.text._GLOBAL__sub_I__Z12__io_putchari,"ax",%progbits
+ 278              		.align	1
+ 279              		.syntax unified
+ 280              		.thumb
+ 281              		.thumb_func
+ 283              	_GLOBAL__sub_I__Z12__io_putchari:
+ 284              		.fnstart
+ 285              	.LFB71:
+ 286              		.loc 1 77 1 is_stmt 1 view -0
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 290 0000 08B5     		push	{r3, lr}
+ 291              	.LCFI7:
+ 292              		.cfi_def_cfa_offset 8
+ 293              		.cfi_offset 3, -8
+ 294              		.cfi_offset 14, -4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 8
 
 
- 289              		.cfi_endproc
- 290              	.LFE69:
- 291              		.fnend
- 293              		.section	.text._GLOBAL__sub_I__Z12__io_putchari,"ax",%progbits
- 294              		.align	1
- 295              		.syntax unified
- 296              		.thumb
- 297              		.thumb_func
- 299              	_GLOBAL__sub_I__Z12__io_putchari:
- 300              		.fnstart
- 301              	.LFB71:
- 302              		.loc 1 77 1 is_stmt 1 view -0
- 303              		.cfi_startproc
- 304              		@ args = 0, pretend = 0, frame = 0
- 305              		@ frame_needed = 0, uses_anonymous_args = 0
- 306 0000 08B5     		push	{r3, lr}
- 307              	.LCFI7:
- 308              		.cfi_def_cfa_offset 8
- 309              		.cfi_offset 3, -8
- 310              		.cfi_offset 14, -4
- 311              		.loc 1 77 1 is_stmt 0 view .LVU47
- 312 0002 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0v
- 313              	.LVL19:
- 314 0006 08BD     		pop	{r3, pc}
- 315              		.cfi_endproc
- 316              	.LFE71:
- 317              		.cantunwind
- 318              		.fnend
- 320              		.section	.init_array,"aw",%init_array
- 321              		.align	2
- 322 0000 00000000 		.word	_GLOBAL__sub_I__Z12__io_putchari(target1)
- 323              		.global	led
- 324              		.section	.bss.led,"aw",%nobits
- 325              		.align	2
- 328              	led:
- 329 0000 00000000 		.space	36
- 329      00000000 
- 329      00000000 
- 329      00000000 
- 329      00000000 
- 330              		.text
- 331              	.Letext0:
- 332              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
- 333              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
- 334              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
- 335              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
- 336              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 337              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 338              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 339              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 340              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 341              		.file 11 "App/WS2812B/ws2812b.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s 			page 9
+ 295              		.loc 1 77 1 is_stmt 0 view .LVU43
+ 296 0002 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0v
+ 297              	.LVL17:
+ 298 0006 08BD     		pop	{r3, pc}
+ 299              		.cfi_endproc
+ 300              	.LFE71:
+ 301              		.cantunwind
+ 302              		.fnend
+ 304              		.section	.init_array,"aw",%init_array
+ 305              		.align	2
+ 306 0000 00000000 		.word	_GLOBAL__sub_I__Z12__io_putchari(target1)
+ 307              		.global	led
+ 308              		.section	.bss.led,"aw",%nobits
+ 309              		.align	2
+ 312              	led:
+ 313 0000 00000000 		.space	36
+ 313      00000000 
+ 313      00000000 
+ 313      00000000 
+ 313      00000000 
+ 314              		.text
+ 315              	.Letext0:
+ 316              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 317              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 318              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
+ 319              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+ 320              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 321              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 322              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 323              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 324              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 325              		.file 11 "App/WS2812B/ws2812b.h"
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app.cpp
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:19     .text._Z41__static_initialization_and_destruction_0v:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:24     .text._Z41__static_initialization_and_destruction_0v:00000000 _Z41__static_initialization_and_destruction_0v
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:48     .text._Z41__static_initialization_and_destruction_0v:00000010 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:328    .bss.led:00000000 led
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:19     .text._Z41__static_initialization_and_destruction_0v:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:24     .text._Z41__static_initialization_and_destruction_0v:00000000 _Z41__static_initialization_and_destruction_0v
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:48     .text._Z41__static_initialization_and_destruction_0v:00000010 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:312    .bss.led:00000000 led
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0v:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:56     .text._Z12__io_putchari:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:62     .text._Z12__io_putchari:00000000 _Z12__io_putchari
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:102    .text._Z12__io_putchari:0000001c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:56     .text._Z12__io_putchari:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:62     .text._Z12__io_putchari:00000000 _Z12__io_putchari
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:102    .text._Z12__io_putchari:0000001c $d
 .ARM.exidx.text._Z12__io_putchari:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:108    .text.setup:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:114    .text.setup:00000000 setup
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:143    .text.setup:00000014 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:108    .text.setup:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:114    .text.setup:00000000 setup
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:143    .text.setup:00000014 $d
             .ARM.extab.text.setup:00000000 $d
             .ARM.exidx.text.setup:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:149    .text.loop:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:155    .text.loop:00000000 loop
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:242    .text.loop:00000068 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:149    .text.loop:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:155    .text.loop:00000000 loop
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:226    .text.loop:00000050 $d
              .ARM.exidx.text.loop:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:248    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:254    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 HAL_TIM_PWM_PulseFinishedCallback
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:287    .text.HAL_TIM_PWM_PulseFinishedCallback:00000014 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:232    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:238    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 HAL_TIM_PWM_PulseFinishedCallback
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:271    .text.HAL_TIM_PWM_PulseFinishedCallback:00000014 $d
 .ARM.extab.text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $d
 .ARM.exidx.text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:294    .text._GLOBAL__sub_I__Z12__io_putchari:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:299    .text._GLOBAL__sub_I__Z12__io_putchari:00000000 _GLOBAL__sub_I__Z12__io_putchari
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:278    .text._GLOBAL__sub_I__Z12__io_putchari:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:283    .text._GLOBAL__sub_I__Z12__io_putchari:00000000 _GLOBAL__sub_I__Z12__io_putchari
 .ARM.exidx.text._GLOBAL__sub_I__Z12__io_putchari:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:321    .init_array:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccFz1ymo.s:325    .bss.led:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:305    .init_array:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccgL2mFX.s:309    .bss.led:00000000 $d
 
 UNDEFINED SYMBOLS
 _ZN7WS2812BC1EP17TIM_HandleTypeDefmt

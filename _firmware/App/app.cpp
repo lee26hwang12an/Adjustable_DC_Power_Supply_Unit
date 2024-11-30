@@ -19,7 +19,7 @@ PUTCHAR_PROTOTYPE
     return ch;
 }
 
-WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 5);
+WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 60);
 
 
 /*
@@ -42,14 +42,14 @@ void setup()
 */
 void loop()
 {
-    led.solidColor(0xFF0000, 0, 1);
-    led.solidColor(0x000000, 2, 2);
-    led.solidColor(0x000000, 3, 4);
+    led.solidColor(0xFF0000, 0, 29);
+    // led.solidColor(0x000000, 2, 2);
+    led.solidColor(0x000000, 30, 59);
     led.render();
     HAL_Delay(200);
-    led.solidColor(0x000000, 0, 1);
-    led.solidColor(0x000000, 2, 2);
-    led.solidColor(0x0000FF, 3, 4);
+    led.solidColor(0x000000, 0, 29);
+    // led.solidColor(0x000000, 2, 2);
+    led.solidColor(0x0000FF, 30, 59);
     led.render();
     HAL_Delay(200);
     // led.solidColor(0xFF0000, 0, 1);
