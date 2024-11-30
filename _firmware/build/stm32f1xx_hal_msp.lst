@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
   30:Core/Src/stm32f1xx_hal_msp.c **** 
   31:Core/Src/stm32f1xx_hal_msp.c **** /* USER CODE END TD */
   32:Core/Src/stm32f1xx_hal_msp.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 2
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 2
 
 
   33:Core/Src/stm32f1xx_hal_msp.c **** /* Private define ------------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
   40 0004 9A69     		ldr	r2, [r3, #24]
   41 0006 42F00102 		orr	r2, r2, #1
   42 000a 9A61     		str	r2, [r3, #24]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 3
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 3
 
 
   43              		.loc 1 73 3 view .LVU4
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
   85              		.cfi_def_cfa_offset 0
   86              		@ sp needed
   87 0038 7047     		bx	lr
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 4
 
 
   88              	.L4:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  100:Core/Src/stm32f1xx_hal_msp.c ****     /* Peripheral clock enable */
  101:Core/Src/stm32f1xx_hal_msp.c ****     __HAL_RCC_TIM1_CLK_ENABLE();
  129              		.loc 1 101 5 is_stmt 1 view .LVU25
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 5
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 5
 
 
  130              	.LBB5:
@@ -282,10 +282,10 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  161              		.loc 1 108 31 is_stmt 0 view .LVU39
  162 0034 8022     		movs	r2, #128
  163 0036 C260     		str	r2, [r0, #12]
- 109:Core/Src/stm32f1xx_hal_msp.c ****     hdma_tim1_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+ 109:Core/Src/stm32f1xx_hal_msp.c ****     hdma_tim1_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
  164              		.loc 1 109 5 is_stmt 1 view .LVU40
  165              		.loc 1 109 44 is_stmt 0 view .LVU41
- 166 0038 4FF40072 		mov	r2, #512
+ 166 0038 4FF48072 		mov	r2, #256
  167 003c 0261     		str	r2, [r0, #16]
  110:Core/Src/stm32f1xx_hal_msp.c ****     hdma_tim1_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
  168              		.loc 1 110 5 is_stmt 1 view .LVU42
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  174 0044 8361     		str	r3, [r0, #24]
  112:Core/Src/stm32f1xx_hal_msp.c ****     hdma_tim1_ch1.Init.Priority = DMA_PRIORITY_LOW;
  175              		.loc 1 112 5 is_stmt 1 view .LVU46
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 6
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 6
 
 
  176              		.loc 1 112 33 is_stmt 0 view .LVU47
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  115:Core/Src/stm32f1xx_hal_msp.c ****     }
  213              		.loc 1 115 7 is_stmt 1 view .LVU58
  214 0068 FFF7FEFF 		bl	Error_Handler
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 7
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 7
 
 
  215              	.LVL9:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  137:Core/Src/stm32f1xx_hal_msp.c **** 
  138:Core/Src/stm32f1xx_hal_msp.c ****   /* USER CODE END TIM1_MspPostInit 0 */
  139:Core/Src/stm32f1xx_hal_msp.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 8
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 8
 
 
  140:Core/Src/stm32f1xx_hal_msp.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  145:Core/Src/stm32f1xx_hal_msp.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
  295              		.loc 1 145 5 is_stmt 1 view .LVU75
  145:Core/Src/stm32f1xx_hal_msp.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 9
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 9
 
 
  296              		.loc 1 145 26 is_stmt 0 view .LVU76
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  339              		.loc 1 163 3 is_stmt 1 view .LVU84
  340              		.loc 1 163 15 is_stmt 0 view .LVU85
  341 0002 0268     		ldr	r2, [r0]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 10
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 10
 
 
  342              		.loc 1 163 5 view .LVU86
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  374              		.cfi_endproc
  375              	.LFE68:
  377              		.section	.text.HAL_UART_MspInit,"ax",%progbits
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 11
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 11
 
 
  378              		.align	1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  199:Core/Src/stm32f1xx_hal_msp.c **** 
  200:Core/Src/stm32f1xx_hal_msp.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();
  201:Core/Src/stm32f1xx_hal_msp.c ****     /**USART1 GPIO Configuration
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 12
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 12
 
 
  202:Core/Src/stm32f1xx_hal_msp.c ****     PA9     ------> USART1_TX
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  443              		.loc 1 200 5 view .LVU107
  444              	.LBB8:
  200:Core/Src/stm32f1xx_hal_msp.c ****     /**USART1 GPIO Configuration
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 13
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 13
 
 
  445              		.loc 1 200 5 view .LVU108
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  483              		.loc 1 211 26 is_stmt 0 view .LVU124
  484 0060 0023     		movs	r3, #0
  485 0062 0393     		str	r3, [sp, #12]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 14
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 14
 
 
  212:Core/Src/stm32f1xx_hal_msp.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  529 0006 9A42     		cmp	r2, r3
  530 0008 00D0     		beq	.L37
  531              	.LVL28:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 15
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 15
 
 
  532              	.L34:
@@ -898,36 +898,36 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 1
  565              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  566              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
  567              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 16
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 16
 
 
  568              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
  569              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
  570              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
  571              		.file 11 "Core/Inc/main.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s 			page 17
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_msp.c
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:19     .text.HAL_MspInit:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:91     .text.HAL_MspInit:0000003c $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:97     .text.HAL_TIM_Base_MspInit:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:103    .text.HAL_TIM_Base_MspInit:00000000 HAL_TIM_Base_MspInit
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:220    .text.HAL_TIM_Base_MspInit:00000070 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:227    .text.HAL_TIM_MspPostInit:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:233    .text.HAL_TIM_MspPostInit:00000000 HAL_TIM_MspPostInit
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:314    .text.HAL_TIM_MspPostInit:00000048 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:320    .text.HAL_TIM_Base_MspDeInit:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:326    .text.HAL_TIM_Base_MspDeInit:00000000 HAL_TIM_Base_MspDeInit
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:372    .text.HAL_TIM_Base_MspDeInit:00000024 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:378    .text.HAL_UART_MspInit:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:384    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:499    .text.HAL_UART_MspInit:00000070 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:505    .text.HAL_UART_MspDeInit:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:511    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-C:\Users\DARSTE~1\AppData\Local\Temp\ccNvzw2x.s:554    .text.HAL_UART_MspDeInit:00000024 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:19     .text.HAL_MspInit:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:91     .text.HAL_MspInit:0000003c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:97     .text.HAL_TIM_Base_MspInit:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:103    .text.HAL_TIM_Base_MspInit:00000000 HAL_TIM_Base_MspInit
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:220    .text.HAL_TIM_Base_MspInit:00000070 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:227    .text.HAL_TIM_MspPostInit:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:233    .text.HAL_TIM_MspPostInit:00000000 HAL_TIM_MspPostInit
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:314    .text.HAL_TIM_MspPostInit:00000048 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:320    .text.HAL_TIM_Base_MspDeInit:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:326    .text.HAL_TIM_Base_MspDeInit:00000000 HAL_TIM_Base_MspDeInit
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:372    .text.HAL_TIM_Base_MspDeInit:00000024 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:378    .text.HAL_UART_MspInit:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:384    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:499    .text.HAL_UART_MspInit:00000070 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:505    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:511    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\DARSTE~1\AppData\Local\Temp\ccqLWPvF.s:554    .text.HAL_UART_MspDeInit:00000024 $d
 
 UNDEFINED SYMBOLS
 HAL_DMA_Init

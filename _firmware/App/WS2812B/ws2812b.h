@@ -13,9 +13,12 @@ extern "C" {
 typedef enum
 {
     WS2812B_DEFAULT_LEDS_COUNT = 60,
+    WS2812B_RESET_CODE_PADDING = 40,
     WS2812B_DMA_INCREMENT_16BIT = 2,
     WS2812B_DMA_INCREMENT_8BIT = 4,
     WS2812B_DMA_INCREMENT_32BIT = 1,
+    WS2812B_UPDATE_FINISHED = 1,
+    WS2812B_UPDATE_ONGOING = 0,
 } WS2812B_CONST;
 
 class WS2812B
@@ -29,6 +32,7 @@ public:
     WS2812B(TIM_HandleTypeDef *PWMgenerator, uint32_t channel, uint16_t numLed);
 
 public:
+    volatile uint8_t UPDATE_STATE;
 
 // private:
     TIM_HandleTypeDef *_PWMgenerator;
@@ -76,6 +80,8 @@ private:
     uint32_t toGRB(uint32_t RGB);
     /* Calculate and push color data to the buffer to be sent. */
     void updateBuffer();
+    /* Set all buffer values to 0. */
+    void clearBuffer();
 };
 
 

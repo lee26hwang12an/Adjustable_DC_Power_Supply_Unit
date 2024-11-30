@@ -19,7 +19,7 @@ PUTCHAR_PROTOTYPE
     return ch;
 }
 
-WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 4);
+WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 5);
 
 
 /*
@@ -32,14 +32,6 @@ void setup()
     HAL_Delay(1000);
 
     led.init();
-
-    led.solidColor(0x00FFFF, 0, 1);
-    led.solidColor(0xFF00FF, 2, 3);
-    led.render();
-
-    HAL_Delay(1000);
-    led.solidColor(0x00FF00, 1, 2);
-    led.render();
 }
 
 
@@ -50,7 +42,26 @@ void setup()
 */
 void loop()
 {
-    // led.send();
+    led.solidColor(0xFF0000, 0, 1);
+    led.solidColor(0x000000, 2, 2);
+    led.solidColor(0x000000, 3, 4);
+    led.render();
+    HAL_Delay(200);
+    led.solidColor(0x000000, 0, 1);
+    led.solidColor(0x000000, 2, 2);
+    led.solidColor(0x0000FF, 3, 4);
+    led.render();
+    HAL_Delay(200);
+    // led.solidColor(0xFF0000, 0, 1);
+    // led.solidColor(0x000000, 2, 2);
+    // led.solidColor(0x000000, 3, 4);
+    // led.render();
+    // HAL_Delay(200);
+    // led.solidColor(0x000000, 0, 1);
+    // led.solidColor(0x000000, 2, 2);
+    // led.solidColor(0x0000FF, 3, 4);
+    // led.render();
+    // HAL_Delay(200);
 }
 
 
@@ -62,4 +73,5 @@ void loop()
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 {
     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+    led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
 }
