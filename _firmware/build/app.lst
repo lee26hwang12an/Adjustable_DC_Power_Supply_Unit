@@ -1,0 +1,462 @@
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"app.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "App/app.cpp"
+  18              		.section	.text._Z41__static_initialization_and_destruction_0v,"ax",%progbits
+  19              		.align	1
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	_Z41__static_initialization_and_destruction_0v:
+  25              		.fnstart
+  26              	.LFB70:
+   1:App/app.cpp   **** #include "app.h"
+   2:App/app.cpp   **** #include "stm32Abstract.h"
+   3:App/app.cpp   **** #include "ws2812b.h"
+   4:App/app.cpp   **** #include <stdio.h>
+   5:App/app.cpp   **** 
+   6:App/app.cpp   **** 
+   7:App/app.cpp   **** extern TIM_HandleTypeDef htim1;
+   8:App/app.cpp   **** extern DMA_HandleTypeDef hdma_tim1_ch1;
+   9:App/app.cpp   **** extern UART_HandleTypeDef huart1;
+  10:App/app.cpp   **** #ifdef __GNUC__
+  11:App/app.cpp   **** #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+  12:App/app.cpp   **** #else
+  13:App/app.cpp   **** #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+  14:App/app.cpp   **** #endif
+  15:App/app.cpp   **** PUTCHAR_PROTOTYPE
+  16:App/app.cpp   **** {
+  17:App/app.cpp   ****     // -------------- Change huart_x to your appropriate Hardware UART/USART
+  18:App/app.cpp   ****     HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  19:App/app.cpp   ****     return ch;
+  20:App/app.cpp   **** }
+  21:App/app.cpp   **** 
+  22:App/app.cpp   **** WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 4);
+  23:App/app.cpp   **** 
+  24:App/app.cpp   **** 
+  25:App/app.cpp   **** /*
+  26:App/app.cpp   **** =====================================================================
+  27:App/app.cpp   ****     SETUP
+  28:App/app.cpp   **** =====================================================================
+  29:App/app.cpp   **** */
+  30:App/app.cpp   **** void setup()
+  31:App/app.cpp   **** {
+  32:App/app.cpp   ****     HAL_Delay(1000);
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s 			page 2
+
+
+  33:App/app.cpp   **** 
+  34:App/app.cpp   ****     led.init();
+  35:App/app.cpp   **** 
+  36:App/app.cpp   ****     led.solidColor(0x00FFFF, 0, 1);
+  37:App/app.cpp   ****     led.solidColor(0xFF00FF, 2, 3);
+  38:App/app.cpp   ****     led.render();
+  39:App/app.cpp   **** 
+  40:App/app.cpp   ****     HAL_Delay(1000);
+  41:App/app.cpp   ****     led.solidColor(0x00FF00, 1, 2);
+  42:App/app.cpp   ****     led.render();
+  43:App/app.cpp   **** }
+  44:App/app.cpp   **** 
+  45:App/app.cpp   **** 
+  46:App/app.cpp   **** /*
+  47:App/app.cpp   **** =====================================================================
+  48:App/app.cpp   ****     MAIN LOOP
+  49:App/app.cpp   **** =====================================================================
+  50:App/app.cpp   **** */
+  51:App/app.cpp   **** void loop()
+  52:App/app.cpp   **** {
+  53:App/app.cpp   ****     // uint32_t data = 0b111100001111000011110000;
+  54:App/app.cpp   ****     // uint32_t buffer[24];
+  55:App/app.cpp   ****     // for (int8_t index = 0; index < 24; index++)
+  56:App/app.cpp   ****     // {
+  57:App/app.cpp   ****     //     if (data & (0b1 << index))
+  58:App/app.cpp   ****     //         buffer[23-index] = 60-1;
+  59:App/app.cpp   ****     //     else
+  60:App/app.cpp   ****     //         buffer[23-index] = 30-1;
+  61:App/app.cpp   ****     // }
+  62:App/app.cpp   **** 
+  63:App/app.cpp   ****     // HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *)buffer, 48);
+  64:App/app.cpp   **** 
+  65:App/app.cpp   ****     // led.send();
+  66:App/app.cpp   **** }
+  67:App/app.cpp   **** 
+  68:App/app.cpp   **** 
+  69:App/app.cpp   **** /*
+  70:App/app.cpp   **** =====================================================================
+  71:App/app.cpp   ****     CALLBACKS
+  72:App/app.cpp   **** =====================================================================
+  73:App/app.cpp   **** */
+  74:App/app.cpp   **** void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
+  75:App/app.cpp   **** {
+  76:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+  77:App/app.cpp   **** }...
+  27              		.loc 1 77 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  22:App/app.cpp   **** WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 4);
+  36              		.loc 1 22 47 is_stmt 0 view .LVU1
+  37 0002 0423     		movs	r3, #4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s 			page 3
+
+
+  38 0004 0022     		movs	r2, #0
+  39 0006 0249     		ldr	r1, .L3
+  40 0008 0248     		ldr	r0, .L3+4
+  41 000a FFF7FEFF 		bl	_ZN7WS2812BC1EP17TIM_HandleTypeDefmt
+  42              	.LVL0:
+  43              		.loc 1 77 1 view .LVU2
+  44 000e 08BD     		pop	{r3, pc}
+  45              	.L4:
+  46              		.align	2
+  47              	.L3:
+  48 0010 00000000 		.word	htim1
+  49 0014 00000000 		.word	led
+  50              		.cfi_endproc
+  51              	.LFE70:
+  52              		.cantunwind
+  53              		.fnend
+  55              		.section	.text._Z12__io_putchari,"ax",%progbits
+  56              		.align	1
+  57              		.global	_Z12__io_putchari
+  58              		.syntax unified
+  59              		.thumb
+  60              		.thumb_func
+  62              	_Z12__io_putchari:
+  63              		.fnstart
+  64              	.LVL1:
+  65              	.LFB66:
+  16:App/app.cpp   **** {
+  66              		.loc 1 16 1 is_stmt 1 view -0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 8
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  16:App/app.cpp   **** {
+  70              		.loc 1 16 1 is_stmt 0 view .LVU4
+  71 0000 00B5     		push	{lr}
+  72              		.save {lr}
+  73              	.LCFI1:
+  74              		.cfi_def_cfa_offset 4
+  75              		.cfi_offset 14, -4
+  76              		.pad #12
+  77 0002 83B0     		sub	sp, sp, #12
+  78              	.LCFI2:
+  79              		.cfi_def_cfa_offset 16
+  80 0004 0190     		str	r0, [sp, #4]
+  18:App/app.cpp   ****     HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  81              		.loc 1 18 5 is_stmt 1 view .LVU5
+  18:App/app.cpp   ****     HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  82              		.loc 1 18 22 is_stmt 0 view .LVU6
+  83 0006 4FF0FF33 		mov	r3, #-1
+  84 000a 0122     		movs	r2, #1
+  85 000c 01A9     		add	r1, sp, #4
+  86 000e 0348     		ldr	r0, .L7
+  87              	.LVL2:
+  18:App/app.cpp   ****     HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  88              		.loc 1 18 22 view .LVU7
+  89 0010 FFF7FEFF 		bl	HAL_UART_Transmit
+  90              	.LVL3:
+  19:App/app.cpp   ****     return ch;
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s 			page 4
+
+
+  91              		.loc 1 19 5 is_stmt 1 view .LVU8
+  20:App/app.cpp   **** }
+  92              		.loc 1 20 1 is_stmt 0 view .LVU9
+  93 0014 0198     		ldr	r0, [sp, #4]
+  94 0016 03B0     		add	sp, sp, #12
+  95              	.LCFI3:
+  96              		.cfi_def_cfa_offset 4
+  97              		@ sp needed
+  98 0018 5DF804FB 		ldr	pc, [sp], #4
+  99              	.L8:
+ 100              		.align	2
+ 101              	.L7:
+ 102 001c 00000000 		.word	huart1
+ 103              		.cfi_endproc
+ 104              	.LFE66:
+ 105              		.fnend
+ 107              		.section	.text.setup,"ax",%progbits
+ 108              		.align	1
+ 109              		.global	setup
+ 110              		.syntax unified
+ 111              		.thumb
+ 112              		.thumb_func
+ 114              	setup:
+ 115              		.fnstart
+ 116              	.LFB67:
+  31:App/app.cpp   **** {
+ 117              		.loc 1 31 1 is_stmt 1 view -0
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 0
+ 120              		@ frame_needed = 0, uses_anonymous_args = 0
+ 121 0000 10B5     		push	{r4, lr}
+ 122              		.save {r4, lr}
+ 123              	.LCFI4:
+ 124              		.cfi_def_cfa_offset 8
+ 125              		.cfi_offset 4, -8
+ 126              		.cfi_offset 14, -4
+  32:App/app.cpp   ****     HAL_Delay(1000);
+ 127              		.loc 1 32 5 view .LVU11
+  32:App/app.cpp   ****     HAL_Delay(1000);
+ 128              		.loc 1 32 14 is_stmt 0 view .LVU12
+ 129 0002 4FF47A70 		mov	r0, #1000
+ 130 0006 FFF7FEFF 		bl	HAL_Delay
+ 131              	.LVL4:
+  34:App/app.cpp   ****     led.init();
+ 132              		.loc 1 34 5 is_stmt 1 view .LVU13
+  34:App/app.cpp   ****     led.init();
+ 133              		.loc 1 34 13 is_stmt 0 view .LVU14
+ 134 000a 124C     		ldr	r4, .L11
+ 135 000c 2046     		mov	r0, r4
+ 136 000e FFF7FEFF 		bl	_ZN7WS2812B4initEv
+ 137              	.LVL5:
+  36:App/app.cpp   ****     led.solidColor(0x00FFFF, 0, 1);
+ 138              		.loc 1 36 5 is_stmt 1 view .LVU15
+  36:App/app.cpp   ****     led.solidColor(0x00FFFF, 0, 1);
+ 139              		.loc 1 36 19 is_stmt 0 view .LVU16
+ 140 0012 0123     		movs	r3, #1
+ 141 0014 0022     		movs	r2, #0
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s 			page 5
+
+
+ 142 0016 4FF6FF71 		movw	r1, #65535
+ 143 001a 2046     		mov	r0, r4
+ 144 001c FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
+ 145              	.LVL6:
+  37:App/app.cpp   ****     led.solidColor(0xFF00FF, 2, 3);
+ 146              		.loc 1 37 5 is_stmt 1 view .LVU17
+  37:App/app.cpp   ****     led.solidColor(0xFF00FF, 2, 3);
+ 147              		.loc 1 37 19 is_stmt 0 view .LVU18
+ 148 0020 0323     		movs	r3, #3
+ 149 0022 0222     		movs	r2, #2
+ 150 0024 4FF0FF11 		mov	r1, #16711935
+ 151 0028 2046     		mov	r0, r4
+ 152 002a FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
+ 153              	.LVL7:
+  38:App/app.cpp   ****     led.render();
+ 154              		.loc 1 38 5 is_stmt 1 view .LVU19
+  38:App/app.cpp   ****     led.render();
+ 155              		.loc 1 38 15 is_stmt 0 view .LVU20
+ 156 002e 2046     		mov	r0, r4
+ 157 0030 FFF7FEFF 		bl	_ZN7WS2812B6renderEv
+ 158              	.LVL8:
+  40:App/app.cpp   ****     HAL_Delay(1000);
+ 159              		.loc 1 40 5 is_stmt 1 view .LVU21
+  40:App/app.cpp   ****     HAL_Delay(1000);
+ 160              		.loc 1 40 14 is_stmt 0 view .LVU22
+ 161 0034 4FF47A70 		mov	r0, #1000
+ 162 0038 FFF7FEFF 		bl	HAL_Delay
+ 163              	.LVL9:
+  41:App/app.cpp   ****     led.solidColor(0x00FF00, 1, 2);
+ 164              		.loc 1 41 5 is_stmt 1 view .LVU23
+  41:App/app.cpp   ****     led.solidColor(0x00FF00, 1, 2);
+ 165              		.loc 1 41 19 is_stmt 0 view .LVU24
+ 166 003c 0223     		movs	r3, #2
+ 167 003e 0122     		movs	r2, #1
+ 168 0040 4FF47F41 		mov	r1, #65280
+ 169 0044 2046     		mov	r0, r4
+ 170 0046 FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
+ 171              	.LVL10:
+  42:App/app.cpp   ****     led.render();
+ 172              		.loc 1 42 5 is_stmt 1 view .LVU25
+  42:App/app.cpp   ****     led.render();
+ 173              		.loc 1 42 15 is_stmt 0 view .LVU26
+ 174 004a 2046     		mov	r0, r4
+ 175 004c FFF7FEFF 		bl	_ZN7WS2812B6renderEv
+ 176              	.LVL11:
+  43:App/app.cpp   **** }
+ 177              		.loc 1 43 1 view .LVU27
+ 178 0050 10BD     		pop	{r4, pc}
+ 179              	.L12:
+ 180 0052 00BF     		.align	2
+ 181              	.L11:
+ 182 0054 00000000 		.word	led
+ 183              		.cfi_endproc
+ 184              	.LFE67:
+ 185              		.fnend
+ 187              		.section	.text.loop,"ax",%progbits
+ 188              		.align	1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s 			page 6
+
+
+ 189              		.global	loop
+ 190              		.syntax unified
+ 191              		.thumb
+ 192              		.thumb_func
+ 194              	loop:
+ 195              		.fnstart
+ 196              	.LFB68:
+  52:App/app.cpp   **** {
+ 197              		.loc 1 52 1 is_stmt 1 view -0
+ 198              		.cfi_startproc
+ 199              		@ args = 0, pretend = 0, frame = 0
+ 200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 201              		@ link register save eliminated.
+  66:App/app.cpp   **** }
+ 202              		.loc 1 66 1 is_stmt 0 view .LVU29
+ 203 0000 7047     		bx	lr
+ 204              		.cfi_endproc
+ 205              	.LFE68:
+ 206              		.cantunwind
+ 207              		.fnend
+ 209              		.section	.text.HAL_TIM_PWM_PulseFinishedCallback,"ax",%progbits
+ 210              		.align	1
+ 211              		.global	HAL_TIM_PWM_PulseFinishedCallback
+ 212              		.syntax unified
+ 213              		.thumb
+ 214              		.thumb_func
+ 216              	HAL_TIM_PWM_PulseFinishedCallback:
+ 217              		.fnstart
+ 218              	.LVL12:
+ 219              	.LFB69:
+  75:App/app.cpp   **** {
+ 220              		.loc 1 75 1 is_stmt 1 view -0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+  75:App/app.cpp   **** {
+ 224              		.loc 1 75 1 is_stmt 0 view .LVU31
+ 225 0000 08B5     		push	{r3, lr}
+ 226              		.save {r3, lr}
+ 227              	.LCFI5:
+ 228              		.cfi_def_cfa_offset 8
+ 229              		.cfi_offset 3, -8
+ 230              		.cfi_offset 14, -4
+  76:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+ 231              		.loc 1 76 5 is_stmt 1 view .LVU32
+  76:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+ 232              		.loc 1 76 25 is_stmt 0 view .LVU33
+ 233 0002 0021     		movs	r1, #0
+ 234 0004 0148     		ldr	r0, .L16
+ 235              	.LVL13:
+  76:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+ 236              		.loc 1 76 25 view .LVU34
+ 237 0006 FFF7FEFF 		bl	HAL_TIM_PWM_Stop_DMA
+ 238              	.LVL14:
+ 239              		.loc 1 77 1 view .LVU35
+ 240 000a 08BD     		pop	{r3, pc}
+ 241              	.L17:
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s 			page 7
+
+
+ 242              		.align	2
+ 243              	.L16:
+ 244 000c 00000000 		.word	htim1
+ 245              		.cfi_endproc
+ 246              	.LFE69:
+ 247              		.fnend
+ 249              		.section	.text._GLOBAL__sub_I__Z12__io_putchari,"ax",%progbits
+ 250              		.align	1
+ 251              		.syntax unified
+ 252              		.thumb
+ 253              		.thumb_func
+ 255              	_GLOBAL__sub_I__Z12__io_putchari:
+ 256              		.fnstart
+ 257              	.LFB71:
+ 258              		.loc 1 77 1 is_stmt 1 view -0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262 0000 08B5     		push	{r3, lr}
+ 263              	.LCFI6:
+ 264              		.cfi_def_cfa_offset 8
+ 265              		.cfi_offset 3, -8
+ 266              		.cfi_offset 14, -4
+ 267              		.loc 1 77 1 is_stmt 0 view .LVU37
+ 268 0002 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0v
+ 269              	.LVL15:
+ 270 0006 08BD     		pop	{r3, pc}
+ 271              		.cfi_endproc
+ 272              	.LFE71:
+ 273              		.cantunwind
+ 274              		.fnend
+ 276              		.section	.init_array,"aw",%init_array
+ 277              		.align	2
+ 278 0000 00000000 		.word	_GLOBAL__sub_I__Z12__io_putchari(target1)
+ 279              		.global	led
+ 280              		.section	.bss.led,"aw",%nobits
+ 281              		.align	2
+ 284              	led:
+ 285 0000 00000000 		.space	20
+ 285      00000000 
+ 285      00000000 
+ 285      00000000 
+ 285      00000000 
+ 286              		.text
+ 287              	.Letext0:
+ 288              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 289              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 290              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
+ 291              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+ 292              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 293              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 294              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 295              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 296              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 297              		.file 11 "App/WS2812B/ws2812b.h"
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 app.cpp
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:19     .text._Z41__static_initialization_and_destruction_0v:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:24     .text._Z41__static_initialization_and_destruction_0v:00000000 _Z41__static_initialization_and_destruction_0v
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:48     .text._Z41__static_initialization_and_destruction_0v:00000010 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:284    .bss.led:00000000 led
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0v:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:56     .text._Z12__io_putchari:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:62     .text._Z12__io_putchari:00000000 _Z12__io_putchari
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:102    .text._Z12__io_putchari:0000001c $d
+.ARM.exidx.text._Z12__io_putchari:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:108    .text.setup:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:114    .text.setup:00000000 setup
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:182    .text.setup:00000054 $d
+            .ARM.exidx.text.setup:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:188    .text.loop:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:194    .text.loop:00000000 loop
+             .ARM.exidx.text.loop:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:210    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:216    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 HAL_TIM_PWM_PulseFinishedCallback
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:244    .text.HAL_TIM_PWM_PulseFinishedCallback:0000000c $d
+.ARM.extab.text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $d
+.ARM.exidx.text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:250    .text._GLOBAL__sub_I__Z12__io_putchari:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:255    .text._GLOBAL__sub_I__Z12__io_putchari:00000000 _GLOBAL__sub_I__Z12__io_putchari
+.ARM.exidx.text._GLOBAL__sub_I__Z12__io_putchari:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:277    .init_array:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccU6gbXn.s:281    .bss.led:00000000 $d
+
+UNDEFINED SYMBOLS
+_ZN7WS2812BC1EP17TIM_HandleTypeDefmt
+htim1
+HAL_UART_Transmit
+huart1
+__aeabi_unwind_cpp_pr0
+HAL_Delay
+_ZN7WS2812B4initEv
+_ZN7WS2812B10solidColorEmtt
+_ZN7WS2812B6renderEv
+HAL_TIM_PWM_Stop_DMA
+__aeabi_unwind_cpp_pr1

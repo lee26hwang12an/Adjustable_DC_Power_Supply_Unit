@@ -1,0 +1,720 @@
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"ws2812b.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "App/WS2812B/ws2812b.cpp"
+  18              		.section	.text._ZN7WS2812BC2EP17TIM_HandleTypeDefmt,"ax",%progbits
+  19              		.align	1
+  20              		.global	_ZN7WS2812BC2EP17TIM_HandleTypeDefmt
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	_ZN7WS2812BC2EP17TIM_HandleTypeDefmt:
+  26              		.fnstart
+  27              	.LVL0:
+  28              	.LFB75:
+   1:App/WS2812B/ws2812b.cpp **** #include "ws2812b.h"
+   2:App/WS2812B/ws2812b.cpp **** #include <stdlib.h>
+   3:App/WS2812B/ws2812b.cpp **** 
+   4:App/WS2812B/ws2812b.cpp **** /*
+   5:App/WS2812B/ws2812b.cpp **** =====================================================================
+   6:App/WS2812B/ws2812b.cpp ****     PRIVATE FUNCTIONS
+   7:App/WS2812B/ws2812b.cpp **** =====================================================================
+   8:App/WS2812B/ws2812b.cpp **** */
+   9:App/WS2812B/ws2812b.cpp **** 
+  10:App/WS2812B/ws2812b.cpp **** /*
+  11:App/WS2812B/ws2812b.cpp **** =====================================================================
+  12:App/WS2812B/ws2812b.cpp ****     CONSTRUCTORS
+  13:App/WS2812B/ws2812b.cpp **** =====================================================================
+  14:App/WS2812B/ws2812b.cpp **** */
+  15:App/WS2812B/ws2812b.cpp **** 
+  16:App/WS2812B/ws2812b.cpp **** WS2812B::WS2812B(TIM_HandleTypeDef *PWMgenerator, uint32_t channel, uint16_t numLed)
+  29              		.loc 1 16 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34              	.LBB2:
+  17:App/WS2812B/ws2812b.cpp ****     : _PWMgenerator(PWMgenerator), _channel(channel), _ledsCount(numLed)
+  35              		.loc 1 17 7 is_stmt 0 view .LVU1
+  36 0000 0160     		str	r1, [r0]
+  37              		.loc 1 17 55 view .LVU2
+  38 0002 8380     		strh	r3, [r0, #4]	@ movhi
+  39              		.loc 1 17 36 view .LVU3
+  40 0004 8260     		str	r2, [r0, #8]
+  41              	.LBE2:
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 2
+
+
+  18:App/WS2812B/ws2812b.cpp **** {
+  19:App/WS2812B/ws2812b.cpp **** }
+  42              		.loc 1 19 1 view .LVU4
+  43 0006 7047     		bx	lr
+  44              		.cfi_endproc
+  45              	.LFE75:
+  46              		.cantunwind
+  47              		.fnend
+  49              		.global	_ZN7WS2812BC1EP17TIM_HandleTypeDefmt
+  50              		.thumb_set _ZN7WS2812BC1EP17TIM_HandleTypeDefmt,_ZN7WS2812BC2EP17TIM_HandleTypeDefmt
+  51              		.section	.text._ZN7WS2812B4initEv,"ax",%progbits
+  52              		.align	1
+  53              		.global	_ZN7WS2812B4initEv
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  58              	_ZN7WS2812B4initEv:
+  59              		.fnstart
+  60              	.LVL1:
+  61              	.LFB77:
+  20:App/WS2812B/ws2812b.cpp **** 
+  21:App/WS2812B/ws2812b.cpp **** /*
+  22:App/WS2812B/ws2812b.cpp **** =====================================================================
+  23:App/WS2812B/ws2812b.cpp ****     METHODS
+  24:App/WS2812B/ws2812b.cpp **** =====================================================================
+  25:App/WS2812B/ws2812b.cpp **** */
+  26:App/WS2812B/ws2812b.cpp **** 
+  27:App/WS2812B/ws2812b.cpp **** void WS2812B::init()
+  28:App/WS2812B/ws2812b.cpp **** {
+  62              		.loc 1 28 1 is_stmt 1 view -0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		.loc 1 28 1 is_stmt 0 view .LVU6
+  67 0000 38B5     		push	{r3, r4, r5, lr}
+  68              	.LCFI0:
+  69              		.cfi_def_cfa_offset 16
+  70              		.cfi_offset 3, -16
+  71              		.cfi_offset 4, -12
+  72              		.cfi_offset 5, -8
+  73              		.cfi_offset 14, -4
+  74 0002 0446     		mov	r4, r0
+  29:App/WS2812B/ws2812b.cpp ****     _colorData = (uint32_t *)calloc(_ledsCount, sizeof(uint32_t));
+  75              		.loc 1 29 5 is_stmt 1 view .LVU7
+  76              		.loc 1 29 37 is_stmt 0 view .LVU8
+  77 0004 8588     		ldrh	r5, [r0, #4]
+  78              		.loc 1 29 36 view .LVU9
+  79 0006 0421     		movs	r1, #4
+  80 0008 2846     		mov	r0, r5
+  81              	.LVL2:
+  82              		.loc 1 29 36 view .LVU10
+  83 000a FFF7FEFF 		bl	calloc
+  84              	.LVL3:
+  85              		.loc 1 29 16 discriminator 1 view .LVU11
+  86 000e E060     		str	r0, [r4, #12]
+  30:App/WS2812B/ws2812b.cpp ****     _buffer = (uint32_t *)calloc(_ledsCount * 24, sizeof(uint32_t));
+  87              		.loc 1 30 5 is_stmt 1 view .LVU12
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 3
+
+
+  88              		.loc 1 30 45 is_stmt 0 view .LVU13
+  89 0010 05EB4505 		add	r5, r5, r5, lsl #1
+  90              		.loc 1 30 33 view .LVU14
+  91 0014 0421     		movs	r1, #4
+  92 0016 E800     		lsls	r0, r5, #3
+  93 0018 FFF7FEFF 		bl	calloc
+  94              	.LVL4:
+  95              		.loc 1 30 13 discriminator 1 view .LVU15
+  96 001c 2061     		str	r0, [r4, #16]
+  31:App/WS2812B/ws2812b.cpp **** }
+  97              		.loc 1 31 1 view .LVU16
+  98 001e 38BD     		pop	{r3, r4, r5, pc}
+  99              		.loc 1 31 1 view .LVU17
+ 100              		.cfi_endproc
+ 101              	.LFE77:
+ 102              		.cantunwind
+ 103              		.fnend
+ 105              		.section	.text._ZN7WS2812B6renderEv,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	_ZN7WS2812B6renderEv
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 112              	_ZN7WS2812B6renderEv:
+ 113              		.fnstart
+ 114              	.LVL5:
+ 115              	.LFB79:
+  32:App/WS2812B/ws2812b.cpp **** 
+  33:App/WS2812B/ws2812b.cpp **** void WS2812B::solidColor(uint32_t color, uint16_t start, uint16_t end)
+  34:App/WS2812B/ws2812b.cpp **** {
+  35:App/WS2812B/ws2812b.cpp ****     color = WS2812B::toGRB(color);
+  36:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = start; ledIndex <= end; ledIndex++)
+  37:App/WS2812B/ws2812b.cpp ****         _colorData[ledIndex] = color;
+  38:App/WS2812B/ws2812b.cpp **** 
+  39:App/WS2812B/ws2812b.cpp ****     WS2812B::updateBuffer();
+  40:App/WS2812B/ws2812b.cpp **** }
+  41:App/WS2812B/ws2812b.cpp **** 
+  42:App/WS2812B/ws2812b.cpp **** void WS2812B::render()
+  43:App/WS2812B/ws2812b.cpp **** {
+ 116              		.loc 1 43 1 is_stmt 1 view -0
+ 117              		.cfi_startproc
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              		.loc 1 43 1 is_stmt 0 view .LVU19
+ 121 0000 08B5     		push	{r3, lr}
+ 122              		.save {r3, lr}
+ 123              	.LCFI1:
+ 124              		.cfi_def_cfa_offset 8
+ 125              		.cfi_offset 3, -8
+ 126              		.cfi_offset 14, -4
+  44:App/WS2812B/ws2812b.cpp ****     HAL_TIM_PWM_Start_DMA(_PWMgenerator, _channel, (uint32_t *)_buffer, _ledsCount * 48);
+ 127              		.loc 1 44 5 is_stmt 1 view .LVU20
+ 128              		.loc 1 44 73 is_stmt 0 view .LVU21
+ 129 0002 8388     		ldrh	r3, [r0, #4]
+ 130              		.loc 1 44 26 view .LVU22
+ 131 0004 03EB4303 		add	r3, r3, r3, lsl #1
+ 132 0008 1B01     		lsls	r3, r3, #4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 4
+
+
+ 133 000a 9BB2     		uxth	r3, r3
+ 134 000c 0269     		ldr	r2, [r0, #16]
+ 135 000e 8168     		ldr	r1, [r0, #8]
+ 136 0010 0068     		ldr	r0, [r0]
+ 137              	.LVL6:
+ 138              		.loc 1 44 26 view .LVU23
+ 139 0012 FFF7FEFF 		bl	HAL_TIM_PWM_Start_DMA
+ 140              	.LVL7:
+  45:App/WS2812B/ws2812b.cpp **** }
+ 141              		.loc 1 45 1 view .LVU24
+ 142 0016 08BD     		pop	{r3, pc}
+ 143              		.cfi_endproc
+ 144              	.LFE79:
+ 145              		.fnend
+ 147              		.section	.text._ZN7WS2812B10extractRedEm,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	_ZN7WS2812B10extractRedEm
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 154              	_ZN7WS2812B10extractRedEm:
+ 155              		.fnstart
+ 156              	.LVL8:
+ 157              	.LFB80:
+  46:App/WS2812B/ws2812b.cpp **** 
+  47:App/WS2812B/ws2812b.cpp **** uint8_t WS2812B::extractRed(uint32_t RGB)
+  48:App/WS2812B/ws2812b.cpp **** { return (uint8_t)((RGB >> 16) & 0xFF); }
+ 158              		.loc 1 48 1 is_stmt 1 view -0
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              		@ link register save eliminated.
+ 163              		.loc 1 48 3 view .LVU26
+ 164              		.loc 1 48 41 is_stmt 0 view .LVU27
+ 165 0000 C1F30740 		ubfx	r0, r1, #16, #8
+ 166              	.LVL9:
+ 167              		.loc 1 48 41 view .LVU28
+ 168 0004 7047     		bx	lr
+ 169              		.cfi_endproc
+ 170              	.LFE80:
+ 171              		.cantunwind
+ 172              		.fnend
+ 174              		.section	.text._ZN7WS2812B12extractGreenEm,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	_ZN7WS2812B12extractGreenEm
+ 177              		.syntax unified
+ 178              		.thumb
+ 179              		.thumb_func
+ 181              	_ZN7WS2812B12extractGreenEm:
+ 182              		.fnstart
+ 183              	.LVL10:
+ 184              	.LFB81:
+  49:App/WS2812B/ws2812b.cpp **** uint8_t WS2812B::extractGreen(uint32_t RGB)
+  50:App/WS2812B/ws2812b.cpp **** { return (uint8_t)((RGB >> 8) & 0xFF); }
+ 185              		.loc 1 50 1 is_stmt 1 view -0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 5
+
+
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189              		@ link register save eliminated.
+ 190              		.loc 1 50 3 view .LVU30
+ 191              		.loc 1 50 40 is_stmt 0 view .LVU31
+ 192 0000 C1F30720 		ubfx	r0, r1, #8, #8
+ 193              	.LVL11:
+ 194              		.loc 1 50 40 view .LVU32
+ 195 0004 7047     		bx	lr
+ 196              		.cfi_endproc
+ 197              	.LFE81:
+ 198              		.cantunwind
+ 199              		.fnend
+ 201              		.section	.text._ZN7WS2812B11extractBlueEm,"ax",%progbits
+ 202              		.align	1
+ 203              		.global	_ZN7WS2812B11extractBlueEm
+ 204              		.syntax unified
+ 205              		.thumb
+ 206              		.thumb_func
+ 208              	_ZN7WS2812B11extractBlueEm:
+ 209              		.fnstart
+ 210              	.LVL12:
+ 211              	.LFB82:
+  51:App/WS2812B/ws2812b.cpp **** uint8_t WS2812B::extractBlue(uint32_t RGB)
+  52:App/WS2812B/ws2812b.cpp **** { return (uint8_t)((RGB >> 0) & 0xFF); }
+ 212              		.loc 1 52 1 is_stmt 1 view -0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ link register save eliminated.
+ 217              		.loc 1 52 3 view .LVU34
+ 218              		.loc 1 52 40 is_stmt 0 view .LVU35
+ 219 0000 C8B2     		uxtb	r0, r1
+ 220              	.LVL13:
+ 221              		.loc 1 52 40 view .LVU36
+ 222 0002 7047     		bx	lr
+ 223              		.cfi_endproc
+ 224              	.LFE82:
+ 225              		.cantunwind
+ 226              		.fnend
+ 228              		.section	.text._Z10combineRGBhhh,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	_Z10combineRGBhhh
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 235              	_Z10combineRGBhhh:
+ 236              		.fnstart
+ 237              	.LVL14:
+ 238              	.LFB83:
+  53:App/WS2812B/ws2812b.cpp **** uint32_t combineRGB(uint8_t red, uint8_t green, uint8_t blue)
+  54:App/WS2812B/ws2812b.cpp **** {
+ 239              		.loc 1 54 1 is_stmt 1 view -0
+ 240              		.cfi_startproc
+ 241              		@ args = 0, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 243              		@ link register save eliminated.
+  55:App/WS2812B/ws2812b.cpp ****     uint32_t RGB = (
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 6
+
+
+ 244              		.loc 1 55 5 view .LVU38
+  56:App/WS2812B/ws2812b.cpp ****         (uint32_t)red << 16 |
+  57:App/WS2812B/ws2812b.cpp ****         (uint32_t)green << 8 |
+ 245              		.loc 1 57 25 is_stmt 0 view .LVU39
+ 246 0000 0902     		lsls	r1, r1, #8
+ 247              	.LVL15:
+  56:App/WS2812B/ws2812b.cpp ****         (uint32_t)red << 16 |
+ 248              		.loc 1 56 29 view .LVU40
+ 249 0002 41EA0040 		orr	r0, r1, r0, lsl #16
+ 250              	.LVL16:
+  58:App/WS2812B/ws2812b.cpp ****         (uint32_t)blue << 0
+  59:App/WS2812B/ws2812b.cpp ****     );
+  60:App/WS2812B/ws2812b.cpp ****     return RGB;
+ 251              		.loc 1 60 5 is_stmt 1 view .LVU41
+  61:App/WS2812B/ws2812b.cpp **** }
+ 252              		.loc 1 61 1 is_stmt 0 view .LVU42
+ 253 0006 1043     		orrs	r0, r0, r2
+ 254              	.LVL17:
+ 255              		.loc 1 61 1 view .LVU43
+ 256 0008 7047     		bx	lr
+ 257              		.cfi_endproc
+ 258              	.LFE83:
+ 259              		.cantunwind
+ 260              		.fnend
+ 262              		.section	.text._ZN7WS2812B5toGRBEm,"ax",%progbits
+ 263              		.align	1
+ 264              		.global	_ZN7WS2812B5toGRBEm
+ 265              		.syntax unified
+ 266              		.thumb
+ 267              		.thumb_func
+ 269              	_ZN7WS2812B5toGRBEm:
+ 270              		.fnstart
+ 271              	.LVL18:
+ 272              	.LFB84:
+  62:App/WS2812B/ws2812b.cpp **** uint32_t WS2812B::toGRB(uint32_t RGB)
+  63:App/WS2812B/ws2812b.cpp **** {
+ 273              		.loc 1 63 1 is_stmt 1 view -0
+ 274              		.cfi_startproc
+ 275              		@ args = 0, pretend = 0, frame = 0
+ 276              		@ frame_needed = 0, uses_anonymous_args = 0
+ 277              		.loc 1 63 1 is_stmt 0 view .LVU45
+ 278 0000 70B5     		push	{r4, r5, r6, lr}
+ 279              	.LCFI2:
+ 280              		.cfi_def_cfa_offset 16
+ 281              		.cfi_offset 4, -16
+ 282              		.cfi_offset 5, -12
+ 283              		.cfi_offset 6, -8
+ 284              		.cfi_offset 14, -4
+ 285 0002 0546     		mov	r5, r0
+ 286 0004 0E46     		mov	r6, r1
+  64:App/WS2812B/ws2812b.cpp ****     uint32_t GRB = (
+ 287              		.loc 1 64 5 is_stmt 1 view .LVU46
+  65:App/WS2812B/ws2812b.cpp ****         (uint32_t)(WS2812B::extractGreen(RGB) << 16) |
+ 288              		.loc 1 65 41 is_stmt 0 view .LVU47
+ 289 0006 FFF7FEFF 		bl	_ZN7WS2812B12extractGreenEm
+ 290              	.LVL19:
+ 291              		.loc 1 65 9 discriminator 1 view .LVU48
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 7
+
+
+ 292 000a 0404     		lsls	r4, r0, #16
+  66:App/WS2812B/ws2812b.cpp ****         (uint32_t)(WS2812B::extractRed(RGB) << 8) |
+ 293              		.loc 1 66 39 view .LVU49
+ 294 000c 3146     		mov	r1, r6
+ 295 000e 2846     		mov	r0, r5
+ 296 0010 FFF7FEFF 		bl	_ZN7WS2812B10extractRedEm
+ 297              	.LVL20:
+  65:App/WS2812B/ws2812b.cpp ****         (uint32_t)(WS2812B::extractGreen(RGB) << 16) |
+ 298              		.loc 1 65 54 view .LVU50
+ 299 0014 44EA0024 		orr	r4, r4, r0, lsl #8
+  67:App/WS2812B/ws2812b.cpp ****         (uint32_t)(WS2812B::extractBlue(RGB) << 0)
+ 300              		.loc 1 67 40 view .LVU51
+ 301 0018 3146     		mov	r1, r6
+ 302 001a 2846     		mov	r0, r5
+ 303 001c FFF7FEFF 		bl	_ZN7WS2812B11extractBlueEm
+ 304              	.LVL21:
+  68:App/WS2812B/ws2812b.cpp ****     );
+  69:App/WS2812B/ws2812b.cpp ****     return GRB;
+ 305              		.loc 1 69 5 is_stmt 1 view .LVU52
+  70:App/WS2812B/ws2812b.cpp **** }
+ 306              		.loc 1 70 1 is_stmt 0 view .LVU53
+ 307 0020 2043     		orrs	r0, r0, r4
+ 308              	.LVL22:
+ 309              		.loc 1 70 1 view .LVU54
+ 310 0022 70BD     		pop	{r4, r5, r6, pc}
+ 311              		.loc 1 70 1 view .LVU55
+ 312              		.cfi_endproc
+ 313              	.LFE84:
+ 314              		.cantunwind
+ 315              		.fnend
+ 317              		.section	.text._ZN7WS2812B12updateBufferEv,"ax",%progbits
+ 318              		.align	1
+ 319              		.global	_ZN7WS2812B12updateBufferEv
+ 320              		.syntax unified
+ 321              		.thumb
+ 322              		.thumb_func
+ 324              	_ZN7WS2812B12updateBufferEv:
+ 325              		.fnstart
+ 326              	.LVL23:
+ 327              	.LFB85:
+  71:App/WS2812B/ws2812b.cpp **** 
+  72:App/WS2812B/ws2812b.cpp **** void WS2812B::updateBuffer()
+  73:App/WS2812B/ws2812b.cpp **** {
+ 328              		.loc 1 73 1 is_stmt 1 view -0
+ 329              		.cfi_startproc
+ 330              		@ args = 0, pretend = 0, frame = 0
+ 331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 332              		@ link register save eliminated.
+  74:App/WS2812B/ws2812b.cpp ****     uint32_t bufferIndex = 0;
+ 333              		.loc 1 74 5 view .LVU57
+  75:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = 0; ledIndex < _ledsCount; ledIndex++)
+ 334              		.loc 1 75 5 view .LVU58
+ 335              	.LBB3:
+ 336              		.loc 1 75 19 is_stmt 0 view .LVU59
+ 337 0000 4FF0000C 		mov	ip, #0
+ 338              	.LBE3:
+  74:App/WS2812B/ws2812b.cpp ****     uint32_t bufferIndex = 0;
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 8
+
+
+ 339              		.loc 1 74 14 view .LVU60
+ 340 0004 6146     		mov	r1, ip
+ 341              	.LVL24:
+ 342              	.L20:
+ 343              	.LBB7:
+ 344              		.loc 1 75 42 is_stmt 1 discriminator 1 view .LVU61
+ 345              		.loc 1 75 44 is_stmt 0 discriminator 1 view .LVU62
+ 346 0006 8388     		ldrh	r3, [r0, #4]
+ 347              		.loc 1 75 42 discriminator 1 view .LVU63
+ 348 0008 6345     		cmp	r3, ip
+ 349 000a 29D9     		bls	.L25
+ 350              	.LBB4:
+  76:App/WS2812B/ws2812b.cpp ****         for (int8_t bitIndex = 23; bitIndex >= 0; bitIndex--)
+ 351              		.loc 1 76 21 view .LVU64
+ 352 000c 1723     		movs	r3, #23
+ 353              	.LVL25:
+ 354              		.loc 1 76 45 is_stmt 1 discriminator 1 view .LVU65
+ 355 000e 002B     		cmp	r3, #0
+ 356 0010 21DB     		blt	.L26
+ 357              	.LBE4:
+ 358              	.LBE7:
+  73:App/WS2812B/ws2812b.cpp ****     uint32_t bufferIndex = 0;
+ 359              		.loc 1 73 1 is_stmt 0 view .LVU66
+ 360 0012 10B4     		push	{r4}
+ 361              	.LCFI3:
+ 362              		.cfi_def_cfa_offset 4
+ 363              		.cfi_offset 4, -4
+ 364 0014 08E0     		b	.L16
+ 365              	.L14:
+ 366              	.LBB8:
+ 367              	.LBB5:
+  77:App/WS2812B/ws2812b.cpp ****         {
+  78:App/WS2812B/ws2812b.cpp ****             if ((_colorData[ledIndex] >> bitIndex) & 0b1)
+  79:App/WS2812B/ws2812b.cpp ****                 _buffer[bufferIndex] = 60 - 1;
+  80:App/WS2812B/ws2812b.cpp ****             else
+  81:App/WS2812B/ws2812b.cpp ****                 _buffer[bufferIndex] = 30 - 1;
+ 368              		.loc 1 81 17 is_stmt 1 view .LVU67
+ 369 0016 0269     		ldr	r2, [r0, #16]
+ 370              		.loc 1 81 38 is_stmt 0 view .LVU68
+ 371 0018 1D24     		movs	r4, #29
+ 372 001a 42F82140 		str	r4, [r2, r1, lsl #2]
+ 373              	.L15:
+  82:App/WS2812B/ws2812b.cpp ****             bufferIndex++;
+ 374              		.loc 1 82 13 is_stmt 1 view .LVU69
+ 375              		.loc 1 82 24 is_stmt 0 view .LVU70
+ 376 001e 0131     		adds	r1, r1, #1
+ 377              	.LVL26:
+  76:App/WS2812B/ws2812b.cpp ****         {
+ 378              		.loc 1 76 9 is_stmt 1 discriminator 2 view .LVU71
+ 379 0020 013B     		subs	r3, r3, #1
+ 380              	.LVL27:
+  76:App/WS2812B/ws2812b.cpp ****         {
+ 381              		.loc 1 76 9 is_stmt 0 discriminator 2 view .LVU72
+ 382 0022 5BB2     		sxtb	r3, r3
+ 383              	.LVL28:
+ 384              	.L17:
+  76:App/WS2812B/ws2812b.cpp ****         {
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 9
+
+
+ 385              		.loc 1 76 45 is_stmt 1 discriminator 1 view .LVU73
+ 386 0024 002B     		cmp	r3, #0
+ 387 0026 0BDB     		blt	.L27
+ 388              	.L16:
+  78:App/WS2812B/ws2812b.cpp ****                 _buffer[bufferIndex] = 60 - 1;
+ 389              		.loc 1 78 13 view .LVU74
+  78:App/WS2812B/ws2812b.cpp ****                 _buffer[bufferIndex] = 60 - 1;
+ 390              		.loc 1 78 18 is_stmt 0 view .LVU75
+ 391 0028 C268     		ldr	r2, [r0, #12]
+  78:App/WS2812B/ws2812b.cpp ****                 _buffer[bufferIndex] = 60 - 1;
+ 392              		.loc 1 78 37 view .LVU76
+ 393 002a 52F82C20 		ldr	r2, [r2, ip, lsl #2]
+  78:App/WS2812B/ws2812b.cpp ****                 _buffer[bufferIndex] = 60 - 1;
+ 394              		.loc 1 78 39 view .LVU77
+ 395 002e DA40     		lsrs	r2, r2, r3
+  78:App/WS2812B/ws2812b.cpp ****                 _buffer[bufferIndex] = 60 - 1;
+ 396              		.loc 1 78 13 view .LVU78
+ 397 0030 12F0010F 		tst	r2, #1
+ 398 0034 EFD0     		beq	.L14
+  79:App/WS2812B/ws2812b.cpp ****             else
+ 399              		.loc 1 79 17 is_stmt 1 view .LVU79
+ 400 0036 0269     		ldr	r2, [r0, #16]
+  79:App/WS2812B/ws2812b.cpp ****             else
+ 401              		.loc 1 79 38 is_stmt 0 view .LVU80
+ 402 0038 3B24     		movs	r4, #59
+ 403 003a 42F82140 		str	r4, [r2, r1, lsl #2]
+ 404 003e EEE7     		b	.L15
+ 405              	.L27:
+  79:App/WS2812B/ws2812b.cpp ****             else
+ 406              		.loc 1 79 38 view .LVU81
+ 407              	.LBE5:
+  75:App/WS2812B/ws2812b.cpp ****         for (int8_t bitIndex = 23; bitIndex >= 0; bitIndex--)
+ 408              		.loc 1 75 5 is_stmt 1 discriminator 2 view .LVU82
+ 409 0040 0CF1010C 		add	ip, ip, #1
+ 410              	.LVL29:
+  75:App/WS2812B/ws2812b.cpp ****         for (int8_t bitIndex = 23; bitIndex >= 0; bitIndex--)
+ 411              		.loc 1 75 5 is_stmt 0 discriminator 2 view .LVU83
+ 412 0044 1FFA8CFC 		uxth	ip, ip
+ 413              	.LVL30:
+  75:App/WS2812B/ws2812b.cpp ****         for (int8_t bitIndex = 23; bitIndex >= 0; bitIndex--)
+ 414              		.loc 1 75 42 is_stmt 1 discriminator 1 view .LVU84
+  75:App/WS2812B/ws2812b.cpp ****         for (int8_t bitIndex = 23; bitIndex >= 0; bitIndex--)
+ 415              		.loc 1 75 44 is_stmt 0 discriminator 1 view .LVU85
+ 416 0048 8388     		ldrh	r3, [r0, #4]
+ 417              	.LVL31:
+  75:App/WS2812B/ws2812b.cpp ****         for (int8_t bitIndex = 23; bitIndex >= 0; bitIndex--)
+ 418              		.loc 1 75 42 discriminator 1 view .LVU86
+ 419 004a 6345     		cmp	r3, ip
+ 420 004c 01D9     		bls	.L28
+ 421              	.LBB6:
+  76:App/WS2812B/ws2812b.cpp ****         {
+ 422              		.loc 1 76 21 view .LVU87
+ 423 004e 1723     		movs	r3, #23
+ 424 0050 E8E7     		b	.L17
+ 425              	.L28:
+ 426              	.LBE6:
+ 427              	.LBE8:
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 10
+
+
+  83:App/WS2812B/ws2812b.cpp ****         }
+  84:App/WS2812B/ws2812b.cpp **** }...
+ 428              		.loc 1 84 1 view .LVU88
+ 429 0052 10BC     		pop	{r4}
+ 430              	.LCFI4:
+ 431              		.cfi_restore 4
+ 432              		.cfi_def_cfa_offset 0
+ 433 0054 7047     		bx	lr
+ 434              	.LVL32:
+ 435              	.L26:
+ 436              	.LBB9:
+  75:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = 0; ledIndex < _ledsCount; ledIndex++)
+ 437              		.loc 1 75 5 is_stmt 1 discriminator 2 view .LVU89
+ 438 0056 0CF1010C 		add	ip, ip, #1
+ 439              	.LVL33:
+  75:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = 0; ledIndex < _ledsCount; ledIndex++)
+ 440              		.loc 1 75 5 is_stmt 0 discriminator 2 view .LVU90
+ 441 005a 1FFA8CFC 		uxth	ip, ip
+ 442              	.LVL34:
+  75:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = 0; ledIndex < _ledsCount; ledIndex++)
+ 443              		.loc 1 75 5 discriminator 2 view .LVU91
+ 444 005e D2E7     		b	.L20
+ 445              	.LVL35:
+ 446              	.L25:
+  75:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = 0; ledIndex < _ledsCount; ledIndex++)
+ 447              		.loc 1 75 5 discriminator 2 view .LVU92
+ 448 0060 7047     		bx	lr
+ 449              	.LBE9:
+ 450              		.cfi_endproc
+ 451              	.LFE85:
+ 452              		.cantunwind
+ 453              		.fnend
+ 455              		.section	.text._ZN7WS2812B10solidColorEmtt,"ax",%progbits
+ 456              		.align	1
+ 457              		.global	_ZN7WS2812B10solidColorEmtt
+ 458              		.syntax unified
+ 459              		.thumb
+ 460              		.thumb_func
+ 462              	_ZN7WS2812B10solidColorEmtt:
+ 463              		.fnstart
+ 464              	.LVL36:
+ 465              	.LFB78:
+  34:App/WS2812B/ws2812b.cpp **** {
+ 466              		.loc 1 34 1 is_stmt 1 view -0
+ 467              		.cfi_startproc
+ 468              		@ args = 0, pretend = 0, frame = 0
+ 469              		@ frame_needed = 0, uses_anonymous_args = 0
+  34:App/WS2812B/ws2812b.cpp **** {
+ 470              		.loc 1 34 1 is_stmt 0 view .LVU94
+ 471 0000 70B5     		push	{r4, r5, r6, lr}
+ 472              	.LCFI5:
+ 473              		.cfi_def_cfa_offset 16
+ 474              		.cfi_offset 4, -16
+ 475              		.cfi_offset 5, -12
+ 476              		.cfi_offset 6, -8
+ 477              		.cfi_offset 14, -4
+ 478 0002 0546     		mov	r5, r0
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 11
+
+
+ 479 0004 1446     		mov	r4, r2
+ 480 0006 1E46     		mov	r6, r3
+  35:App/WS2812B/ws2812b.cpp ****     color = WS2812B::toGRB(color);
+ 481              		.loc 1 35 5 is_stmt 1 view .LVU95
+  35:App/WS2812B/ws2812b.cpp ****     color = WS2812B::toGRB(color);
+ 482              		.loc 1 35 27 is_stmt 0 view .LVU96
+ 483 0008 FFF7FEFF 		bl	_ZN7WS2812B5toGRBEm
+ 484              	.LVL37:
+  36:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = start; ledIndex <= end; ledIndex++)
+ 485              		.loc 1 36 5 is_stmt 1 view .LVU97
+ 486              	.LBB10:
+  36:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = start; ledIndex <= end; ledIndex++)
+ 487              		.loc 1 36 5 is_stmt 0 view .LVU98
+ 488 000c 04E0     		b	.L30
+ 489              	.LVL38:
+ 490              	.L31:
+  37:App/WS2812B/ws2812b.cpp ****         _colorData[ledIndex] = color;
+ 491              		.loc 1 37 9 is_stmt 1 view .LVU99
+ 492 000e EA68     		ldr	r2, [r5, #12]
+  37:App/WS2812B/ws2812b.cpp ****         _colorData[ledIndex] = color;
+ 493              		.loc 1 37 30 is_stmt 0 view .LVU100
+ 494 0010 42F82400 		str	r0, [r2, r4, lsl #2]
+  36:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = start; ledIndex <= end; ledIndex++)
+ 495              		.loc 1 36 5 is_stmt 1 discriminator 3 view .LVU101
+ 496 0014 0134     		adds	r4, r4, #1
+ 497              	.LVL39:
+  36:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = start; ledIndex <= end; ledIndex++)
+ 498              		.loc 1 36 5 is_stmt 0 discriminator 3 view .LVU102
+ 499 0016 A4B2     		uxth	r4, r4
+ 500              	.LVL40:
+ 501              	.L30:
+  36:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = start; ledIndex <= end; ledIndex++)
+ 502              		.loc 1 36 46 is_stmt 1 discriminator 1 view .LVU103
+ 503 0018 B442     		cmp	r4, r6
+ 504 001a F8D9     		bls	.L31
+  36:App/WS2812B/ws2812b.cpp ****     for (uint16_t ledIndex = start; ledIndex <= end; ledIndex++)
+ 505              		.loc 1 36 46 is_stmt 0 discriminator 1 view .LVU104
+ 506              	.LBE10:
+  39:App/WS2812B/ws2812b.cpp ****     WS2812B::updateBuffer();
+ 507              		.loc 1 39 5 is_stmt 1 view .LVU105
+  39:App/WS2812B/ws2812b.cpp ****     WS2812B::updateBuffer();
+ 508              		.loc 1 39 26 is_stmt 0 view .LVU106
+ 509 001c 2846     		mov	r0, r5
+ 510              	.LVL41:
+  39:App/WS2812B/ws2812b.cpp ****     WS2812B::updateBuffer();
+ 511              		.loc 1 39 26 view .LVU107
+ 512 001e FFF7FEFF 		bl	_ZN7WS2812B12updateBufferEv
+ 513              	.LVL42:
+  40:App/WS2812B/ws2812b.cpp **** }
+ 514              		.loc 1 40 1 view .LVU108
+ 515 0022 70BD     		pop	{r4, r5, r6, pc}
+  40:App/WS2812B/ws2812b.cpp **** }
+ 516              		.loc 1 40 1 view .LVU109
+ 517              		.cfi_endproc
+ 518              	.LFE78:
+ 519              		.cantunwind
+ 520              		.fnend
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 12
+
+
+ 522              		.text
+ 523              	.Letext0:
+ 524              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 525              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 526              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
+ 527              		.file 5 "C:/msys64/mingw64/lib/gcc/arm-none-eabi/13.3.0/include/stddef.h"
+ 528              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 529              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 530              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 531              		.file 9 "App/WS2812B/ws2812b.h"
+ 532              		.file 10 "C:/msys64/mingw64/arm-none-eabi/include/c++/13.3.0/cstdlib"
+ 533              		.file 11 "C:/msys64/mingw64/arm-none-eabi/include/c++/13.3.0/bits/std_abs.h"
+ 534              		.file 12 "C:/msys64/mingw64/arm-none-eabi/include/c++/13.3.0/arm-none-eabi/thumb/v7-m/nofp/bits/c+
+ 535              		.file 13 "C:/msys64/mingw64/arm-none-eabi/include/stdlib.h"
+ 536              		.file 14 "C:/msys64/mingw64/arm-none-eabi/include/c++/13.3.0/stdlib.h"
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ws2812b.cpp
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:19     .text._ZN7WS2812BC2EP17TIM_HandleTypeDefmt:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:25     .text._ZN7WS2812BC2EP17TIM_HandleTypeDefmt:00000000 _ZN7WS2812BC2EP17TIM_HandleTypeDefmt
+.ARM.exidx.text._ZN7WS2812BC2EP17TIM_HandleTypeDefmt:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:25     .text._ZN7WS2812BC2EP17TIM_HandleTypeDefmt:00000000 _ZN7WS2812BC1EP17TIM_HandleTypeDefmt
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:52     .text._ZN7WS2812B4initEv:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:58     .text._ZN7WS2812B4initEv:00000000 _ZN7WS2812B4initEv
+.ARM.exidx.text._ZN7WS2812B4initEv:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:106    .text._ZN7WS2812B6renderEv:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:112    .text._ZN7WS2812B6renderEv:00000000 _ZN7WS2812B6renderEv
+.ARM.extab.text._ZN7WS2812B6renderEv:00000000 $d
+.ARM.exidx.text._ZN7WS2812B6renderEv:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:148    .text._ZN7WS2812B10extractRedEm:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:154    .text._ZN7WS2812B10extractRedEm:00000000 _ZN7WS2812B10extractRedEm
+.ARM.exidx.text._ZN7WS2812B10extractRedEm:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:175    .text._ZN7WS2812B12extractGreenEm:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:181    .text._ZN7WS2812B12extractGreenEm:00000000 _ZN7WS2812B12extractGreenEm
+.ARM.exidx.text._ZN7WS2812B12extractGreenEm:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:202    .text._ZN7WS2812B11extractBlueEm:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:208    .text._ZN7WS2812B11extractBlueEm:00000000 _ZN7WS2812B11extractBlueEm
+.ARM.exidx.text._ZN7WS2812B11extractBlueEm:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:229    .text._Z10combineRGBhhh:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:235    .text._Z10combineRGBhhh:00000000 _Z10combineRGBhhh
+.ARM.exidx.text._Z10combineRGBhhh:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:263    .text._ZN7WS2812B5toGRBEm:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:269    .text._ZN7WS2812B5toGRBEm:00000000 _ZN7WS2812B5toGRBEm
+.ARM.exidx.text._ZN7WS2812B5toGRBEm:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:318    .text._ZN7WS2812B12updateBufferEv:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:324    .text._ZN7WS2812B12updateBufferEv:00000000 _ZN7WS2812B12updateBufferEv
+.ARM.exidx.text._ZN7WS2812B12updateBufferEv:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:456    .text._ZN7WS2812B10solidColorEmtt:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccBg3rzh.s:462    .text._ZN7WS2812B10solidColorEmtt:00000000 _ZN7WS2812B10solidColorEmtt
+.ARM.exidx.text._ZN7WS2812B10solidColorEmtt:00000000 $d
+
+UNDEFINED SYMBOLS
+calloc
+HAL_TIM_PWM_Start_DMA
+__aeabi_unwind_cpp_pr1
