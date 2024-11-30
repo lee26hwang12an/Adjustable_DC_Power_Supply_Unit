@@ -46,7 +46,11 @@ void WS2812B::solidColor(uint32_t color, uint16_t start, uint16_t end)
 
 void WS2812B::render()
 {
-    HAL_TIM_PWM_Start_DMA(_PWMgenerator, _channel, (uint32_t *)_buffer, _ledsCount * _bufferDataMultiplier);
+    HAL_TIM_PWM_Start_DMA(
+        _PWMgenerator, _channel,
+        (uint32_t *)_buffer,
+        _ledsCount * _bufferDataMultiplier
+    );
 }
 
 uint8_t WS2812B::extractRed(uint32_t RGB)
