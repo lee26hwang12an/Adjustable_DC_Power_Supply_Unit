@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccKYpfsK.s 			page 1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -18,11 +18,608 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccKYpfsK.s 			page 1
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
   17              		.file 1 "App/ModbusRTU/modbusRTU.cpp"
-  18              	.Letext0:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccKYpfsK.s 			page 2
+  18              		.section	.text._ZN9ModbusRTUC2EP20__UART_HandleTypeDef,"ax",%progbits
+  19              		.align	1
+  20              		.global	_ZN9ModbusRTUC2EP20__UART_HandleTypeDef
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	_ZN9ModbusRTUC2EP20__UART_HandleTypeDef:
+  26              		.fnstart
+  27              	.LVL0:
+  28              	.LFB75:
+   1:App/ModbusRTU/modbusRTU.cpp **** #include "modbusRTU.h"
+   2:App/ModbusRTU/modbusRTU.cpp **** #include <stdlib.h>
+   3:App/ModbusRTU/modbusRTU.cpp **** 
+   4:App/ModbusRTU/modbusRTU.cpp **** 
+   5:App/ModbusRTU/modbusRTU.cpp **** /*
+   6:App/ModbusRTU/modbusRTU.cpp **** =====================================================================
+   7:App/ModbusRTU/modbusRTU.cpp ****     PRIVATE FUNCTIONS
+   8:App/ModbusRTU/modbusRTU.cpp **** =====================================================================
+   9:App/ModbusRTU/modbusRTU.cpp **** */
+  10:App/ModbusRTU/modbusRTU.cpp **** 
+  11:App/ModbusRTU/modbusRTU.cpp **** 
+  12:App/ModbusRTU/modbusRTU.cpp **** /*
+  13:App/ModbusRTU/modbusRTU.cpp **** =====================================================================
+  14:App/ModbusRTU/modbusRTU.cpp ****     CONSTRUCTORS
+  15:App/ModbusRTU/modbusRTU.cpp **** =====================================================================
+  16:App/ModbusRTU/modbusRTU.cpp **** */
+  17:App/ModbusRTU/modbusRTU.cpp **** 
+  18:App/ModbusRTU/modbusRTU.cpp **** ModbusRTU::ModbusRTU(UART_HandleTypeDef *hserial)
+  29              		.loc 1 18 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34              	.LBB2:
+  19:App/ModbusRTU/modbusRTU.cpp ****     : _serial(hserial)
+  35              		.loc 1 19 7 is_stmt 0 view .LVU1
+  36 0000 4160     		str	r1, [r0, #4]
+  37              	.LBE2:
+  20:App/ModbusRTU/modbusRTU.cpp **** {
+  21:App/ModbusRTU/modbusRTU.cpp **** }
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 2
+
+
+  38              		.loc 1 21 1 view .LVU2
+  39 0002 7047     		bx	lr
+  40              		.cfi_endproc
+  41              	.LFE75:
+  42              		.cantunwind
+  43              		.fnend
+  45              		.global	_ZN9ModbusRTUC1EP20__UART_HandleTypeDef
+  46              		.thumb_set _ZN9ModbusRTUC1EP20__UART_HandleTypeDef,_ZN9ModbusRTUC2EP20__UART_HandleTypeDef
+  47              		.section	.text._ZN9ModbusRTU4initEh,"ax",%progbits
+  48              		.align	1
+  49              		.global	_ZN9ModbusRTU4initEh
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  54              	_ZN9ModbusRTU4initEh:
+  55              		.fnstart
+  56              	.LVL1:
+  57              	.LFB77:
+  22:App/ModbusRTU/modbusRTU.cpp **** 
+  23:App/ModbusRTU/modbusRTU.cpp **** 
+  24:App/ModbusRTU/modbusRTU.cpp **** /*
+  25:App/ModbusRTU/modbusRTU.cpp **** =====================================================================
+  26:App/ModbusRTU/modbusRTU.cpp ****     METHODS
+  27:App/ModbusRTU/modbusRTU.cpp **** =====================================================================
+  28:App/ModbusRTU/modbusRTU.cpp **** */
+  29:App/ModbusRTU/modbusRTU.cpp **** 
+  30:App/ModbusRTU/modbusRTU.cpp **** void ModbusRTU::init(uint8_t nonBlocking)
+  31:App/ModbusRTU/modbusRTU.cpp **** {
+  58              		.loc 1 31 1 is_stmt 1 view -0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		.loc 1 31 1 is_stmt 0 view .LVU4
+  63 0000 10B5     		push	{r4, lr}
+  64              	.LCFI0:
+  65              		.cfi_def_cfa_offset 8
+  66              		.cfi_offset 4, -8
+  67              		.cfi_offset 14, -4
+  68 0002 0446     		mov	r4, r0
+  32:App/ModbusRTU/modbusRTU.cpp ****     _enableNonBlocking = nonBlocking;
+  69              		.loc 1 32 5 is_stmt 1 view .LVU5
+  70              		.loc 1 32 24 is_stmt 0 view .LVU6
+  71 0004 0172     		strb	r1, [r0, #8]
+  33:App/ModbusRTU/modbusRTU.cpp ****     ModbusRTU::receiveBuffer = (uint8_t *)calloc(8, sizeof(uint8_t));
+  72              		.loc 1 33 5 is_stmt 1 view .LVU7
+  73              		.loc 1 33 49 is_stmt 0 view .LVU8
+  74 0006 0121     		movs	r1, #1
+  75              	.LVL2:
+  76              		.loc 1 33 49 view .LVU9
+  77 0008 0820     		movs	r0, #8
+  78              	.LVL3:
+  79              		.loc 1 33 49 view .LVU10
+  80 000a FFF7FEFF 		bl	calloc
+  81              	.LVL4:
+  82              		.loc 1 33 30 discriminator 1 view .LVU11
+  83 000e 2060     		str	r0, [r4]
+  34:App/ModbusRTU/modbusRTU.cpp **** }
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 3
+
+
+  84              		.loc 1 34 1 view .LVU12
+  85 0010 10BD     		pop	{r4, pc}
+  86              		.loc 1 34 1 view .LVU13
+  87              		.cfi_endproc
+  88              	.LFE77:
+  89              		.cantunwind
+  90              		.fnend
+  92              		.section	.text._ZN9ModbusRTU9appendCRCEPh,"ax",%progbits
+  93              		.align	1
+  94              		.global	_ZN9ModbusRTU9appendCRCEPh
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  99              	_ZN9ModbusRTU9appendCRCEPh:
+ 100              		.fnstart
+ 101              	.LVL5:
+ 102              	.LFB79:
+  35:App/ModbusRTU/modbusRTU.cpp **** 
+  36:App/ModbusRTU/modbusRTU.cpp **** void ModbusRTU::request(uint8_t slaveAddress, uint8_t funcCode, uint16_t startReg, uint16_t regCoun
+  37:App/ModbusRTU/modbusRTU.cpp **** {
+  38:App/ModbusRTU/modbusRTU.cpp ****     // Prepare send buffer:
+  39:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[0] = slaveAddress;
+  40:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[1] = funcCode;
+  41:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[2] = (startReg >> 8) & 0xFF;
+  42:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[3] = (startReg >> 0) & 0xFF;
+  43:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[4] = (regCount >> 8) & 0xFF;
+  44:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[5] = (regCount >> 0) & 0xFF;
+  45:App/ModbusRTU/modbusRTU.cpp ****     // Calculate and append CRC:
+  46:App/ModbusRTU/modbusRTU.cpp ****     uint16_t clientCRC = appendCRC(_sendBuffer);
+  47:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[6] = (uint8_t)((clientCRC >> 0) & 0xFF);
+  48:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[7] = (uint8_t)((clientCRC >> 8) & 0xFF);
+  49:App/ModbusRTU/modbusRTU.cpp **** 
+  50:App/ModbusRTU/modbusRTU.cpp ****     // Allocate memory for receive buffer:
+  51:App/ModbusRTU/modbusRTU.cpp ****     _requestedBytes = (uint8_t)(regCount * 2);
+  52:App/ModbusRTU/modbusRTU.cpp ****     free(ModbusRTU::receiveBuffer);
+  53:App/ModbusRTU/modbusRTU.cpp ****     ModbusRTU::receiveBuffer = (uint8_t *)calloc(_requestedBytes + 5, sizeof(uint8_t));
+  54:App/ModbusRTU/modbusRTU.cpp **** 
+  55:App/ModbusRTU/modbusRTU.cpp ****     // Send to modbus server, then listen:
+  56:App/ModbusRTU/modbusRTU.cpp ****     ModbusRTU::send();
+  57:App/ModbusRTU/modbusRTU.cpp **** 
+  58:App/ModbusRTU/modbusRTU.cpp ****     if (funcCode != MODBUS_RTU_READ_COIL ||
+  59:App/ModbusRTU/modbusRTU.cpp ****         funcCode != MODBUS_RTU_READ_DISCRETE_INPUTS ||
+  60:App/ModbusRTU/modbusRTU.cpp ****         funcCode != MODBUS_RTU_READ_HOLDING_REGISTERS ||
+  61:App/ModbusRTU/modbusRTU.cpp ****         funcCode != MODBUS_RTU_READ_INPUT_REGISTERS)
+  62:App/ModbusRTU/modbusRTU.cpp ****         return;
+  63:App/ModbusRTU/modbusRTU.cpp **** 
+  64:App/ModbusRTU/modbusRTU.cpp ****     ModbusRTU::receive();
+  65:App/ModbusRTU/modbusRTU.cpp **** }
+  66:App/ModbusRTU/modbusRTU.cpp **** 
+  67:App/ModbusRTU/modbusRTU.cpp **** uint16_t ModbusRTU::appendCRC(uint8_t *data)
+  68:App/ModbusRTU/modbusRTU.cpp **** {
+ 103              		.loc 1 68 1 is_stmt 1 view -0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              		@ link register save eliminated.
+  69:App/ModbusRTU/modbusRTU.cpp ****     uint16_t crc = 0xFFFF;
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 4
+
+
+ 108              		.loc 1 69 5 view .LVU15
+  70:App/ModbusRTU/modbusRTU.cpp ****     for (uint16_t i = 0; i < 6; i++)
+ 109              		.loc 1 70 5 view .LVU16
+ 110              	.LBB3:
+ 111              		.loc 1 70 19 is_stmt 0 view .LVU17
+ 112 0000 4FF0000C 		mov	ip, #0
+ 113              	.LBE3:
+  69:App/ModbusRTU/modbusRTU.cpp ****     uint16_t crc = 0xFFFF;
+ 114              		.loc 1 69 14 view .LVU18
+ 115 0004 4FF6FF70 		movw	r0, #65535
+ 116              	.LVL6:
+ 117              	.LBB8:
+ 118              		.loc 1 70 5 view .LVU19
+ 119 0008 10E0     		b	.L5
+ 120              	.LVL7:
+ 121              	.L7:
+ 122              	.LBB4:
+ 123              	.LBB5:
+  71:App/ModbusRTU/modbusRTU.cpp ****     {
+  72:App/ModbusRTU/modbusRTU.cpp ****         crc ^= data[i];
+  73:App/ModbusRTU/modbusRTU.cpp ****         for (uint8_t j = 0; j < 8; j++) 
+  74:App/ModbusRTU/modbusRTU.cpp ****         { 
+  75:App/ModbusRTU/modbusRTU.cpp ****             if (crc & 0b1)
+  76:App/ModbusRTU/modbusRTU.cpp ****             {
+  77:App/ModbusRTU/modbusRTU.cpp ****                 crc >>= 1;
+  78:App/ModbusRTU/modbusRTU.cpp ****                 crc ^= 0xA001; // Polynomial
+  79:App/ModbusRTU/modbusRTU.cpp ****             }
+  80:App/ModbusRTU/modbusRTU.cpp ****             else crc >>= 1;
+ 124              		.loc 1 80 18 is_stmt 1 view .LVU20
+ 125              		.loc 1 80 22 is_stmt 0 view .LVU21
+ 126 000a 4008     		lsrs	r0, r0, #1
+ 127              	.LVL8:
+ 128              	.L8:
+  73:App/ModbusRTU/modbusRTU.cpp ****         { 
+ 129              		.loc 1 73 9 is_stmt 1 discriminator 2 view .LVU22
+ 130 000c 0133     		adds	r3, r3, #1
+ 131              	.LVL9:
+  73:App/ModbusRTU/modbusRTU.cpp ****         { 
+ 132              		.loc 1 73 9 is_stmt 0 discriminator 2 view .LVU23
+ 133 000e DBB2     		uxtb	r3, r3
+ 134              	.LVL10:
+ 135              	.L6:
+  73:App/ModbusRTU/modbusRTU.cpp ****         { 
+ 136              		.loc 1 73 31 is_stmt 1 discriminator 1 view .LVU24
+ 137 0010 072B     		cmp	r3, #7
+ 138 0012 07D8     		bhi	.L11
+  75:App/ModbusRTU/modbusRTU.cpp ****             {
+ 139              		.loc 1 75 13 view .LVU25
+ 140 0014 10F0010F 		tst	r0, #1
+ 141 0018 F7D0     		beq	.L7
+  77:App/ModbusRTU/modbusRTU.cpp ****                 crc ^= 0xA001; // Polynomial
+ 142              		.loc 1 77 17 view .LVU26
+ 143              	.LVL11:
+  78:App/ModbusRTU/modbusRTU.cpp ****             }
+ 144              		.loc 1 78 17 view .LVU27
+  78:App/ModbusRTU/modbusRTU.cpp ****             }
+ 145              		.loc 1 78 21 is_stmt 0 view .LVU28
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 5
+
+
+ 146 001a 4AF20102 		movw	r2, #40961
+ 147 001e 82EA5000 		eor	r0, r2, r0, lsr #1
+ 148              	.LVL12:
+  78:App/ModbusRTU/modbusRTU.cpp ****             }
+ 149              		.loc 1 78 21 view .LVU29
+ 150 0022 F3E7     		b	.L8
+ 151              	.L11:
+  78:App/ModbusRTU/modbusRTU.cpp ****             }
+ 152              		.loc 1 78 21 view .LVU30
+ 153              	.LBE5:
+ 154              	.LBE4:
+  70:App/ModbusRTU/modbusRTU.cpp ****     {
+ 155              		.loc 1 70 5 is_stmt 1 discriminator 2 view .LVU31
+ 156 0024 0CF1010C 		add	ip, ip, #1
+ 157              	.LVL13:
+  70:App/ModbusRTU/modbusRTU.cpp ****     {
+ 158              		.loc 1 70 5 is_stmt 0 discriminator 2 view .LVU32
+ 159 0028 1FFA8CFC 		uxth	ip, ip
+ 160              	.LVL14:
+ 161              	.L5:
+  70:App/ModbusRTU/modbusRTU.cpp ****     {
+ 162              		.loc 1 70 28 is_stmt 1 discriminator 1 view .LVU33
+ 163 002c BCF1050F 		cmp	ip, #5
+ 164 0030 04D8     		bhi	.L12
+ 165              	.LBB7:
+  72:App/ModbusRTU/modbusRTU.cpp ****         for (uint8_t j = 0; j < 8; j++) 
+ 166              		.loc 1 72 9 view .LVU34
+  72:App/ModbusRTU/modbusRTU.cpp ****         for (uint8_t j = 0; j < 8; j++) 
+ 167              		.loc 1 72 22 is_stmt 0 view .LVU35
+ 168 0032 11F80C30 		ldrb	r3, [r1, ip]	@ zero_extendqisi2
+  72:App/ModbusRTU/modbusRTU.cpp ****         for (uint8_t j = 0; j < 8; j++) 
+ 169              		.loc 1 72 13 view .LVU36
+ 170 0036 5840     		eors	r0, r0, r3
+ 171              	.LVL15:
+  73:App/ModbusRTU/modbusRTU.cpp ****         { 
+ 172              		.loc 1 73 9 is_stmt 1 view .LVU37
+ 173              	.LBB6:
+  73:App/ModbusRTU/modbusRTU.cpp ****         { 
+ 174              		.loc 1 73 22 is_stmt 0 view .LVU38
+ 175 0038 0023     		movs	r3, #0
+  73:App/ModbusRTU/modbusRTU.cpp ****         { 
+ 176              		.loc 1 73 9 view .LVU39
+ 177 003a E9E7     		b	.L6
+ 178              	.LVL16:
+ 179              	.L12:
+  73:App/ModbusRTU/modbusRTU.cpp ****         { 
+ 180              		.loc 1 73 9 view .LVU40
+ 181              	.LBE6:
+ 182              	.LBE7:
+ 183              	.LBE8:
+  81:App/ModbusRTU/modbusRTU.cpp ****         }
+  82:App/ModbusRTU/modbusRTU.cpp ****     }
+  83:App/ModbusRTU/modbusRTU.cpp ****     return crc;
+ 184              		.loc 1 83 5 is_stmt 1 view .LVU41
+  84:App/ModbusRTU/modbusRTU.cpp **** }
+ 185              		.loc 1 84 1 is_stmt 0 view .LVU42
+ 186 003c 7047     		bx	lr
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 6
+
+
+ 187              		.cfi_endproc
+ 188              	.LFE79:
+ 189              		.cantunwind
+ 190              		.fnend
+ 192              		.section	.text._ZN9ModbusRTU4sendEv,"ax",%progbits
+ 193              		.align	1
+ 194              		.global	_ZN9ModbusRTU4sendEv
+ 195              		.syntax unified
+ 196              		.thumb
+ 197              		.thumb_func
+ 199              	_ZN9ModbusRTU4sendEv:
+ 200              		.fnstart
+ 201              	.LVL17:
+ 202              	.LFB80:
+  85:App/ModbusRTU/modbusRTU.cpp **** 
+  86:App/ModbusRTU/modbusRTU.cpp **** void ModbusRTU::send()
+  87:App/ModbusRTU/modbusRTU.cpp **** { HAL_UART_Transmit(_serial, _sendBuffer, 8, HAL_MAX_DELAY); }
+ 203              		.loc 1 87 1 is_stmt 1 view -0
+ 204              		.cfi_startproc
+ 205              		@ args = 0, pretend = 0, frame = 0
+ 206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207              		.loc 1 87 1 is_stmt 0 view .LVU44
+ 208 0000 08B5     		push	{r3, lr}
+ 209              		.save {r3, lr}
+ 210              	.LCFI1:
+ 211              		.cfi_def_cfa_offset 8
+ 212              		.cfi_offset 3, -8
+ 213              		.cfi_offset 14, -4
+ 214              		.loc 1 87 3 is_stmt 1 view .LVU45
+ 215              		.loc 1 87 20 is_stmt 0 view .LVU46
+ 216 0002 4FF0FF33 		mov	r3, #-1
+ 217 0006 0822     		movs	r2, #8
+ 218 0008 00F10901 		add	r1, r0, #9
+ 219 000c 4068     		ldr	r0, [r0, #4]
+ 220              	.LVL18:
+ 221              		.loc 1 87 20 view .LVU47
+ 222 000e FFF7FEFF 		bl	HAL_UART_Transmit
+ 223              	.LVL19:
+ 224              		.loc 1 87 62 view .LVU48
+ 225 0012 08BD     		pop	{r3, pc}
+ 226              		.cfi_endproc
+ 227              	.LFE80:
+ 228              		.fnend
+ 230              		.section	.text._ZN9ModbusRTU7requestEhhtt,"ax",%progbits
+ 231              		.align	1
+ 232              		.global	_ZN9ModbusRTU7requestEhhtt
+ 233              		.syntax unified
+ 234              		.thumb
+ 235              		.thumb_func
+ 237              	_ZN9ModbusRTU7requestEhhtt:
+ 238              		.fnstart
+ 239              	.LVL20:
+ 240              	.LFB78:
+  37:App/ModbusRTU/modbusRTU.cpp ****     // Prepare send buffer:
+ 241              		.loc 1 37 1 is_stmt 1 view -0
+ 242              		.cfi_startproc
+ 243              		@ args = 4, pretend = 0, frame = 0
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 7
+
+
+ 244              		@ frame_needed = 0, uses_anonymous_args = 0
+  37:App/ModbusRTU/modbusRTU.cpp ****     // Prepare send buffer:
+ 245              		.loc 1 37 1 is_stmt 0 view .LVU50
+ 246 0000 38B5     		push	{r3, r4, r5, lr}
+ 247              		.save {r3, r4, r5, lr}
+ 248              	.LCFI2:
+ 249              		.cfi_def_cfa_offset 16
+ 250              		.cfi_offset 3, -16
+ 251              		.cfi_offset 4, -12
+ 252              		.cfi_offset 5, -8
+ 253              		.cfi_offset 14, -4
+ 254 0002 0446     		mov	r4, r0
+ 255 0004 BDF81050 		ldrh	r5, [sp, #16]
+  39:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[1] = funcCode;
+ 256              		.loc 1 39 5 is_stmt 1 view .LVU51
+  39:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[1] = funcCode;
+ 257              		.loc 1 39 20 is_stmt 0 view .LVU52
+ 258 0008 4172     		strb	r1, [r0, #9]
+  40:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[2] = (startReg >> 8) & 0xFF;
+ 259              		.loc 1 40 5 is_stmt 1 view .LVU53
+  40:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[2] = (startReg >> 8) & 0xFF;
+ 260              		.loc 1 40 20 is_stmt 0 view .LVU54
+ 261 000a 8272     		strb	r2, [r0, #10]
+  41:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[3] = (startReg >> 0) & 0xFF;
+ 262              		.loc 1 41 5 is_stmt 1 view .LVU55
+  41:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[3] = (startReg >> 0) & 0xFF;
+ 263              		.loc 1 41 32 is_stmt 0 view .LVU56
+ 264 000c 1A0A     		lsrs	r2, r3, #8
+ 265              	.LVL21:
+  41:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[3] = (startReg >> 0) & 0xFF;
+ 266              		.loc 1 41 20 view .LVU57
+ 267 000e C272     		strb	r2, [r0, #11]
+  42:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[4] = (regCount >> 8) & 0xFF;
+ 268              		.loc 1 42 5 is_stmt 1 view .LVU58
+  42:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[4] = (regCount >> 8) & 0xFF;
+ 269              		.loc 1 42 20 is_stmt 0 view .LVU59
+ 270 0010 0373     		strb	r3, [r0, #12]
+  43:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[5] = (regCount >> 0) & 0xFF;
+ 271              		.loc 1 43 5 is_stmt 1 view .LVU60
+  43:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[5] = (regCount >> 0) & 0xFF;
+ 272              		.loc 1 43 32 is_stmt 0 view .LVU61
+ 273 0012 2B0A     		lsrs	r3, r5, #8
+ 274              	.LVL22:
+  43:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[5] = (regCount >> 0) & 0xFF;
+ 275              		.loc 1 43 20 view .LVU62
+ 276 0014 4373     		strb	r3, [r0, #13]
+  44:App/ModbusRTU/modbusRTU.cpp ****     // Calculate and append CRC:
+ 277              		.loc 1 44 5 is_stmt 1 view .LVU63
+  44:App/ModbusRTU/modbusRTU.cpp ****     // Calculate and append CRC:
+ 278              		.loc 1 44 20 is_stmt 0 view .LVU64
+ 279 0016 EDB2     		uxtb	r5, r5
+ 280 0018 8573     		strb	r5, [r0, #14]
+  46:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[6] = (uint8_t)((clientCRC >> 0) & 0xFF);
+ 281              		.loc 1 46 5 is_stmt 1 view .LVU65
+  46:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[6] = (uint8_t)((clientCRC >> 0) & 0xFF);
+ 282              		.loc 1 46 35 is_stmt 0 view .LVU66
+ 283 001a 00F10901 		add	r1, r0, #9
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 8
+
+
+ 284              	.LVL23:
+  46:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[6] = (uint8_t)((clientCRC >> 0) & 0xFF);
+ 285              		.loc 1 46 35 view .LVU67
+ 286 001e FFF7FEFF 		bl	_ZN9ModbusRTU9appendCRCEPh
+ 287              	.LVL24:
+  47:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[7] = (uint8_t)((clientCRC >> 8) & 0xFF);
+ 288              		.loc 1 47 5 is_stmt 1 view .LVU68
+  47:App/ModbusRTU/modbusRTU.cpp ****     _sendBuffer[7] = (uint8_t)((clientCRC >> 8) & 0xFF);
+ 289              		.loc 1 47 20 is_stmt 0 view .LVU69
+ 290 0022 E073     		strb	r0, [r4, #15]
+  48:App/ModbusRTU/modbusRTU.cpp **** 
+ 291              		.loc 1 48 5 is_stmt 1 view .LVU70
+  48:App/ModbusRTU/modbusRTU.cpp **** 
+ 292              		.loc 1 48 43 is_stmt 0 view .LVU71
+ 293 0024 C0F30F20 		ubfx	r0, r0, #8, #16
+ 294              	.LVL25:
+  48:App/ModbusRTU/modbusRTU.cpp **** 
+ 295              		.loc 1 48 20 view .LVU72
+ 296 0028 2074     		strb	r0, [r4, #16]
+  51:App/ModbusRTU/modbusRTU.cpp ****     free(ModbusRTU::receiveBuffer);
+ 297              		.loc 1 51 5 is_stmt 1 view .LVU73
+  51:App/ModbusRTU/modbusRTU.cpp ****     free(ModbusRTU::receiveBuffer);
+ 298              		.loc 1 51 21 is_stmt 0 view .LVU74
+ 299 002a 6D00     		lsls	r5, r5, #1
+ 300 002c 6574     		strb	r5, [r4, #17]
+  52:App/ModbusRTU/modbusRTU.cpp ****     ModbusRTU::receiveBuffer = (uint8_t *)calloc(_requestedBytes + 5, sizeof(uint8_t));
+ 301              		.loc 1 52 5 is_stmt 1 view .LVU75
+  52:App/ModbusRTU/modbusRTU.cpp ****     ModbusRTU::receiveBuffer = (uint8_t *)calloc(_requestedBytes + 5, sizeof(uint8_t));
+ 302              		.loc 1 52 9 is_stmt 0 view .LVU76
+ 303 002e 2068     		ldr	r0, [r4]
+ 304 0030 FFF7FEFF 		bl	free
+ 305              	.LVL26:
+  53:App/ModbusRTU/modbusRTU.cpp **** 
+ 306              		.loc 1 53 5 is_stmt 1 view .LVU77
+  53:App/ModbusRTU/modbusRTU.cpp **** 
+ 307              		.loc 1 53 50 is_stmt 0 view .LVU78
+ 308 0034 607C     		ldrb	r0, [r4, #17]	@ zero_extendqisi2
+  53:App/ModbusRTU/modbusRTU.cpp **** 
+ 309              		.loc 1 53 49 view .LVU79
+ 310 0036 0121     		movs	r1, #1
+ 311 0038 0530     		adds	r0, r0, #5
+ 312 003a FFF7FEFF 		bl	calloc
+ 313              	.LVL27:
+  53:App/ModbusRTU/modbusRTU.cpp **** 
+ 314              		.loc 1 53 30 discriminator 1 view .LVU80
+ 315 003e 2060     		str	r0, [r4]
+  56:App/ModbusRTU/modbusRTU.cpp **** 
+ 316              		.loc 1 56 5 is_stmt 1 view .LVU81
+  56:App/ModbusRTU/modbusRTU.cpp **** 
+ 317              		.loc 1 56 20 is_stmt 0 view .LVU82
+ 318 0040 2046     		mov	r0, r4
+ 319 0042 FFF7FEFF 		bl	_ZN9ModbusRTU4sendEv
+ 320              	.LVL28:
+  58:App/ModbusRTU/modbusRTU.cpp ****         funcCode != MODBUS_RTU_READ_DISCRETE_INPUTS ||
+ 321              		.loc 1 58 5 is_stmt 1 view .LVU83
+  62:App/ModbusRTU/modbusRTU.cpp **** 
+ 322              		.loc 1 62 9 view .LVU84
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 9
+
+
+  65:App/ModbusRTU/modbusRTU.cpp **** 
+ 323              		.loc 1 65 1 is_stmt 0 view .LVU85
+ 324 0046 38BD     		pop	{r3, r4, r5, pc}
+  65:App/ModbusRTU/modbusRTU.cpp **** 
+ 325              		.loc 1 65 1 view .LVU86
+ 326              		.cfi_endproc
+ 327              	.LFE78:
+ 328              		.fnend
+ 330              		.section	.text._ZN9ModbusRTU7receiveEv,"ax",%progbits
+ 331              		.align	1
+ 332              		.global	_ZN9ModbusRTU7receiveEv
+ 333              		.syntax unified
+ 334              		.thumb
+ 335              		.thumb_func
+ 337              	_ZN9ModbusRTU7receiveEv:
+ 338              		.fnstart
+ 339              	.LVL29:
+ 340              	.LFB81:
+  88:App/ModbusRTU/modbusRTU.cpp **** void ModbusRTU::receive()
+  89:App/ModbusRTU/modbusRTU.cpp **** {
+ 341              		.loc 1 89 1 is_stmt 1 view -0
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              		.loc 1 89 1 is_stmt 0 view .LVU88
+ 346 0000 08B5     		push	{r3, lr}
+ 347              		.save {r3, lr}
+ 348              	.LCFI3:
+ 349              		.cfi_def_cfa_offset 8
+ 350              		.cfi_offset 3, -8
+ 351              		.cfi_offset 14, -4
+  90:App/ModbusRTU/modbusRTU.cpp ****     if (_enableNonBlocking == MODBUS_RTU_SERIAL_NORMAL)
+ 352              		.loc 1 90 5 is_stmt 1 view .LVU89
+ 353              		.loc 1 90 9 is_stmt 0 view .LVU90
+ 354 0002 037A     		ldrb	r3, [r0, #8]	@ zero_extendqisi2
+ 355              		.loc 1 90 5 view .LVU91
+ 356 0004 13B1     		cbz	r3, .L21
+  91:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive(_serial, receiveBuffer, _requestedBytes + 5, HAL_MAX_DELAY);
+  92:App/ModbusRTU/modbusRTU.cpp ****     else if (_enableNonBlocking == MODBUS_RTU_SERIAL_NON_BLOCKING)
+ 357              		.loc 1 92 10 is_stmt 1 view .LVU92
+ 358 0006 012B     		cmp	r3, #1
+ 359 0008 09D0     		beq	.L22
+ 360              	.LVL30:
+ 361              	.L17:
+  93:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive_IT(_serial, receiveBuffer, _requestedBytes + 5);
+  94:App/ModbusRTU/modbusRTU.cpp **** }...
+ 362              		.loc 1 94 1 is_stmt 0 view .LVU93
+ 363 000a 08BD     		pop	{r3, pc}
+ 364              	.LVL31:
+ 365              	.L21:
+  91:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive(_serial, receiveBuffer, _requestedBytes + 5, HAL_MAX_DELAY);
+ 366              		.loc 1 91 9 is_stmt 1 view .LVU94
+  91:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive(_serial, receiveBuffer, _requestedBytes + 5, HAL_MAX_DELAY);
+ 367              		.loc 1 91 50 is_stmt 0 view .LVU95
+ 368 000c 427C     		ldrb	r2, [r0, #17]	@ zero_extendqisi2
+  91:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive(_serial, receiveBuffer, _requestedBytes + 5, HAL_MAX_DELAY);
+ 369              		.loc 1 91 25 view .LVU96
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 10
+
+
+ 370 000e 4FF0FF33 		mov	r3, #-1
+ 371 0012 0532     		adds	r2, r2, #5
+ 372 0014 0168     		ldr	r1, [r0]
+ 373 0016 4068     		ldr	r0, [r0, #4]
+ 374              	.LVL32:
+  91:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive(_serial, receiveBuffer, _requestedBytes + 5, HAL_MAX_DELAY);
+ 375              		.loc 1 91 25 view .LVU97
+ 376 0018 FFF7FEFF 		bl	HAL_UART_Receive
+ 377              	.LVL33:
+ 378 001c F5E7     		b	.L17
+ 379              	.LVL34:
+ 380              	.L22:
+  93:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive_IT(_serial, receiveBuffer, _requestedBytes + 5);
+ 381              		.loc 1 93 9 is_stmt 1 view .LVU98
+  93:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive_IT(_serial, receiveBuffer, _requestedBytes + 5);
+ 382              		.loc 1 93 53 is_stmt 0 view .LVU99
+ 383 001e 427C     		ldrb	r2, [r0, #17]	@ zero_extendqisi2
+  93:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive_IT(_serial, receiveBuffer, _requestedBytes + 5);
+ 384              		.loc 1 93 28 view .LVU100
+ 385 0020 0532     		adds	r2, r2, #5
+ 386 0022 0168     		ldr	r1, [r0]
+ 387 0024 4068     		ldr	r0, [r0, #4]
+ 388              	.LVL35:
+  93:App/ModbusRTU/modbusRTU.cpp ****         HAL_UART_Receive_IT(_serial, receiveBuffer, _requestedBytes + 5);
+ 389              		.loc 1 93 28 view .LVU101
+ 390 0026 FFF7FEFF 		bl	HAL_UART_Receive_IT
+ 391              	.LVL36:
+ 392              		.loc 1 94 1 view .LVU102
+ 393 002a EEE7     		b	.L17
+ 394              		.cfi_endproc
+ 395              	.LFE81:
+ 396              		.fnend
+ 398              		.text
+ 399              	.Letext0:
+ 400              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 401              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 402              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
+ 403              		.file 5 "C:/msys64/mingw64/lib/gcc/arm-none-eabi/13.3.0/include/stddef.h"
+ 404              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 405              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 406              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 407              		.file 9 "App/ModbusRTU/modbusRTU.h"
+ 408              		.file 10 "C:/msys64/mingw64/arm-none-eabi/include/c++/13.3.0/cstdlib"
+ 409              		.file 11 "C:/msys64/mingw64/arm-none-eabi/include/c++/13.3.0/bits/std_abs.h"
+ 410              		.file 12 "C:/msys64/mingw64/arm-none-eabi/include/c++/13.3.0/arm-none-eabi/thumb/v7-m/nofp/bits/c+
+ 411              		.file 13 "C:/msys64/mingw64/arm-none-eabi/include/stdlib.h"
+ 412              		.file 14 "C:/msys64/mingw64/arm-none-eabi/include/c++/13.3.0/stdlib.h"
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 modbusRTU.cpp
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:19     .text._ZN9ModbusRTUC2EP20__UART_HandleTypeDef:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:25     .text._ZN9ModbusRTUC2EP20__UART_HandleTypeDef:00000000 _ZN9ModbusRTUC2EP20__UART_HandleTypeDef
+.ARM.exidx.text._ZN9ModbusRTUC2EP20__UART_HandleTypeDef:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:25     .text._ZN9ModbusRTUC2EP20__UART_HandleTypeDef:00000000 _ZN9ModbusRTUC1EP20__UART_HandleTypeDef
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:48     .text._ZN9ModbusRTU4initEh:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:54     .text._ZN9ModbusRTU4initEh:00000000 _ZN9ModbusRTU4initEh
+.ARM.exidx.text._ZN9ModbusRTU4initEh:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:93     .text._ZN9ModbusRTU9appendCRCEPh:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:99     .text._ZN9ModbusRTU9appendCRCEPh:00000000 _ZN9ModbusRTU9appendCRCEPh
+.ARM.exidx.text._ZN9ModbusRTU9appendCRCEPh:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:193    .text._ZN9ModbusRTU4sendEv:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:199    .text._ZN9ModbusRTU4sendEv:00000000 _ZN9ModbusRTU4sendEv
+.ARM.extab.text._ZN9ModbusRTU4sendEv:00000000 $d
+.ARM.exidx.text._ZN9ModbusRTU4sendEv:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:231    .text._ZN9ModbusRTU7requestEhhtt:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:237    .text._ZN9ModbusRTU7requestEhhtt:00000000 _ZN9ModbusRTU7requestEhhtt
+.ARM.exidx.text._ZN9ModbusRTU7requestEhhtt:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:331    .text._ZN9ModbusRTU7receiveEv:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccxyIwhg.s:337    .text._ZN9ModbusRTU7receiveEv:00000000 _ZN9ModbusRTU7receiveEv
+.ARM.extab.text._ZN9ModbusRTU7receiveEv:00000000 $d
+.ARM.exidx.text._ZN9ModbusRTU7receiveEv:00000000 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+calloc
+HAL_UART_Transmit
+__aeabi_unwind_cpp_pr1
+free
+__aeabi_unwind_cpp_pr0
+HAL_UART_Receive
+HAL_UART_Receive_IT

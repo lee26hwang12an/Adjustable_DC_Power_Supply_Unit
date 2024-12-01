@@ -1,6 +1,7 @@
 #include "app.h"
 #include "stm32Abstract.h"
 #include "ws2812b.h"
+#include "modbusRTU.h"
 #include <stdio.h>
 
 
@@ -20,6 +21,7 @@ PUTCHAR_PROTOTYPE
 }
 
 WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 60);
+ModbusRTU modbusClient = ModbusRTU(&huart1);
 
 
 /*
@@ -32,6 +34,9 @@ void setup()
     HAL_Delay(1000);
 
     led.init();
+    modbusClient.init();
+
+    // modbusClient.request(0x01, MODBUS_RTU_READ_HOLDING_REGISTERS, 0x00, 0x02);
 }
 
 
@@ -42,17 +47,19 @@ void setup()
 */
 void loop()
 {
-    led.solidColor(0xFF0000, 0, 29);
-    // led.solidColor(0x000000, 2, 2);
-    led.solidColor(0x000000, 30, 59);
-    led.render();
-    HAL_Delay(200);
-    led.solidColor(0x000000, 0, 29);
-    // led.solidColor(0x000000, 2, 2);
-    led.solidColor(0x0000FF, 30, 59);
-    led.render();
-    HAL_Delay(200);
+    // led.solidColor(0xFF0000, 0, 29);
+    // // led.solidColor(0x000000, 2, 2);
+    // led.solidColor(0x000000, 30, 59);
+    // led.render();
+    // HAL_Delay(200);
+    // led.solidColor(0x000000, 0, 29);
+    // // led.solidColor(0x000000, 2, 2);
+    // led.solidColor(0x0000FF, 30, 59);
+    // led.render();
+    // HAL_Delay(200);
 
+    modbusClient.request(0x01, MODBUS_RTU_READ_HOLDING_REGISTERS, 0x02, 0x02);
+    HAL_Delay(1000);
 }
 
 

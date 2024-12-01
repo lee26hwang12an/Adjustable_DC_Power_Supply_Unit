@@ -22,7 +22,8 @@ build/app.o: App/app.cpp App/app.h Core/Inc/main.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- App/STM32Abstract/stm32Abstract.h App/WS2812B/ws2812b.h
+ App/STM32Abstract/stm32Abstract.h App/WS2812B/ws2812b.h \
+ App/ModbusRTU/modbusRTU.h
 App/app.h:
 Core/Inc/main.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
@@ -52,3 +53,4 @@ Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 App/STM32Abstract/stm32Abstract.h:
 App/WS2812B/ws2812b.h:
+App/ModbusRTU/modbusRTU.h:
