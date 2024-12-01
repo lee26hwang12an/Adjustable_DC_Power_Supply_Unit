@@ -8,9 +8,21 @@ extern "C" {
 
 #include "main.h"
 
-#define __PI 3.14159265359f
-#define __2PI 6.28318530718f
-#define __SQRT3 1.732050808f
+#define __PI          3.14159265359f
+#define __2PI         6.28318530718f
+#define __PI_2        1.570796327f
+#define __3PI_2       4.71238898f
+#define __SQRT3       1.732050808f
+#define __1_SQRT3     0.5773502692f
+#define __2_SQRT3     1.154700538f
+#define __SQRT3_2     0.8660254038f
+
+#define __squared(val)                     val*val
+#define __cubed(val)                       val*val*val
+#define __min(X, Y)                        (((X) <= (Y)) ? (X) : (Y))
+#define __max(X, Y)                        (((X) <= (Y)) ? (Y) : (X))
+#define __constrain(val, min, max)         ((val <= min) ? (min) : ((val >= max) ? (max) : val))
+#define __inProximity(val, anchor, margin) ((val > anchor + margin) ? 0 : ((val < anchor - margin) ? 0 : 1))
 
 typedef struct
 {
@@ -19,10 +31,10 @@ typedef struct
 
 } STM32GPIO_t;
 
-#define __STM32setGPIO(gpio) HAL_GPIO_WritePin(gpio.port, gpio.pin, GPIO_PIN_SET)
+#define __STM32setGPIO(gpio)   HAL_GPIO_WritePin(gpio.port, gpio.pin, GPIO_PIN_SET)
 #define __STM32resetGPIO(gpio) HAL_GPIO_WritePin(gpio.port, gpio.pin, GPIO_PIN_RESET)
-#define __STM32flipGPIO(gpio) HAL_GPIO_TogglePin(gpio.port, gpio.pin)
-#define __STM32getGPIO(gpio) HAL_GPIO_ReadPin(gpio.port, gpio.pin)
+#define __STM32flipGPIO(gpio)  HAL_GPIO_TogglePin(gpio.port, gpio.pin)
+#define __STM32getGPIO(gpio)   HAL_GPIO_ReadPin(gpio.port, gpio.pin)
 
 #define NOT_SET (STM32GPIO_t){.port=GPIOH, .pin=0xFF}
 #define PA0 (STM32GPIO_t){.port=GPIOA, .pin=GPIO_PIN_0}

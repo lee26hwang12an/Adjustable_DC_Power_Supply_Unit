@@ -52,16 +52,7 @@ void loop()
     led.solidColor(0x0000FF, 30, 59);
     led.render();
     HAL_Delay(200);
-    // led.solidColor(0xFF0000, 0, 1);
-    // led.solidColor(0x000000, 2, 2);
-    // led.solidColor(0x000000, 3, 4);
-    // led.render();
-    // HAL_Delay(200);
-    // led.solidColor(0x000000, 0, 1);
-    // led.solidColor(0x000000, 2, 2);
-    // led.solidColor(0x0000FF, 3, 4);
-    // led.render();
-    // HAL_Delay(200);
+
 }
 
 
