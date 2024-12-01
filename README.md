@@ -36,9 +36,20 @@ The case parts for the PSU were designed in Solidworks. Initially I aimed to 3D 
 </div>
 
 ######
-<div align="center"><img src="_assets/ref_board.png" alt="Darstellar PSU" width="1000"/></div>
+<div align="center"><img src="_assets/ref_board.png" alt="Design References" width="1000"/></div>
 
 ######
 <div align="justify">
 But then I asked myself the question: Do I want it to look good? Or do I want it to also feel good to the touch? And not to mention the aspect of ergonomic and friendly design. Now with reprap (3D printing), I could have manufactured virtually any shapes and forms, but it wouldn't be able to rival the quality by CNC machining, and touching plastic would feel somewhat cheaper than touching, say, aluminum or glass. So after some considerations, I decided that my prototype must have non-industrial design, meaning that it must look like it belongs to a consumer's house, on a desk, not in a factory, and the corners should be rounded (I hate sharp corners). Furthermore, it should have certain parts where touching gives a sense of high quality and finish. In the end, I arrived at the design shown below:
 </div>
+
+######
+<div align="center"><img src="_assets/final_cad.png" alt="Final Design" width="1000"/></div>
+
+######
+<div align="justify">
+For manufacturing, every parts with complex form such as the side walls, the buck and AC-DC mounts were 3D printed using PETG filament. I especially increased the infill density to around 25% to achieve a tougher result. The top and bottom panels were of aluminum material, and were made by ordering local laser cutting shops in my region.
+</div>
+
+######
+<div align="center"><img src="_assets/manufacturing_brief.png" alt="Manufacture Files" width="1000"/></div>
