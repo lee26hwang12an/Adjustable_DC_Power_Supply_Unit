@@ -53,3 +53,9 @@ For manufacturing, every parts with complex form such as the side walls, the buc
 
 ######
 <div align="center"><img src="_assets/manufacturing_brief.png" alt="Manufacture Files" width="1000"/></div>
+
+#####
+And finally, the prototype: (Please excuse the cables, it was still in development the moment I took the pictures)
+
+######
+<div align="center"><img src="_assets/prototype.png" alt="Final Product" width="1000"/></div>
