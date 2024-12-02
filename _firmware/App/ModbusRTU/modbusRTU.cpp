@@ -87,6 +87,6 @@ void ModbusRTU::send()
 { HAL_UART_Transmit(_serial, _sendBuffer, 8, HAL_MAX_DELAY); }
 void ModbusRTU::receive()
 {
-    HAL_UART_Receive(_serial, receiveBuffer, 7, 100);
+    HAL_UART_Receive(_serial, receiveBuffer, _requestedBytes + 5, 100);
     __STM32flipGPIO(PC13);
 }

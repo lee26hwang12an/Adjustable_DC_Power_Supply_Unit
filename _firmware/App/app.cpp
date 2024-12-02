@@ -28,7 +28,7 @@ PUTCHAR_PROTOTYPE
 #endif /* __cplusplus */
 
 
-// WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 10);
+WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 10);
 ModbusRTU modbusClient = ModbusRTU(&huart1);
 
 
@@ -39,9 +39,9 @@ ModbusRTU modbusClient = ModbusRTU(&huart1);
 */
 void setup()
 {
-    // HAL_Delay(1000);
+    HAL_Delay(1000);
 
-    // led.init();
+    led.init();
     modbusClient.init();
 
     modbusClient.request(0x01, 0x03, 0x00, 0x02);
@@ -68,7 +68,7 @@ void loop()
 
     modbusClient.request(0x01, MODBUS_RTU_READ_HOLDING_REGISTERS, 0x0002, 0x02);
     HAL_Delay(1000);
-    for (uint8_t i = 0; i < 7; i++)
+    for (uint8_t i = 0; i < 9; i++)
         printf("%x ", modbusClient.receiveBuffer[i]);
     printf("\n");
     HAL_Delay(1000);
@@ -82,6 +82,6 @@ void loop()
 */
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 {
-    // HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
-    // led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
+    HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+    led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
 }

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
   30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****                    
   31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****      -@-   In Memory-to-Memory transfer mode, Circular mode is not allowed.
   32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****      *** Polling mode IO operation ***
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 2
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 2
 
 
   33:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****      =================================
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
   87:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @{
   88:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   */
   89:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 3
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 3
 
 
   90:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** /** @defgroup DMA DMA
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  144:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   uint32_t tmp = 0U;
  145:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
  146:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   /* Check the DMA handle allocation */
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 4
 
 
  147:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   if(hdma == NULL)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  201:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
  202:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   /* Initialise the error code */
  203:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   hdma->ErrorCode = HAL_DMA_ERROR_NONE;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 5
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 5
 
 
  204:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  258:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   }
  259:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** #else
  260:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   /* DMA1 */
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 6
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 6
 
 
  261:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   hdma->ChannelIndex = (((uint32_t)hdma->Instance - (uint32_t)DMA1_Channel1) / ((uint32_t)DMA1_Chan
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  315:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @param  DataLength: The length of data to be transferred from source to destination
  316:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @retval HAL status
  317:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   */
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 7
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 7
 
 
  318:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** HAL_StatusTypeDef HAL_DMA_Start(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  372:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   {
  373:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     /* Change DMA peripheral state */
  374:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     hdma->State = HAL_DMA_STATE_BUSY;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 8
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 8
 
 
  375:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     hdma->ErrorCode = HAL_DMA_ERROR_NONE;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  429:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   else
  430:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
  431:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   {
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 9
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 9
 
 
  432:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     /* Disable DMA IT */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  486:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     {
  487:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       hdma->XferAbortCallback(hdma);
  488:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     } 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 10
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 10
 
 
  489:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   }
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  543:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << hdma->ChannelIndex);
  544:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
  545:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       /* Update error code */
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 11
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 11
 
 
  546:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       SET_BIT(hdma->ErrorCode, HAL_DMA_ERROR_TE);
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  600:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @retval None
  601:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   */
  602:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** void HAL_DMA_IRQHandler(DMA_HandleTypeDef *hdma)
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 12
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 12
 
 
  603:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** {
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  657:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     /* A hardware clear of its EN bits is performed */
  658:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     /* Disable ALL DMA IT */
  659:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     __HAL_DMA_DISABLE_IT(hdma, (DMA_IT_TC | DMA_IT_HT | DMA_IT_TE));
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 13
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 13
 
 
  660:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  714:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       
  715:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     case  HAL_DMA_XFER_ABORT_CB_ID:
  716:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       hdma->XferAbortCallback = pCallback;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 14
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 14
 
 
  717:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       break; 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  771:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       hdma->XferCpltCallback = NULL;
  772:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       hdma->XferHalfCpltCallback = NULL;
  773:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       hdma->XferErrorCallback = NULL;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 15
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 15
 
 
  774:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       hdma->XferAbortCallback = NULL;
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  828:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   *              the configuration information for the specified DMA Channel.
  829:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @retval DMA Error Code
  830:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   */
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 16
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 16
 
 
  831:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma)
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
   48 000c 0468     		ldr	r4, [r0]
   49              		.loc 1 863 25 view .LVU7
   50 000e 6360     		str	r3, [r4, #4]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 17
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 17
 
 
  864:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
   83              		.loc 1 869 9 is_stmt 0 view .LVU19
   84 0022 0368     		ldr	r3, [r0]
  869:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 18
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 18
 
 
   85              		.loc 1 869 26 view .LVU20
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  127              		.loc 1 158 3 view .LVU34
  159:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   assert_param(IS_DMA_PRIORITY(hdma->Init.Priority));
  128              		.loc 1 159 3 view .LVU35
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 19
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 19
 
 
  160:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  194:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
  165              		.loc 1 194 39 view .LVU54
  166 002a 9468     		ldr	r4, [r2, #8]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 20
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 20
 
 
  167 002c 2343     		orrs	r3, r3, r4
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  204 0054 10BC     		pop	{r4}
  205              	.LCFI4:
  206              		.cfi_restore 4
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 21
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 21
 
 
  207              		.cfi_def_cfa_offset 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  255 0010 0A60     		str	r2, [r1]
  234:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
  256              		.loc 1 234 3 view .LVU80
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 22
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 22
 
 
  234:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  262:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** #endif /* DMA2 */
  293              		.loc 1 262 3 is_stmt 1 view .LVU99
  262:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** #endif /* DMA2 */
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 23
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 23
 
 
  294              		.loc 1 262 24 is_stmt 0 view .LVU100
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  328              	.LCFI6:
  329              		.cfi_restore 4
  330              		.cfi_def_cfa_offset 0
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 24
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 24
 
 
  331 0056 7047     		bx	lr
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  378              		.loc 1 326 3 is_stmt 0 view .LVU129
  379 0008 0128     		cmp	r0, #1
  380 000a 20D0     		beq	.L27
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 25
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 25
 
 
  326:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  418 0030 2668     		ldr	r6, [r4]
  419 0032 3068     		ldr	r0, [r6]
  420 0034 20F00100 		bic	r0, r0, #1
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 26
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 26
 
 
  421 0038 3060     		str	r0, [r6]
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  468              		.loc 1 369 3 view .LVU155
  369:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   
  469              		.loc 1 369 3 view .LVU156
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 27
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 27
 
 
  470 0004 90F82000 		ldrb	r0, [r0, #32]	@ zero_extendqisi2
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  375:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     
  508              		.loc 1 375 21 is_stmt 0 view .LVU173
  509 002c 0020     		movs	r0, #0
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 28
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 28
 
 
  510 002e A063     		str	r0, [r4, #56]
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  553              		.loc 1 369 3 is_stmt 0 discriminator 1 view .LVU184
  554 0072 0220     		movs	r0, #2
  555 0074 D6E7     		b	.L31
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 29
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 29
 
 
  556              		.cfi_endproc
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  598              		.loc 1 427 12 view .LVU198
  599 0018 7047     		bx	lr
  600              	.LVL38:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 30
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 30
 
 
  601              	.L39:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  642              		.thumb_func
  644              	HAL_DMA_Abort_IT:
  645              	.LVL40:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 31
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 31
 
 
  646              	.LFB70:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  686              		.loc 1 473 5 view .LVU226
  687 001e 0268     		ldr	r2, [r0]
  688 0020 1368     		ldr	r3, [r2]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 32
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 32
 
 
  689 0022 23F00103 		bic	r3, r3, #1
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  731              		.loc 1 479 17 is_stmt 0 view .LVU238
  732 0060 0123     		movs	r3, #1
  733 0062 80F82130 		strb	r3, [r0, #33]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 33
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 33
 
 
  482:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  774              		.align	2
  775              	.L54:
  776 0090 08000240 		.word	1073872904
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 34
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 34
 
 
  777 0094 00000240 		.word	1073872896
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  822 0014 0023     		movs	r3, #0
  823 0016 80F82030 		strb	r3, [r0, #32]
  510:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     return HAL_ERROR;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 35
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 35
 
 
  824              		.loc 1 510 5 view .LVU264
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  863 0042 1432     		adds	r2, r2, #20
  864 0044 9342     		cmp	r3, r2
  865 0046 32D0     		beq	.L75
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 36
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 36
 
 
  525:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   }
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  530:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   }
  907              		.loc 1 530 12 discriminator 5 view .LVU293
  908 007c 1432     		adds	r2, r2, #20
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 37
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 37
 
 
  909 007e 9342     		cmp	r3, r2
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  525:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   }
  951              		.loc 1 525 12 discriminator 8 view .LVU306
  952 00ae 4FF40056 		mov	r6, #8192
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 38
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 38
 
 
  953 00b2 F3E7     		b	.L61
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  995              		.loc 1 536 40 is_stmt 1 view .LVU318
  536:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   {
  996              		.loc 1 536 9 is_stmt 0 view .LVU319
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 39
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 39
 
 
  997 00e6 504B     		ldr	r3, .L112+4
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1040 0126 D9E7     		b	.L63
  1041              	.L87:
  538:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     {
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 40
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 40
 
 
  1042              		.loc 1 538 9 discriminator 8 view .LVU331
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1079              		.loc 1 559 31 discriminator 1 view .LVU348
  1080 0154 FFF7FEFF 		bl	HAL_GetTick
  1081              	.LVL60:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 41
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 41
 
 
  559:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       {
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  578:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
  1121              		.loc 1 578 5 discriminator 5 view .LVU364
  1122 018c 1432     		adds	r2, r2, #20
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 42
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 42
 
 
  1123 018e 9342     		cmp	r3, r2
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1163 01c0 F4E7     		b	.L69
  1164              	.L92:
  578:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 43
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 43
 
 
  1165              		.loc 1 578 5 discriminator 6 view .LVU379
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1209              	.L96:
  587:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   }
  1210              		.loc 1 587 5 discriminator 2 view .LVU390
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 44
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 44
 
 
  1211 0206 0422     		movs	r2, #4
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1260              		.cfi_offset 4, -12
  1261              		.cfi_offset 5, -8
  1262              		.cfi_offset 14, -4
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 45
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 45
 
 
  604:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   uint32_t source_it = hdma->Instance->CCR;
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1301              	.LVL64:
  617:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
  1302              		.loc 1 617 5 is_stmt 0 view .LVU414
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 46
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 46
 
 
  1303 002e 9342     		cmp	r3, r2
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1344              		.loc 1 625 7 is_stmt 1 view .LVU427
  1345 0066 9847     		blx	r3
  1346              	.LVL65:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 47
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 47
 
 
  1347              	.L114:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1388 009c 2360     		str	r3, [r4]
  638:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     }
  1389              		.loc 1 638 7 view .LVU441
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 48
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 48
 
 
  638:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     }
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1432              		.loc 1 641 7 discriminator 24 view .LVU453
  1433 00d8 194B     		ldr	r3, .L137+4
  1434 00da 5A60     		str	r2, [r3, #4]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 49
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 49
 
 
  644:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1474              		.loc 1 654 11 view .LVU468
  1475 0106 1342     		tst	r3, r2
  1476 0108 AED0     		beq	.L114
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 50
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 50
 
 
  654:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   {
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1513 0136 9847     		blx	r3
  1514              	.LVL73:
  679:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** }
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 51
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 51
 
 
  1515              		.loc 1 679 3 view .LVU487
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1560 0016 0128     		cmp	r0, #1
  1561 0018 04D0     		beq	.L150
  726:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   } 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 52
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 52
 
 
  1562              		.loc 1 726 12 view .LVU499
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1601              		.loc 1 709 7 is_stmt 1 view .LVU514
  694:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   
  1602              		.loc 1 694 21 is_stmt 0 view .LVU515
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 53
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 53
 
 
  1603 0038 0020     		movs	r0, #0
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1645              		@ frame_needed = 0, uses_anonymous_args = 0
  1646              		@ link register save eliminated.
  744:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 54
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 54
 
 
  1647              		.loc 1 744 1 is_stmt 0 view .LVU530
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1685 0026 F9D8     		bhi	.L153
  1686 0028 DFE801F0 		tbb	[pc, r1]
  1687              	.L155:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 55
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 55
 
 
  1688 002c 03       		.byte	(.L159-.L155)/2
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  771:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       hdma->XferHalfCpltCallback = NULL;
  1727              		.loc 1 771 30 is_stmt 0 view .LVU562
  1728 004c 0020     		movs	r0, #0
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 56
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 56
 
 
  1729 004e 9862     		str	r0, [r3, #40]
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1772              		.cfi_endproc
  1773              	.LFE75:
  1775              		.section	.text.HAL_DMA_GetError,"ax",%progbits
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 57
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 57
 
 
  1776              		.align	1
@@ -3395,47 +3395,47 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 1
  1805              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  1806              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
  1807              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s 			page 58
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s 			page 58
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_dma.c
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:19     .text.DMA_SetConfig:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:24     .text.DMA_SetConfig:00000000 DMA_SetConfig
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:98     .text.HAL_DMA_Init:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:104    .text.HAL_DMA_Init:00000000 HAL_DMA_Init
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:219    .text.HAL_DMA_Init:0000005c $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:226    .text.HAL_DMA_DeInit:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:232    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:342    .text.HAL_DMA_DeInit:0000005c $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:349    .text.HAL_DMA_Start:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:355    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:443    .text.HAL_DMA_Start_IT:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:449    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:560    .text.HAL_DMA_Abort:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:566    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:638    .text.HAL_DMA_Abort_IT:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:644    .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:776    .text.HAL_DMA_Abort_IT:00000090 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:782    .text.HAL_DMA_PollForTransfer:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:788    .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1236   .text.HAL_DMA_PollForTransfer:00000224 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1242   .text.HAL_DMA_IRQHandler:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1248   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1520   .text.HAL_DMA_IRQHandler:0000013c $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1526   .text.HAL_DMA_RegisterCallback:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1532   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1583   .text.HAL_DMA_RegisterCallback:0000002c $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1587   .text.HAL_DMA_RegisterCallback:00000030 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1633   .text.HAL_DMA_UnRegisterCallback:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1639   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1688   .text.HAL_DMA_UnRegisterCallback:0000002c $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1752   .text.HAL_DMA_GetState:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1758   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1776   .text.HAL_DMA_GetError:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1782   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1693   .text.HAL_DMA_UnRegisterCallback:00000031 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccxFNd4C.s:1693   .text.HAL_DMA_UnRegisterCallback:00000032 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:19     .text.DMA_SetConfig:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:24     .text.DMA_SetConfig:00000000 DMA_SetConfig
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:98     .text.HAL_DMA_Init:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:104    .text.HAL_DMA_Init:00000000 HAL_DMA_Init
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:219    .text.HAL_DMA_Init:0000005c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:226    .text.HAL_DMA_DeInit:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:232    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:342    .text.HAL_DMA_DeInit:0000005c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:349    .text.HAL_DMA_Start:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:355    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:443    .text.HAL_DMA_Start_IT:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:449    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:560    .text.HAL_DMA_Abort:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:566    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:638    .text.HAL_DMA_Abort_IT:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:644    .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:776    .text.HAL_DMA_Abort_IT:00000090 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:782    .text.HAL_DMA_PollForTransfer:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:788    .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1236   .text.HAL_DMA_PollForTransfer:00000224 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1242   .text.HAL_DMA_IRQHandler:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1248   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1520   .text.HAL_DMA_IRQHandler:0000013c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1526   .text.HAL_DMA_RegisterCallback:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1532   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1583   .text.HAL_DMA_RegisterCallback:0000002c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1587   .text.HAL_DMA_RegisterCallback:00000030 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1633   .text.HAL_DMA_UnRegisterCallback:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1639   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1688   .text.HAL_DMA_UnRegisterCallback:0000002c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1752   .text.HAL_DMA_GetState:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1758   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1776   .text.HAL_DMA_GetError:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1782   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1693   .text.HAL_DMA_UnRegisterCallback:00000031 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccj4wwBT.s:1693   .text.HAL_DMA_UnRegisterCallback:00000032 $t
 
 UNDEFINED SYMBOLS
 HAL_GetTick

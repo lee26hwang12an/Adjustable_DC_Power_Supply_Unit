@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
   29:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #ifdef HAL_RCC_MODULE_ENABLED
   30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
   31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** /** @defgroup RCCEx RCCEx
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 2
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 2
 
 
   32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * @brief RCC Extension HAL module driver.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
   86:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *
   87:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * @note   Care must be taken when HAL_RCCEx_PeriphCLKConfig() is used to select
   88:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *         the RTC clock source; in this case the Backup domain will be reset in
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 3
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 3
 
 
   89:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *         order to modify the RTC Clock source, as consequence RTC registers (including
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
   56              		.loc 1 114 5 view .LVU8
  115:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
  116:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     /* As soon as function is called to change RTC clock source, activation of the
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 4
 
 
  117:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****        power domain is done. */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  133:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       while (HAL_IS_BIT_CLR(PWR->CR, PWR_CR_DBP))
  134:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       {
  135:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         if ((HAL_GetTick() - tickstart) > RCC_DBP_TIMEOUT_VALUE)
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 5
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 5
 
 
  136:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  154:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       /* Wait for LSERDY if LSE was enabled */
  155:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       if (HAL_IS_BIT_SET(temp_reg, RCC_BDCR_LSEON))
  131              		.loc 1 155 7 is_stmt 1 view .LVU38
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 6
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 6
 
 
  132              		.loc 1 155 10 is_stmt 0 view .LVU39
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  158              		.loc 1 183 5 is_stmt 1 view .LVU47
  184:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
  185:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     /* Configure the ADC clock source */
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 7
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 7
 
 
  186:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     __HAL_RCC_ADC_CONFIG(PeriphClkInit->AdcClockSelection);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  232:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       {
  233:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         return HAL_ERROR;
  234:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       }
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 8
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 8
 
 
  235:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  177 009e 23F48003 		bic	r3, r3, #4194304
  178 00a2 E168     		ldr	r1, [r4, #12]
  179 00a4 0B43     		orrs	r3, r3, r1
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 9
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 9
 
 
  180 00a6 5360     		str	r3, [r2, #4]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  219 00d2 F5D9     		bls	.L5
  137:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         }
  220              		.loc 1 137 18 view .LVU66
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 10
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 10
 
 
  221 00d4 0320     		movs	r0, #3
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  262              	.L15:
  175:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     }
  263              		.loc 1 175 7 is_stmt 0 view .LVU80
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 11
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 11
 
 
  264              	.LBE4:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  298:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
  299:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   /* Get the RTC configuration -----------------------------------------------*/
  300:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   srcclk = __HAL_RCC_GET_RTC_SOURCE();
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 12
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 12
 
 
  305              		.loc 1 300 3 is_stmt 1 view .LVU88
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  333:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   /* Get the USB clock configuration -----------------------------------------*/
  334:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   PeriphClkInit->PeriphClockSelection |= RCC_PERIPHCLK_USB;
  327              		.loc 1 334 3 is_stmt 1 view .LVU99
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 13
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 13
 
 
  328              		.loc 1 334 39 is_stmt 0 view .LVU100
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  363:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2S3 I2S3 peripheral clock
  364:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2S2 I2S2 peripheral clock
  365:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_USB  USB peripheral clock
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 14
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 14
 
 
  366:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   @endif
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  371              		.loc 1 404 3 view .LVU111
  405:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
  406:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   switch (PeriphClk)
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 15
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 15
 
 
  372              		.loc 1 406 3 view .LVU112
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  425:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #else
  426:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****           prediv1 = aPredivFactorTable[(uint32_t)(RCC->CFGR & RCC_CFGR_PLLXTPRE) >> RCC_CFGR_PLLXTP
  408              		.loc 1 426 11 is_stmt 1 view .LVU124
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 16
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 16
 
 
  409              		.loc 1 426 54 is_stmt 0 view .LVU125
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  461:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****           pllclk = (uint32_t)((HSI_VALUE >> 1) * pllmul);
  462:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         }
  463:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 17
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 17
 
 
  464:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         /* Calcul of the USB frequency*/
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  456              	.LVL41:
  457              	.L28:
  488:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         }
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 18
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 18
 
 
  489:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #endif
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  543:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       break;
  544:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     }
  545:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #endif /* STM32F103xE || STM32F103xG || STM32F105xC || STM32F107xC */
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 19
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 19
 
 
  546:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     case RCC_PERIPHCLK_RTC:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  492              		.loc 1 557 71 discriminator 1 view .LVU156
  493 0088 12F0020F 		tst	r2, #2
  494 008c F5D0     		beq	.L32
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 20
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 20
 
 
  559:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       }
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  523 00aa 5B68     		ldr	r3, [r3, #4]
  574:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       break;
  524              		.loc 1 574 74 discriminator 1 view .LVU167
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 21
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 21
 
 
  525 00ac C3F38133 		ubfx	r3, r3, #14, #2
@@ -1258,29 +1258,29 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 1
  574              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
  575              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  576              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 22
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 22
 
 
  577              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
  578              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s 			page 23
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_rcc_ex.c
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:19     .text.HAL_RCCEx_PeriphCLKConfig:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:25     .text.HAL_RCCEx_PeriphCLKConfig:00000000 HAL_RCCEx_PeriphCLKConfig
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:279    .text.HAL_RCCEx_PeriphCLKConfig:0000010c $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:286    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:292    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 HAL_RCCEx_GetPeriphCLKConfig
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:342    .text.HAL_RCCEx_GetPeriphCLKConfig:00000028 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:347    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:353    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 HAL_RCCEx_GetPeriphCLKFreq
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:547    .text.HAL_RCCEx_GetPeriphCLKFreq:000000c0 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:566    .rodata.aPLLMULFactorTable.1:00000000 aPLLMULFactorTable.1
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:560    .rodata.aPredivFactorTable.0:00000000 aPredivFactorTable.0
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:557    .rodata.aPredivFactorTable.0:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccfulA8p.s:563    .rodata.aPLLMULFactorTable.1:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:19     .text.HAL_RCCEx_PeriphCLKConfig:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:25     .text.HAL_RCCEx_PeriphCLKConfig:00000000 HAL_RCCEx_PeriphCLKConfig
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:279    .text.HAL_RCCEx_PeriphCLKConfig:0000010c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:286    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:292    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 HAL_RCCEx_GetPeriphCLKConfig
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:342    .text.HAL_RCCEx_GetPeriphCLKConfig:00000028 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:347    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:353    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 HAL_RCCEx_GetPeriphCLKFreq
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:547    .text.HAL_RCCEx_GetPeriphCLKFreq:000000c0 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:566    .rodata.aPLLMULFactorTable.1:00000000 aPLLMULFactorTable.1
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:560    .rodata.aPredivFactorTable.0:00000000 aPredivFactorTable.0
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:557    .rodata.aPredivFactorTable.0:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccpzy2tC.s:563    .rodata.aPLLMULFactorTable.1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick
