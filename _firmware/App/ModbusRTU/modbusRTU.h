@@ -32,12 +32,11 @@ public:
 
 private:
     UART_HandleTypeDef *_serial;
-    uint8_t _enableNonBlocking;
     uint8_t _sendBuffer[8];
     uint8_t _requestedBytes;
 
 public:
-    void init(uint8_t nonBlocking = MODBUS_RTU_SERIAL_NORMAL);
+    void init();
     void request(uint8_t slaveAddress, uint8_t funcCode, uint16_t startReg, uint16_t regCount);
 
 private:

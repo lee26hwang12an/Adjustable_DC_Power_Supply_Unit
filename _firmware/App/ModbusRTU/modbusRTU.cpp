@@ -1,4 +1,5 @@
 #include "modbusRTU.h"
+#include "stm32Abstract.h"
 #include <stdlib.h>
 
 
@@ -27,9 +28,8 @@ ModbusRTU::ModbusRTU(UART_HandleTypeDef *hserial)
 =====================================================================
 */
 
-void ModbusRTU::init(uint8_t nonBlocking)
+void ModbusRTU::init()
 {
-    _enableNonBlocking = nonBlocking;
     ModbusRTU::receiveBuffer = (uint8_t *)calloc(8, sizeof(uint8_t));
 }
 
@@ -55,9 +55,9 @@ void ModbusRTU::request(uint8_t slaveAddress, uint8_t funcCode, uint16_t startRe
     // Send to modbus server, then listen:
     ModbusRTU::send();
 
-    if (funcCode != MODBUS_RTU_READ_COIL ||
-        funcCode != MODBUS_RTU_READ_DISCRETE_INPUTS ||
-        funcCode != MODBUS_RTU_READ_HOLDING_REGISTERS ||
+    if (funcCode != MODBUS_RTU_READ_COIL &&
+        funcCode != MODBUS_RTU_READ_DISCRETE_INPUTS &&
+        funcCode != MODBUS_RTU_READ_HOLDING_REGISTERS &&
         funcCode != MODBUS_RTU_READ_INPUT_REGISTERS)
         return;
 
@@ -87,8 +87,6 @@ void ModbusRTU::send()
 { HAL_UART_Transmit(_serial, _sendBuffer, 8, HAL_MAX_DELAY); }
 void ModbusRTU::receive()
 {
-    if (_enableNonBlocking == MODBUS_RTU_SERIAL_NORMAL)
-        HAL_UART_Receive(_serial, receiveBuffer, _requestedBytes + 5, HAL_MAX_DELAY);
-    else if (_enableNonBlocking == MODBUS_RTU_SERIAL_NON_BLOCKING)
-        HAL_UART_Receive_IT(_serial, receiveBuffer, _requestedBytes + 5);
+    HAL_UART_Receive(_serial, receiveBuffer, 7, 100);
+    __STM32flipGPIO(PC13);
 }
