@@ -40,6 +40,9 @@ public:
     uint32_t _channel;
     uint32_t _BIT_1_HIGH, _BIT_0_HIGH;
     uint32_t *_colorData;
+    uint32_t *_targetColorData;
+    float *_transStep;
+    uint8_t _transCalced;
     uint32_t *_buffer;
     uint8_t _bufferDataMultiplier;
 
@@ -63,9 +66,23 @@ public:
     */
     void solidColor(uint32_t color, uint16_t start, uint16_t end);
     /*
+    Paint LEDs with a linear gradient of 2 colors.
+    @param startColor RGB value of the beginning color.
+    @param start Starting LED.
+    @param endColor RGB value of the ending color.
+    @param end Ending LED.
+    */
+    void gradient2Colors(uint32_t startColor, uint16_t start, uint32_t endColor, uint16_t end);
+    /*
     Push all color data to the LED strip.
     */
     void render();
+    /*
+    Render color data to the LED strip with a transition based on time tick.
+    @param timeTick_ms The current time tick, used for calculating instantaneous color set to the LED strip.
+    @param duration_ms The total length of the fading transition, in miliseconds.
+    */
+    uint8_t transition();
     /*
     Start callback clock of the PWM generator timer, if one wishes to.
     */

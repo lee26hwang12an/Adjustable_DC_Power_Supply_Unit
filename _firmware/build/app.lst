@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -18,14 +18,15 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 1
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
   17              		.file 1 "App/app.cpp"
-  18              		.section	.text._Z41__static_initialization_and_destruction_0v,"ax",%progbits
+  18              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
   19              		.align	1
   20              		.syntax unified
   21              		.thumb
   22              		.thumb_func
-  24              	_Z41__static_initialization_and_destruction_0v:
+  24              	_Z41__static_initialization_and_destruction_0ii:
   25              		.fnstart
-  26              	.LFB71:
+  26              	.LVL0:
+  27              	.LFB71:
    1:App/app.cpp   **** #include "app.h"
    2:App/app.cpp   **** #include "stm32Abstract.h"
    3:App/app.cpp   **** #include "ws2812b.h"
@@ -57,10 +58,10 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 1
   29:App/app.cpp   **** }
   30:App/app.cpp   **** #endif /* __cplusplus */
   31:App/app.cpp   **** 
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 2
+
+
   32:App/app.cpp   **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 2
-
-
   33:App/app.cpp   **** /*
   34:App/app.cpp   **** =====================================================================
   35:App/app.cpp   ****     INSTANCING
@@ -76,922 +77,845 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 1
   45:App/app.cpp   **** 
   46:App/app.cpp   **** uint8_t valueChanged = 0;
   47:App/app.cpp   **** uint8_t volt_MSB, volt_LSB, curr_MSB, curr_LSB;
-  48:App/app.cpp   **** 
+  48:App/app.cpp   **** uint32_t transitionTick = 0;
   49:App/app.cpp   **** 
-  50:App/app.cpp   **** /*
-  51:App/app.cpp   **** =====================================================================
-  52:App/app.cpp   ****     SETUP
-  53:App/app.cpp   **** =====================================================================
-  54:App/app.cpp   **** */
-  55:App/app.cpp   **** void setup()
-  56:App/app.cpp   **** {
-  57:App/app.cpp   ****     HAL_Delay(1000);
-  58:App/app.cpp   **** 
-  59:App/app.cpp   ****     led.init();
-  60:App/app.cpp   ****     led.startCallbackClock();
-  61:App/app.cpp   **** 
-  62:App/app.cpp   ****     modbusClient.init();
-  63:App/app.cpp   ****     modbusClient.request(0x01, 0x03, 0x00, 0x02);
-  64:App/app.cpp   **** }
+  50:App/app.cpp   **** 
+  51:App/app.cpp   **** /*
+  52:App/app.cpp   **** =====================================================================
+  53:App/app.cpp   ****     SETUP
+  54:App/app.cpp   **** =====================================================================
+  55:App/app.cpp   **** */
+  56:App/app.cpp   **** void setup()
+  57:App/app.cpp   **** {
+  58:App/app.cpp   ****     HAL_Delay(1000);
+  59:App/app.cpp   **** 
+  60:App/app.cpp   ****     led.init();
+  61:App/app.cpp   ****     // led.startCallbackClock();
+  62:App/app.cpp   **** 
+  63:App/app.cpp   ****     // modbusClient.init();
+  64:App/app.cpp   ****     // modbusClient.request(0x01, 0x03, 0x00, 0x02);
   65:App/app.cpp   **** 
-  66:App/app.cpp   **** 
-  67:App/app.cpp   **** /*
-  68:App/app.cpp   **** =====================================================================
-  69:App/app.cpp   ****     MAIN LOOP
-  70:App/app.cpp   **** =====================================================================
-  71:App/app.cpp   **** */
-  72:App/app.cpp   **** void loop()
-  73:App/app.cpp   **** {
-  74:App/app.cpp   ****     if (!valueChanged)
-  75:App/app.cpp   ****         return;
-  76:App/app.cpp   **** 
-  77:App/app.cpp   ****     led.stopCallbackClock();
-  78:App/app.cpp   **** 
-  79:App/app.cpp   ****     if (modbusClient.receiveBuffer[3] != volt_MSB ||
-  80:App/app.cpp   ****         modbusClient.receiveBuffer[4] != volt_LSB ||
-  81:App/app.cpp   ****         modbusClient.receiveBuffer[5] != curr_MSB ||
-  82:App/app.cpp   ****         modbusClient.receiveBuffer[6] != curr_LSB)
-  83:App/app.cpp   ****     {
-  84:App/app.cpp   ****         volt_MSB = modbusClient.receiveBuffer[3];
-  85:App/app.cpp   ****         volt_LSB = modbusClient.receiveBuffer[4];
-  86:App/app.cpp   ****         curr_MSB = modbusClient.receiveBuffer[5];
-  87:App/app.cpp   ****         curr_LSB = modbusClient.receiveBuffer[6];
-  88:App/app.cpp   ****     }
-  89:App/app.cpp   **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 3
+  66:App/app.cpp   ****     // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+  67:App/app.cpp   ****     // led.render();
+  68:App/app.cpp   ****     // HAL_Delay(500);
+  69:App/app.cpp   **** 
+  70:App/app.cpp   ****     // led.gradient2Colors(0xFF0000, 0, 0x00FF00, 59);
+  71:App/app.cpp   ****     led.solidColor(0xFF0000, 0, 59);
+  72:App/app.cpp   ****     led.render();
+  73:App/app.cpp   ****     for (int i = 0; i < led._ledsCount; i++)
+  74:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+  75:App/app.cpp   ****     printf("\n");
+  76:App/app.cpp   ****     HAL_Delay(2000);
+  77:App/app.cpp   ****     // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+  78:App/app.cpp   ****     led.solidColor(0x00FFFF, 0, 59);
+  79:App/app.cpp   **** }
+  80:App/app.cpp   **** 
+  81:App/app.cpp   **** 
+  82:App/app.cpp   **** /*
+  83:App/app.cpp   **** =====================================================================
+  84:App/app.cpp   ****     MAIN LOOP
+  85:App/app.cpp   **** =====================================================================
+  86:App/app.cpp   **** */
+  87:App/app.cpp   **** void loop()
+  88:App/app.cpp   **** {
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 3
 
 
-  90:App/app.cpp   **** 
-  91:App/app.cpp   ****     uint16_t volt = ((uint16_t)volt_MSB << 8) | ((uint16_t)volt_LSB << 0);
-  92:App/app.cpp   ****     uint16_t curr = ((uint16_t)curr_MSB << 8) | ((uint16_t)curr_LSB << 0);
-  93:App/app.cpp   ****     uint32_t ledColor;
-  94:App/app.cpp   **** 
-  95:App/app.cpp   ****     if (__inProximity(volt, 250, 250))
-  96:App/app.cpp   ****         ledColor = 0x0000FF;
-  97:App/app.cpp   ****     else if (__inProximity(volt, 750, 250))
-  98:App/app.cpp   ****         ledColor = 0x00FFFF;
-  99:App/app.cpp   ****     else if (__inProximity(volt, 1250, 250))
- 100:App/app.cpp   ****         ledColor = 0xFFFF00;
- 101:App/app.cpp   ****     else if (__inProximity(volt, 1750, 250))
- 102:App/app.cpp   ****         ledColor = 0xFF6600;
- 103:App/app.cpp   ****     else if (__inProximity(volt, 2250, 250))
- 104:App/app.cpp   ****         ledColor = 0xFF1F00;
- 105:App/app.cpp   ****     else if (__inProximity(volt, 2750, 250))
- 106:App/app.cpp   ****         ledColor = 0xFF0000;
- 107:App/app.cpp   ****     else if (volt > 3000)
- 108:App/app.cpp   ****         ledColor = 0x1100FF;
- 109:App/app.cpp   **** 
- 110:App/app.cpp   ****     led.solidColor(ledColor, 0, 59);
- 111:App/app.cpp   ****     led.render();
- 112:App/app.cpp   **** 
- 113:App/app.cpp   ****     valueChanged = 0;
- 114:App/app.cpp   ****     led.startCallbackClock();
- 115:App/app.cpp   **** }
- 116:App/app.cpp   **** 
- 117:App/app.cpp   **** 
- 118:App/app.cpp   **** /*
- 119:App/app.cpp   **** =====================================================================
- 120:App/app.cpp   ****     CALLBACKS
- 121:App/app.cpp   **** =====================================================================
- 122:App/app.cpp   **** */
- 123:App/app.cpp   **** void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
- 124:App/app.cpp   **** {
- 125:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
- 126:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
- 127:App/app.cpp   **** }
- 128:App/app.cpp   **** 
- 129:App/app.cpp   **** #define CALLED_TIMES_UNTIL_TRIGGERED (3125 * 2) // 2-second callback
- 130:App/app.cpp   **** uint16_t callbackCounter = 0;
- 131:App/app.cpp   **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
- 132:App/app.cpp   **** {
- 133:App/app.cpp   ****     callbackCounter++;
- 134:App/app.cpp   ****     if (callbackCounter < CALLED_TIMES_UNTIL_TRIGGERED)
- 135:App/app.cpp   ****         return;
- 136:App/app.cpp   **** 
- 137:App/app.cpp   ****     modbusClient.request(0x01, MODBUS_RTU_READ_HOLDING_REGISTERS, 0x0002, 0x02);
- 138:App/app.cpp   ****     valueChanged = 1;
- 139:App/app.cpp   ****     callbackCounter = 0;
- 140:App/app.cpp   **** 
- 141:App/app.cpp   ****     __STM32flipGPIO(PC13);
- 142:App/app.cpp   **** }
-  27              		.loc 1 142 1 view -0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 4
-
-
-  31 0000 08B5     		push	{r3, lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 8
-  34              		.cfi_offset 3, -8
-  35              		.cfi_offset 14, -4
-  41:App/app.cpp   **** 
-  36              		.loc 1 41 48 is_stmt 0 view .LVU1
-  37 0002 3C23     		movs	r3, #60
-  38 0004 0022     		movs	r2, #0
-  39 0006 0449     		ldr	r1, .L3
-  40 0008 0448     		ldr	r0, .L3+4
-  41 000a FFF7FEFF 		bl	_ZN7WS2812BC1EP17TIM_HandleTypeDefmt
-  42              	.LVL0:
-  44:App/app.cpp   **** 
-  43              		.loc 1 44 43 view .LVU2
-  44 000e 0449     		ldr	r1, .L3+8
-  45 0010 0448     		ldr	r0, .L3+12
-  46 0012 FFF7FEFF 		bl	_ZN9ModbusRTUC1EP20__UART_HandleTypeDef
-  47              	.LVL1:
-  48              		.loc 1 142 1 view .LVU3
-  49 0016 08BD     		pop	{r3, pc}
-  50              	.L4:
-  51              		.align	2
-  52              	.L3:
-  53 0018 00000000 		.word	htim1
-  54 001c 00000000 		.word	led
-  55 0020 00000000 		.word	huart1
-  56 0024 00000000 		.word	modbusClient
-  57              		.cfi_endproc
-  58              	.LFE71:
-  59              		.cantunwind
-  60              		.fnend
-  62              		.section	.text.__io_putchar,"ax",%progbits
-  63              		.align	1
-  64              		.global	__io_putchar
-  65              		.syntax unified
-  66              		.thumb
-  67              		.thumb_func
-  69              	__io_putchar:
-  70              		.fnstart
-  71              	.LVL2:
-  72              	.LFB66:
-  23:App/app.cpp   ****     // -------------- Change huart_x to your appropriate Hardware UART/USART
-  73              		.loc 1 23 1 is_stmt 1 view -0
-  74              		.cfi_startproc
-  75              		@ args = 0, pretend = 0, frame = 8
-  76              		@ frame_needed = 0, uses_anonymous_args = 0
-  23:App/app.cpp   ****     // -------------- Change huart_x to your appropriate Hardware UART/USART
-  77              		.loc 1 23 1 is_stmt 0 view .LVU5
-  78 0000 00B5     		push	{lr}
-  79              		.save {lr}
-  80              	.LCFI1:
-  81              		.cfi_def_cfa_offset 4
-  82              		.cfi_offset 14, -4
-  83              		.pad #12
-  84 0002 83B0     		sub	sp, sp, #12
-  85              	.LCFI2:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 5
-
-
-  86              		.cfi_def_cfa_offset 16
-  87 0004 0190     		str	r0, [sp, #4]
-  25:App/app.cpp   ****     return ch;
-  88              		.loc 1 25 5 is_stmt 1 view .LVU6
-  25:App/app.cpp   ****     return ch;
-  89              		.loc 1 25 22 is_stmt 0 view .LVU7
-  90 0006 4FF0FF33 		mov	r3, #-1
-  91 000a 0122     		movs	r2, #1
-  92 000c 01A9     		add	r1, sp, #4
-  93 000e 0348     		ldr	r0, .L7
-  94              	.LVL3:
-  25:App/app.cpp   ****     return ch;
-  95              		.loc 1 25 22 view .LVU8
-  96 0010 FFF7FEFF 		bl	HAL_UART_Transmit
-  97              	.LVL4:
-  26:App/app.cpp   **** }
-  98              		.loc 1 26 5 is_stmt 1 view .LVU9
-  27:App/app.cpp   **** #ifdef __cplusplus
-  99              		.loc 1 27 1 is_stmt 0 view .LVU10
- 100 0014 0198     		ldr	r0, [sp, #4]
- 101 0016 03B0     		add	sp, sp, #12
- 102              	.LCFI3:
- 103              		.cfi_def_cfa_offset 4
- 104              		@ sp needed
- 105 0018 5DF804FB 		ldr	pc, [sp], #4
- 106              	.L8:
- 107              		.align	2
- 108              	.L7:
- 109 001c 00000000 		.word	huart2
- 110              		.cfi_endproc
- 111              	.LFE66:
- 112              		.fnend
- 114              		.section	.text.setup,"ax",%progbits
- 115              		.align	1
- 116              		.global	setup
- 117              		.syntax unified
- 118              		.thumb
- 119              		.thumb_func
- 121              	setup:
- 122              		.fnstart
- 123              	.LFB67:
-  56:App/app.cpp   ****     HAL_Delay(1000);
- 124              		.loc 1 56 1 is_stmt 1 view -0
- 125              		.cfi_startproc
- 126              		@ args = 0, pretend = 0, frame = 0
- 127              		@ frame_needed = 0, uses_anonymous_args = 0
- 128 0000 10B5     		push	{r4, lr}
- 129              		.save {r4, lr}
- 130              	.LCFI4:
- 131              		.cfi_def_cfa_offset 8
- 132              		.cfi_offset 4, -8
- 133              		.cfi_offset 14, -4
- 134              		.pad #8
- 135 0002 82B0     		sub	sp, sp, #8
- 136              	.LCFI5:
- 137              		.cfi_def_cfa_offset 16
-  57:App/app.cpp   **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 6
-
-
- 138              		.loc 1 57 5 view .LVU12
-  57:App/app.cpp   **** 
- 139              		.loc 1 57 14 is_stmt 0 view .LVU13
- 140 0004 4FF47A70 		mov	r0, #1000
- 141 0008 FFF7FEFF 		bl	HAL_Delay
- 142              	.LVL5:
-  59:App/app.cpp   ****     led.startCallbackClock();
- 143              		.loc 1 59 5 is_stmt 1 view .LVU14
-  59:App/app.cpp   ****     led.startCallbackClock();
- 144              		.loc 1 59 13 is_stmt 0 view .LVU15
- 145 000c 0A4C     		ldr	r4, .L11
- 146 000e 0221     		movs	r1, #2
- 147 0010 2046     		mov	r0, r4
- 148 0012 FFF7FEFF 		bl	_ZN7WS2812B4initEh
- 149              	.LVL6:
-  60:App/app.cpp   **** 
- 150              		.loc 1 60 5 is_stmt 1 view .LVU16
-  60:App/app.cpp   **** 
- 151              		.loc 1 60 27 is_stmt 0 view .LVU17
- 152 0016 2046     		mov	r0, r4
- 153 0018 FFF7FEFF 		bl	_ZN7WS2812B18startCallbackClockEv
- 154              	.LVL7:
-  62:App/app.cpp   ****     modbusClient.request(0x01, 0x03, 0x00, 0x02);
- 155              		.loc 1 62 5 is_stmt 1 view .LVU18
-  62:App/app.cpp   ****     modbusClient.request(0x01, 0x03, 0x00, 0x02);
- 156              		.loc 1 62 22 is_stmt 0 view .LVU19
- 157 001c 074C     		ldr	r4, .L11+4
- 158 001e 2046     		mov	r0, r4
- 159 0020 FFF7FEFF 		bl	_ZN9ModbusRTU4initEv
- 160              	.LVL8:
-  63:App/app.cpp   **** }
- 161              		.loc 1 63 5 is_stmt 1 view .LVU20
-  63:App/app.cpp   **** }
- 162              		.loc 1 63 25 is_stmt 0 view .LVU21
- 163 0024 0223     		movs	r3, #2
- 164 0026 0093     		str	r3, [sp]
- 165 0028 0023     		movs	r3, #0
- 166 002a 0322     		movs	r2, #3
- 167 002c 0121     		movs	r1, #1
- 168 002e 2046     		mov	r0, r4
- 169 0030 FFF7FEFF 		bl	_ZN9ModbusRTU7requestEhhtt
- 170              	.LVL9:
-  64:App/app.cpp   **** 
- 171              		.loc 1 64 1 view .LVU22
- 172 0034 02B0     		add	sp, sp, #8
- 173              	.LCFI6:
- 174              		.cfi_def_cfa_offset 8
- 175              		@ sp needed
- 176 0036 10BD     		pop	{r4, pc}
- 177              	.L12:
- 178              		.align	2
- 179              	.L11:
- 180 0038 00000000 		.word	led
- 181 003c 00000000 		.word	modbusClient
- 182              		.cfi_endproc
- 183              	.LFE67:
- 184              		.fnend
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 7
-
-
- 186              		.section	.text.loop,"ax",%progbits
- 187              		.align	1
- 188              		.global	loop
- 189              		.syntax unified
- 190              		.thumb
- 191              		.thumb_func
- 193              	loop:
- 194              		.fnstart
- 195              	.LFB68:
-  73:App/app.cpp   ****     if (!valueChanged)
- 196              		.loc 1 73 1 is_stmt 1 view -0
- 197              		.cfi_startproc
- 198              		@ args = 0, pretend = 0, frame = 0
- 199              		@ frame_needed = 0, uses_anonymous_args = 0
- 200 0000 38B5     		push	{r3, r4, r5, lr}
- 201              		.save {r3, r4, r5, lr}
- 202              	.LCFI7:
- 203              		.cfi_def_cfa_offset 16
- 204              		.cfi_offset 3, -16
- 205              		.cfi_offset 4, -12
- 206              		.cfi_offset 5, -8
- 207              		.cfi_offset 14, -4
-  74:App/app.cpp   ****         return;
- 208              		.loc 1 74 5 view .LVU24
-  74:App/app.cpp   ****         return;
- 209              		.loc 1 74 9 is_stmt 0 view .LVU25
- 210 0002 3A4B     		ldr	r3, .L28
- 211 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  74:App/app.cpp   ****         return;
- 212              		.loc 1 74 5 view .LVU26
- 213 0006 03B9     		cbnz	r3, .L26
- 214              	.L13:
- 115:App/app.cpp   **** 
- 215              		.loc 1 115 1 view .LVU27
- 216 0008 38BD     		pop	{r3, r4, r5, pc}
- 217              	.L26:
-  77:App/app.cpp   **** 
- 218              		.loc 1 77 5 is_stmt 1 view .LVU28
-  77:App/app.cpp   **** 
- 219              		.loc 1 77 26 is_stmt 0 view .LVU29
- 220 000a 3948     		ldr	r0, .L28+4
- 221 000c FFF7FEFF 		bl	_ZN7WS2812B17stopCallbackClockEv
- 222              	.LVL10:
-  79:App/app.cpp   ****         modbusClient.receiveBuffer[4] != volt_LSB ||
- 223              		.loc 1 79 5 is_stmt 1 view .LVU30
-  79:App/app.cpp   ****         modbusClient.receiveBuffer[4] != volt_LSB ||
- 224              		.loc 1 79 22 is_stmt 0 view .LVU31
- 225 0010 384B     		ldr	r3, .L28+8
- 226 0012 1B68     		ldr	r3, [r3]
-  79:App/app.cpp   ****         modbusClient.receiveBuffer[4] != volt_LSB ||
- 227              		.loc 1 79 37 view .LVU32
- 228 0014 DA78     		ldrb	r2, [r3, #3]	@ zero_extendqisi2
-  79:App/app.cpp   ****         modbusClient.receiveBuffer[4] != volt_LSB ||
- 229              		.loc 1 79 39 view .LVU33
- 230 0016 3849     		ldr	r1, .L28+12
- 231 0018 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
-  79:App/app.cpp   ****         modbusClient.receiveBuffer[4] != volt_LSB ||
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 8
-
-
- 232              		.loc 1 79 5 view .LVU34
- 233 001a 8A42     		cmp	r2, r1
- 234 001c 37D0     		beq	.L27
- 235              	.L15:
-  84:App/app.cpp   ****         volt_LSB = modbusClient.receiveBuffer[4];
- 236              		.loc 1 84 9 is_stmt 1 view .LVU35
-  84:App/app.cpp   ****         volt_LSB = modbusClient.receiveBuffer[4];
- 237              		.loc 1 84 18 is_stmt 0 view .LVU36
- 238 001e 3649     		ldr	r1, .L28+12
- 239 0020 0A70     		strb	r2, [r1]
-  85:App/app.cpp   ****         curr_MSB = modbusClient.receiveBuffer[5];
- 240              		.loc 1 85 9 is_stmt 1 view .LVU37
-  85:App/app.cpp   ****         curr_MSB = modbusClient.receiveBuffer[5];
- 241              		.loc 1 85 18 is_stmt 0 view .LVU38
- 242 0022 1979     		ldrb	r1, [r3, #4]	@ zero_extendqisi2
- 243 0024 354A     		ldr	r2, .L28+16
- 244 0026 1170     		strb	r1, [r2]
-  86:App/app.cpp   ****         curr_LSB = modbusClient.receiveBuffer[6];
- 245              		.loc 1 86 9 is_stmt 1 view .LVU39
-  86:App/app.cpp   ****         curr_LSB = modbusClient.receiveBuffer[6];
- 246              		.loc 1 86 18 is_stmt 0 view .LVU40
- 247 0028 5979     		ldrb	r1, [r3, #5]	@ zero_extendqisi2
- 248 002a 354A     		ldr	r2, .L28+20
- 249 002c 1170     		strb	r1, [r2]
-  87:App/app.cpp   ****     }
- 250              		.loc 1 87 9 is_stmt 1 view .LVU41
-  87:App/app.cpp   ****     }
- 251              		.loc 1 87 18 is_stmt 0 view .LVU42
- 252 002e 9A79     		ldrb	r2, [r3, #6]	@ zero_extendqisi2
- 253 0030 344B     		ldr	r3, .L28+24
- 254 0032 1A70     		strb	r2, [r3]
- 255              	.L16:
-  91:App/app.cpp   ****     uint16_t curr = ((uint16_t)curr_MSB << 8) | ((uint16_t)curr_LSB << 0);
- 256              		.loc 1 91 5 is_stmt 1 view .LVU43
-  91:App/app.cpp   ****     uint16_t curr = ((uint16_t)curr_MSB << 8) | ((uint16_t)curr_LSB << 0);
- 257              		.loc 1 91 47 is_stmt 0 view .LVU44
- 258 0034 304B     		ldr	r3, .L28+12
- 259 0036 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 260 0038 304B     		ldr	r3, .L28+16
- 261 003a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  91:App/app.cpp   ****     uint16_t curr = ((uint16_t)curr_MSB << 8) | ((uint16_t)curr_LSB << 0);
- 262              		.loc 1 91 14 view .LVU45
- 263 003c 43EA0223 		orr	r3, r3, r2, lsl #8
- 264              	.LVL11:
-  92:App/app.cpp   ****     uint32_t ledColor;
- 265              		.loc 1 92 5 is_stmt 1 view .LVU46
+  89:App/app.cpp   ****     // if (!valueChanged)
+  90:App/app.cpp   ****     //     return;
+  91:App/app.cpp   **** 
+  92:App/app.cpp   ****     // led.stopCallbackClock();
   93:App/app.cpp   **** 
- 266              		.loc 1 93 5 view .LVU47
-  95:App/app.cpp   ****         ledColor = 0x0000FF;
- 267              		.loc 1 95 5 view .LVU48
- 268 0040 B3F5FA7F 		cmp	r3, #500
- 269 0044 33D9     		bls	.L18
-  97:App/app.cpp   ****         ledColor = 0x00FFFF;
- 270              		.loc 1 97 10 view .LVU49
-  97:App/app.cpp   ****         ledColor = 0x00FFFF;
- 271              		.loc 1 97 14 is_stmt 0 view .LVU50
- 272 0046 A3F5FA72 		sub	r2, r3, #500
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 9
-
-
- 273 004a 92B2     		uxth	r2, r2
-  97:App/app.cpp   ****         ledColor = 0x00FFFF;
- 274              		.loc 1 97 10 view .LVU51
- 275 004c B2F5FA7F 		cmp	r2, #500
- 276 0050 3FD9     		bls	.L19
-  99:App/app.cpp   ****         ledColor = 0xFFFF00;
- 277              		.loc 1 99 10 is_stmt 1 view .LVU52
-  99:App/app.cpp   ****         ledColor = 0xFFFF00;
- 278              		.loc 1 99 14 is_stmt 0 view .LVU53
- 279 0052 A3F57A72 		sub	r2, r3, #1000
- 280 0056 92B2     		uxth	r2, r2
-  99:App/app.cpp   ****         ledColor = 0xFFFF00;
- 281              		.loc 1 99 10 view .LVU54
- 282 0058 B2F5FA7F 		cmp	r2, #500
- 283 005c 3CD9     		bls	.L20
- 101:App/app.cpp   ****         ledColor = 0xFF6600;
- 284              		.loc 1 101 10 is_stmt 1 view .LVU55
- 101:App/app.cpp   ****         ledColor = 0xFF6600;
- 285              		.loc 1 101 14 is_stmt 0 view .LVU56
- 286 005e A3F2DC52 		subw	r2, r3, #1500
- 287 0062 92B2     		uxth	r2, r2
- 101:App/app.cpp   ****         ledColor = 0xFF6600;
- 288              		.loc 1 101 10 view .LVU57
- 289 0064 B2F5FA7F 		cmp	r2, #500
- 290 0068 38D9     		bls	.L21
- 103:App/app.cpp   ****         ledColor = 0xFF1F00;
- 291              		.loc 1 103 10 is_stmt 1 view .LVU58
- 103:App/app.cpp   ****         ledColor = 0xFF1F00;
- 292              		.loc 1 103 14 is_stmt 0 view .LVU59
- 293 006a A3F5FA62 		sub	r2, r3, #2000
- 294 006e 92B2     		uxth	r2, r2
- 103:App/app.cpp   ****         ledColor = 0xFF1F00;
- 295              		.loc 1 103 10 view .LVU60
- 296 0070 B2F5FA7F 		cmp	r2, #500
- 297 0074 34D9     		bls	.L22
- 105:App/app.cpp   ****         ledColor = 0xFF0000;
- 298              		.loc 1 105 10 is_stmt 1 view .LVU61
- 105:App/app.cpp   ****         ledColor = 0xFF0000;
- 299              		.loc 1 105 14 is_stmt 0 view .LVU62
- 300 0076 A3F6C412 		subw	r2, r3, #2500
- 301 007a 92B2     		uxth	r2, r2
- 105:App/app.cpp   ****         ledColor = 0xFF0000;
- 302              		.loc 1 105 10 view .LVU63
- 303 007c B2F5FA7F 		cmp	r2, #500
- 304 0080 30D9     		bls	.L23
- 107:App/app.cpp   ****         ledColor = 0x1100FF;
- 305              		.loc 1 107 10 is_stmt 1 view .LVU64
- 306 0082 40F6B832 		movw	r2, #3000
- 307 0086 9342     		cmp	r3, r2
- 308 0088 12D9     		bls	.L17
- 108:App/app.cpp   **** 
- 309              		.loc 1 108 18 is_stmt 0 view .LVU65
- 310 008a 1F4D     		ldr	r5, .L28+28
- 311 008c 10E0     		b	.L17
- 312              	.LVL12:
- 313              	.L27:
-  80:App/app.cpp   ****         modbusClient.receiveBuffer[5] != curr_MSB ||
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 10
-
-
- 314              		.loc 1 80 37 view .LVU66
- 315 008e 1879     		ldrb	r0, [r3, #4]	@ zero_extendqisi2
-  80:App/app.cpp   ****         modbusClient.receiveBuffer[5] != curr_MSB ||
- 316              		.loc 1 80 39 view .LVU67
- 317 0090 1A49     		ldr	r1, .L28+16
- 318 0092 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
-  79:App/app.cpp   ****         modbusClient.receiveBuffer[4] != volt_LSB ||
- 319              		.loc 1 79 51 discriminator 1 view .LVU68
- 320 0094 8842     		cmp	r0, r1
- 321 0096 C2D1     		bne	.L15
-  81:App/app.cpp   ****         modbusClient.receiveBuffer[6] != curr_LSB)
- 322              		.loc 1 81 37 view .LVU69
- 323 0098 5879     		ldrb	r0, [r3, #5]	@ zero_extendqisi2
-  81:App/app.cpp   ****         modbusClient.receiveBuffer[6] != curr_LSB)
- 324              		.loc 1 81 39 view .LVU70
- 325 009a 1949     		ldr	r1, .L28+20
- 326 009c 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
-  80:App/app.cpp   ****         modbusClient.receiveBuffer[5] != curr_MSB ||
- 327              		.loc 1 80 51 view .LVU71
- 328 009e 8842     		cmp	r0, r1
- 329 00a0 BDD1     		bne	.L15
-  82:App/app.cpp   ****     {
- 330              		.loc 1 82 37 view .LVU72
- 331 00a2 9879     		ldrb	r0, [r3, #6]	@ zero_extendqisi2
-  82:App/app.cpp   ****     {
- 332              		.loc 1 82 39 view .LVU73
- 333 00a4 1749     		ldr	r1, .L28+24
- 334 00a6 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
-  81:App/app.cpp   ****         modbusClient.receiveBuffer[6] != curr_LSB)
- 335              		.loc 1 81 51 view .LVU74
- 336 00a8 8842     		cmp	r0, r1
- 337 00aa B8D1     		bne	.L15
- 338 00ac C2E7     		b	.L16
- 339              	.LVL13:
- 340              	.L18:
-  96:App/app.cpp   ****     else if (__inProximity(volt, 750, 250))
- 341              		.loc 1 96 18 view .LVU75
- 342 00ae FF25     		movs	r5, #255
- 343              	.L17:
- 344              	.LVL14:
- 110:App/app.cpp   ****     led.render();
- 345              		.loc 1 110 5 is_stmt 1 view .LVU76
- 110:App/app.cpp   ****     led.render();
- 346              		.loc 1 110 19 is_stmt 0 view .LVU77
- 347 00b0 0F4C     		ldr	r4, .L28+4
- 348 00b2 3B23     		movs	r3, #59
- 349              	.LVL15:
- 110:App/app.cpp   ****     led.render();
- 350              		.loc 1 110 19 view .LVU78
- 351 00b4 0022     		movs	r2, #0
- 352 00b6 2946     		mov	r1, r5
- 353 00b8 2046     		mov	r0, r4
- 354 00ba FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
- 355              	.LVL16:
- 111:App/app.cpp   **** 
- 356              		.loc 1 111 5 is_stmt 1 view .LVU79
- 111:App/app.cpp   **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 11
-
-
- 357              		.loc 1 111 15 is_stmt 0 view .LVU80
- 358 00be 2046     		mov	r0, r4
- 359 00c0 FFF7FEFF 		bl	_ZN7WS2812B6renderEv
- 360              	.LVL17:
- 113:App/app.cpp   ****     led.startCallbackClock();
- 361              		.loc 1 113 5 is_stmt 1 view .LVU81
- 113:App/app.cpp   ****     led.startCallbackClock();
- 362              		.loc 1 113 18 is_stmt 0 view .LVU82
- 363 00c4 094B     		ldr	r3, .L28
- 364 00c6 0022     		movs	r2, #0
- 365 00c8 1A70     		strb	r2, [r3]
- 114:App/app.cpp   **** }
- 366              		.loc 1 114 5 is_stmt 1 view .LVU83
- 114:App/app.cpp   **** }
- 367              		.loc 1 114 27 is_stmt 0 view .LVU84
- 368 00ca 2046     		mov	r0, r4
- 369 00cc FFF7FEFF 		bl	_ZN7WS2812B18startCallbackClockEv
- 370              	.LVL18:
- 371 00d0 9AE7     		b	.L13
- 372              	.LVL19:
- 373              	.L19:
-  98:App/app.cpp   ****     else if (__inProximity(volt, 1250, 250))
- 374              		.loc 1 98 18 view .LVU85
- 375 00d2 4FF6FF75 		movw	r5, #65535
- 376 00d6 EBE7     		b	.L17
- 377              	.L20:
- 100:App/app.cpp   ****     else if (__inProximity(volt, 1750, 250))
- 378              		.loc 1 100 18 view .LVU86
- 379 00d8 0C4D     		ldr	r5, .L28+32
- 380 00da E9E7     		b	.L17
- 381              	.L21:
- 102:App/app.cpp   ****     else if (__inProximity(volt, 2250, 250))
- 382              		.loc 1 102 18 view .LVU87
- 383 00dc 0C4D     		ldr	r5, .L28+36
- 384 00de E7E7     		b	.L17
- 385              	.L22:
- 104:App/app.cpp   ****     else if (__inProximity(volt, 2750, 250))
- 386              		.loc 1 104 18 view .LVU88
- 387 00e0 0C4D     		ldr	r5, .L28+40
- 388 00e2 E5E7     		b	.L17
- 389              	.L23:
- 106:App/app.cpp   ****     else if (volt > 3000)
- 390              		.loc 1 106 18 view .LVU89
- 391 00e4 4FF47F05 		mov	r5, #16711680
- 392 00e8 E2E7     		b	.L17
- 393              	.L29:
- 394 00ea 00BF     		.align	2
- 395              	.L28:
- 396 00ec 00000000 		.word	valueChanged
- 397 00f0 00000000 		.word	led
- 398 00f4 00000000 		.word	modbusClient
- 399 00f8 00000000 		.word	volt_MSB
- 400 00fc 00000000 		.word	volt_LSB
- 401 0100 00000000 		.word	curr_MSB
- 402 0104 00000000 		.word	curr_LSB
- 403 0108 FF001100 		.word	1114367
- 404 010c 00FFFF00 		.word	16776960
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 12
-
-
- 405 0110 0066FF00 		.word	16737792
- 406 0114 001FFF00 		.word	16719616
- 407              		.cfi_endproc
- 408              	.LFE68:
- 409              		.fnend
- 411              		.section	.text.HAL_TIM_PWM_PulseFinishedCallback,"ax",%progbits
- 412              		.align	1
- 413              		.global	HAL_TIM_PWM_PulseFinishedCallback
- 414              		.syntax unified
- 415              		.thumb
- 416              		.thumb_func
- 418              	HAL_TIM_PWM_PulseFinishedCallback:
- 419              		.fnstart
- 420              	.LVL20:
- 421              	.LFB69:
- 124:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
- 422              		.loc 1 124 1 is_stmt 1 view -0
- 423              		.cfi_startproc
- 424              		@ args = 0, pretend = 0, frame = 0
- 425              		@ frame_needed = 0, uses_anonymous_args = 0
- 124:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
- 426              		.loc 1 124 1 is_stmt 0 view .LVU91
- 427 0000 08B5     		push	{r3, lr}
- 428              		.save {r3, lr}
- 429              	.LCFI8:
- 430              		.cfi_def_cfa_offset 8
- 431              		.cfi_offset 3, -8
- 432              		.cfi_offset 14, -4
- 125:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
- 433              		.loc 1 125 5 is_stmt 1 view .LVU92
- 125:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
- 434              		.loc 1 125 25 is_stmt 0 view .LVU93
- 435 0002 0021     		movs	r1, #0
- 436 0004 0348     		ldr	r0, .L32
- 437              	.LVL21:
- 125:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
- 438              		.loc 1 125 25 view .LVU94
- 439 0006 FFF7FEFF 		bl	HAL_TIM_PWM_Stop_DMA
- 440              	.LVL22:
- 126:App/app.cpp   **** }
- 441              		.loc 1 126 5 is_stmt 1 view .LVU95
- 126:App/app.cpp   **** }
- 442              		.loc 1 126 22 is_stmt 0 view .LVU96
- 443 000a 034B     		ldr	r3, .L32+4
- 444 000c 0122     		movs	r2, #1
- 445 000e 1A70     		strb	r2, [r3]
+  94:App/app.cpp   ****     // if (modbusClient.receiveBuffer[3] != volt_MSB ||
+  95:App/app.cpp   ****     //     modbusClient.receiveBuffer[4] != volt_LSB ||
+  96:App/app.cpp   ****     //     modbusClient.receiveBuffer[5] != curr_MSB ||
+  97:App/app.cpp   ****     //     modbusClient.receiveBuffer[6] != curr_LSB)
+  98:App/app.cpp   ****     // {
+  99:App/app.cpp   ****     //     volt_MSB = modbusClient.receiveBuffer[3];
+ 100:App/app.cpp   ****     //     volt_LSB = modbusClient.receiveBuffer[4];
+ 101:App/app.cpp   ****     //     curr_MSB = modbusClient.receiveBuffer[5];
+ 102:App/app.cpp   ****     //     curr_LSB = modbusClient.receiveBuffer[6];
+ 103:App/app.cpp   ****     // }
+ 104:App/app.cpp   **** 
+ 105:App/app.cpp   **** 
+ 106:App/app.cpp   ****     // uint16_t volt = ((uint16_t)volt_MSB << 8) | ((uint16_t)volt_LSB << 0);
+ 107:App/app.cpp   ****     // uint16_t curr = ((uint16_t)curr_MSB << 8) | ((uint16_t)curr_LSB << 0);
+ 108:App/app.cpp   ****     // uint32_t ledColor;
+ 109:App/app.cpp   **** 
+ 110:App/app.cpp   ****     // if (__inProximity(volt, 250, 250))
+ 111:App/app.cpp   ****     //     ledColor = 0x0000FF;
+ 112:App/app.cpp   ****     // else if (__inProximity(volt, 750, 250))
+ 113:App/app.cpp   ****     //     ledColor = 0x00FFFF;
+ 114:App/app.cpp   ****     // else if (__inProximity(volt, 1250, 250))
+ 115:App/app.cpp   ****     //     ledColor = 0xFFFF00;
+ 116:App/app.cpp   ****     // else if (__inProximity(volt, 1750, 250))
+ 117:App/app.cpp   ****     //     ledColor = 0xFF6600;
+ 118:App/app.cpp   ****     // else if (__inProximity(volt, 2250, 250))
+ 119:App/app.cpp   ****     //     ledColor = 0xFF1F00;
+ 120:App/app.cpp   ****     // else if (__inProximity(volt, 2750, 250))
+ 121:App/app.cpp   ****     //     ledColor = 0xFF0000;
+ 122:App/app.cpp   ****     // else if (volt > 3000)
+ 123:App/app.cpp   ****     //     ledColor = 0x1100FF;
+ 124:App/app.cpp   **** 
+ 125:App/app.cpp   **** //     led.solidColor(ledColor, 0, 59);
+ 126:App/app.cpp   **** //     led.render();
  127:App/app.cpp   **** 
- 446              		.loc 1 127 1 view .LVU97
- 447 0010 08BD     		pop	{r3, pc}
- 448              	.L33:
- 449 0012 00BF     		.align	2
- 450              	.L32:
- 451 0014 00000000 		.word	htim1
- 452 0018 00000000 		.word	led
- 453              		.cfi_endproc
- 454              	.LFE69:
- 455              		.fnend
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 13
+ 128:App/app.cpp   **** //     valueChanged = 0;
+ 129:App/app.cpp   **** //     led.startCallbackClock();
+ 130:App/app.cpp   **** 
+ 131:App/app.cpp   ****     // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+ 132:App/app.cpp   ****     // while(led.transition());
+ 133:App/app.cpp   ****     // HAL_Delay(1000);
+ 134:App/app.cpp   ****     // led.gradient2Colors(0xFF0000, 0, 0x00FFFF, 59);
+ 135:App/app.cpp   ****     // led.transition();
+ 136:App/app.cpp   ****     // HAL_Delay(1000);
+ 137:App/app.cpp   **** 
+ 138:App/app.cpp   ****     // led.gradient2Colors(0xFF0000, 0, 0x000000, 59);
+ 139:App/app.cpp   ****     // led.transition(transitionTick, 50);
+ 140:App/app.cpp   ****     // transitionTick++;
+ 141:App/app.cpp   ****     // for (int i = 0; i < led._ledsCount; i++)
+ 142:App/app.cpp   ****     //     printf("%f ", led._transStep[i]);
+ 143:App/app.cpp   ****     // printf("\n");
+ 144:App/app.cpp   **** 
+ 145:App/app.cpp   ****     // float val = 19.3123f;
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 4
 
 
- 457              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
- 458              		.align	1
- 459              		.global	HAL_TIM_PeriodElapsedCallback
- 460              		.syntax unified
- 461              		.thumb
- 462              		.thumb_func
- 464              	HAL_TIM_PeriodElapsedCallback:
- 465              		.fnstart
- 466              	.LVL23:
- 467              	.LFB70:
- 132:App/app.cpp   ****     callbackCounter++;
- 468              		.loc 1 132 1 is_stmt 1 view -0
- 469              		.cfi_startproc
- 470              		@ args = 0, pretend = 0, frame = 16
- 471              		@ frame_needed = 0, uses_anonymous_args = 0
- 133:App/app.cpp   ****     if (callbackCounter < CALLED_TIMES_UNTIL_TRIGGERED)
- 472              		.loc 1 133 5 view .LVU99
- 133:App/app.cpp   ****     if (callbackCounter < CALLED_TIMES_UNTIL_TRIGGERED)
- 473              		.loc 1 133 20 is_stmt 0 view .LVU100
- 474 0000 144A     		ldr	r2, .L41
- 475 0002 1388     		ldrh	r3, [r2]
- 476 0004 0133     		adds	r3, r3, #1
- 477 0006 9BB2     		uxth	r3, r3
- 478 0008 1380     		strh	r3, [r2]	@ movhi
- 134:App/app.cpp   ****         return;
- 479              		.loc 1 134 5 is_stmt 1 view .LVU101
- 480 000a 41F66902 		movw	r2, #6249
- 481 000e 9342     		cmp	r3, r2
- 482 0010 00D8     		bhi	.L40
- 483 0012 7047     		bx	lr
- 484              	.L40:
- 132:App/app.cpp   ****     callbackCounter++;
- 485              		.loc 1 132 1 is_stmt 0 view .LVU102
- 486 0014 00B5     		push	{lr}
- 487              		.save {lr}
- 488              	.LCFI9:
- 489              		.cfi_def_cfa_offset 4
- 490              		.cfi_offset 14, -4
- 491              		.pad #28
- 492 0016 87B0     		sub	sp, sp, #28
- 493              	.LCFI10:
- 494              		.cfi_def_cfa_offset 32
- 137:App/app.cpp   ****     valueChanged = 1;
- 495              		.loc 1 137 5 is_stmt 1 view .LVU103
- 137:App/app.cpp   ****     valueChanged = 1;
- 496              		.loc 1 137 25 is_stmt 0 view .LVU104
- 497 0018 0223     		movs	r3, #2
- 498 001a 0093     		str	r3, [sp]
- 499 001c 0322     		movs	r2, #3
- 500 001e 0121     		movs	r1, #1
- 501 0020 0D48     		ldr	r0, .L41+4
- 502              	.LVL24:
- 137:App/app.cpp   ****     valueChanged = 1;
- 503              		.loc 1 137 25 view .LVU105
- 504 0022 FFF7FEFF 		bl	_ZN9ModbusRTU7requestEhhtt
- 505              	.LVL25:
- 138:App/app.cpp   ****     callbackCounter = 0;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 14
+ 146:App/app.cpp   ****     led.transition();
+ 147:App/app.cpp   ****     HAL_Delay(10);
+ 148:App/app.cpp   ****     for (int i = 0; i < led._ledsCount; i++)
+ 149:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 150:App/app.cpp   ****     printf("\n");
+ 151:App/app.cpp   ****     // printf("%f\n", val);
+ 152:App/app.cpp   **** }
+ 153:App/app.cpp   **** 
+ 154:App/app.cpp   **** 
+ 155:App/app.cpp   **** /*
+ 156:App/app.cpp   **** =====================================================================
+ 157:App/app.cpp   ****     CALLBACKS
+ 158:App/app.cpp   **** =====================================================================
+ 159:App/app.cpp   **** */
+ 160:App/app.cpp   **** void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
+ 161:App/app.cpp   **** {
+ 162:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+ 163:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
+ 164:App/app.cpp   **** }
+ 165:App/app.cpp   **** 
+ 166:App/app.cpp   **** #define CALLED_TIMES_UNTIL_TRIGGERED (3125 * 2) // 2-second callback
+ 167:App/app.cpp   **** uint16_t callbackCounter = 0;
+ 168:App/app.cpp   **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+ 169:App/app.cpp   **** {
+ 170:App/app.cpp   ****     callbackCounter++;
+ 171:App/app.cpp   ****     if (callbackCounter < CALLED_TIMES_UNTIL_TRIGGERED)
+ 172:App/app.cpp   ****         return;
+ 173:App/app.cpp   **** 
+ 174:App/app.cpp   ****     modbusClient.request(0x01, MODBUS_RTU_READ_HOLDING_REGISTERS, 0x0002, 0x02);
+ 175:App/app.cpp   ****     valueChanged = 1;
+ 176:App/app.cpp   ****     callbackCounter = 0;
+ 177:App/app.cpp   **** 
+ 178:App/app.cpp   ****     __STM32flipGPIO(PC13);
+ 179:App/app.cpp   **** }
+  28              		.loc 1 179 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 179 1 is_stmt 0 view .LVU1
+  33 0000 0128     		cmp	r0, #1
+  34 0002 00D0     		beq	.L7
+  35 0004 7047     		bx	lr
+  36              	.L7:
+  37              		.loc 1 179 1 discriminator 1 view .LVU2
+  38 0006 08B5     		push	{r3, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 3, -8
+  42              		.cfi_offset 14, -4
+  43              		.loc 1 179 1 discriminator 1 view .LVU3
+  44 0008 4FF6FF73 		movw	r3, #65535
+  45 000c 9942     		cmp	r1, r3
+  46 000e 00D0     		beq	.L8
+  47              	.LVL1:
+  48              	.L1:
+  49              		.loc 1 179 1 view .LVU4
+  50 0010 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 5
 
 
- 506              		.loc 1 138 5 is_stmt 1 view .LVU106
- 138:App/app.cpp   ****     callbackCounter = 0;
- 507              		.loc 1 138 18 is_stmt 0 view .LVU107
- 508 0026 0D4B     		ldr	r3, .L41+8
- 509 0028 0122     		movs	r2, #1
- 510 002a 1A70     		strb	r2, [r3]
- 139:App/app.cpp   **** 
- 511              		.loc 1 139 5 is_stmt 1 view .LVU108
- 139:App/app.cpp   **** 
- 512              		.loc 1 139 21 is_stmt 0 view .LVU109
- 513 002c 094B     		ldr	r3, .L41
- 514 002e 0022     		movs	r2, #0
- 515 0030 1A80     		strh	r2, [r3]	@ movhi
- 141:App/app.cpp   **** }
- 516              		.loc 1 141 5 is_stmt 1 view .LVU110
- 517 0032 0B4B     		ldr	r3, .L41+12
- 518 0034 02AA     		add	r2, sp, #8
- 519 0036 93E80300 		ldm	r3, {r0, r1}
- 520 003a 82E80300 		stm	r2, {r0, r1}
- 521 003e 06AB     		add	r3, sp, #24
- 522 0040 03E90300 		stmdb	r3, {r0, r1}
- 523 0044 4FF40051 		mov	r1, #8192
- 524 0048 0648     		ldr	r0, .L41+16
- 525 004a FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 526              	.LVL26:
- 527              		.loc 1 142 1 is_stmt 0 view .LVU111
- 528 004e 07B0     		add	sp, sp, #28
- 529              	.LCFI11:
- 530              		.cfi_def_cfa_offset 4
- 531              		@ sp needed
- 532 0050 5DF804FB 		ldr	pc, [sp], #4
- 533              	.L42:
- 534              		.align	2
- 535              	.L41:
- 536 0054 00000000 		.word	callbackCounter
- 537 0058 00000000 		.word	modbusClient
- 538 005c 00000000 		.word	valueChanged
- 539 0060 00000000 		.word	.LANCHOR0
- 540 0064 00100140 		.word	1073811456
- 541              		.cfi_endproc
- 542              	.LFE70:
- 543              		.fnend
- 545              		.section	.text._GLOBAL__sub_I___io_putchar,"ax",%progbits
- 546              		.align	1
- 547              		.syntax unified
- 548              		.thumb
- 549              		.thumb_func
- 551              	_GLOBAL__sub_I___io_putchar:
- 552              		.fnstart
- 553              	.LFB72:
- 554              		.loc 1 142 1 is_stmt 1 view -0
- 555              		.cfi_startproc
- 556              		@ args = 0, pretend = 0, frame = 0
- 557              		@ frame_needed = 0, uses_anonymous_args = 0
- 558 0000 08B5     		push	{r3, lr}
- 559              	.LCFI12:
- 560              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 15
+  51              	.LVL2:
+  52              	.L8:
+  41:App/app.cpp   **** 
+  53              		.loc 1 41 9 view .LVU5
+  54 0012 3C23     		movs	r3, #60
+  55 0014 0022     		movs	r2, #0
+  56 0016 0449     		ldr	r1, .L9
+  57              	.LVL3:
+  41:App/app.cpp   **** 
+  58              		.loc 1 41 9 view .LVU6
+  59 0018 0448     		ldr	r0, .L9+4
+  60              	.LVL4:
+  41:App/app.cpp   **** 
+  61              		.loc 1 41 9 view .LVU7
+  62 001a FFF7FEFF 		bl	_ZN7WS2812BC1EP17TIM_HandleTypeDefmt
+  63              	.LVL5:
+  44:App/app.cpp   **** 
+  64              		.loc 1 44 11 view .LVU8
+  65 001e 0449     		ldr	r1, .L9+8
+  66 0020 0448     		ldr	r0, .L9+12
+  67 0022 FFF7FEFF 		bl	_ZN9ModbusRTUC1EP20__UART_HandleTypeDef
+  68              	.LVL6:
+  69              		.loc 1 179 1 view .LVU9
+  70 0026 F3E7     		b	.L1
+  71              	.L10:
+  72              		.align	2
+  73              	.L9:
+  74 0028 00000000 		.word	htim1
+  75 002c 00000000 		.word	led
+  76 0030 00000000 		.word	huart1
+  77 0034 00000000 		.word	modbusClient
+  78              		.cfi_endproc
+  79              	.LFE71:
+  80              		.cantunwind
+  81              		.fnend
+  83              		.section	.text.__io_putchar,"ax",%progbits
+  84              		.align	1
+  85              		.global	__io_putchar
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  90              	__io_putchar:
+  91              		.fnstart
+  92              	.LVL7:
+  93              	.LFB66:
+  23:App/app.cpp   ****     // -------------- Change huart_x to your appropriate Hardware UART/USART
+  94              		.loc 1 23 1 is_stmt 1 view -0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 8
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  23:App/app.cpp   ****     // -------------- Change huart_x to your appropriate Hardware UART/USART
+  98              		.loc 1 23 1 is_stmt 0 view .LVU11
+  99 0000 00B5     		push	{lr}
+ 100              		.save {lr}
+ 101              	.LCFI1:
+ 102              		.cfi_def_cfa_offset 4
+ 103              		.cfi_offset 14, -4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 6
 
 
- 561              		.cfi_offset 3, -8
- 562              		.cfi_offset 14, -4
- 563              		.loc 1 142 1 is_stmt 0 view .LVU113
- 564 0002 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0v
- 565              	.LVL27:
- 566 0006 08BD     		pop	{r3, pc}
- 567              		.cfi_endproc
- 568              	.LFE72:
- 569              		.cantunwind
- 570              		.fnend
- 572              		.section	.init_array,"aw",%init_array
- 573              		.align	2
- 574 0000 00000000 		.word	_GLOBAL__sub_I___io_putchar(target1)
- 575              		.global	callbackCounter
- 576              		.section	.bss.callbackCounter,"aw",%nobits
- 577              		.align	1
- 580              	callbackCounter:
- 581 0000 0000     		.space	2
- 582              		.global	curr_LSB
- 583              		.section	.bss.curr_LSB,"aw",%nobits
- 586              	curr_LSB:
- 587 0000 00       		.space	1
- 588              		.global	curr_MSB
- 589              		.section	.bss.curr_MSB,"aw",%nobits
- 592              	curr_MSB:
- 593 0000 00       		.space	1
- 594              		.global	volt_LSB
- 595              		.section	.bss.volt_LSB,"aw",%nobits
- 598              	volt_LSB:
- 599 0000 00       		.space	1
- 600              		.global	volt_MSB
- 601              		.section	.bss.volt_MSB,"aw",%nobits
- 604              	volt_MSB:
- 605 0000 00       		.space	1
- 606              		.global	valueChanged
- 607              		.section	.bss.valueChanged,"aw",%nobits
- 610              	valueChanged:
- 611 0000 00       		.space	1
- 612              		.global	modbusClient
- 613              		.section	.bss.modbusClient,"aw",%nobits
- 614              		.align	2
- 617              	modbusClient:
- 618 0000 00000000 		.space	20
- 618      00000000 
- 618      00000000 
- 618      00000000 
- 618      00000000 
- 619              		.global	led
- 620              		.section	.bss.led,"aw",%nobits
- 621              		.align	2
- 624              	led:
- 625 0000 00000000 		.space	36
- 625      00000000 
- 625      00000000 
- 625      00000000 
- 625      00000000 
- 626              		.section	.rodata
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 16
+ 104              		.pad #12
+ 105 0002 83B0     		sub	sp, sp, #12
+ 106              	.LCFI2:
+ 107              		.cfi_def_cfa_offset 16
+ 108 0004 0190     		str	r0, [sp, #4]
+  25:App/app.cpp   ****     return ch;
+ 109              		.loc 1 25 5 is_stmt 1 view .LVU12
+  25:App/app.cpp   ****     return ch;
+ 110              		.loc 1 25 22 is_stmt 0 view .LVU13
+ 111 0006 4FF0FF33 		mov	r3, #-1
+ 112 000a 0122     		movs	r2, #1
+ 113 000c 01A9     		add	r1, sp, #4
+ 114 000e 0348     		ldr	r0, .L13
+ 115              	.LVL8:
+  25:App/app.cpp   ****     return ch;
+ 116              		.loc 1 25 22 view .LVU14
+ 117 0010 FFF7FEFF 		bl	HAL_UART_Transmit
+ 118              	.LVL9:
+  26:App/app.cpp   **** }
+ 119              		.loc 1 26 5 is_stmt 1 view .LVU15
+  27:App/app.cpp   **** #ifdef __cplusplus
+ 120              		.loc 1 27 1 is_stmt 0 view .LVU16
+ 121 0014 0198     		ldr	r0, [sp, #4]
+ 122 0016 03B0     		add	sp, sp, #12
+ 123              	.LCFI3:
+ 124              		.cfi_def_cfa_offset 4
+ 125              		@ sp needed
+ 126 0018 5DF804FB 		ldr	pc, [sp], #4
+ 127              	.L14:
+ 128              		.align	2
+ 129              	.L13:
+ 130 001c 00000000 		.word	huart2
+ 131              		.cfi_endproc
+ 132              	.LFE66:
+ 133              		.fnend
+ 135              		.section	.rodata.setup.str1.4,"aMS",%progbits,1
+ 136              		.align	2
+ 137              	.LC1:
+ 138 0000 25782000 		.ascii	"%x \000"
+ 139              		.section	.text.setup,"ax",%progbits
+ 140              		.align	1
+ 141              		.global	setup
+ 142              		.syntax unified
+ 143              		.thumb
+ 144              		.thumb_func
+ 146              	setup:
+ 147              		.fnstart
+ 148              	.LFB67:
+  57:App/app.cpp   ****     HAL_Delay(1000);
+ 149              		.loc 1 57 1 is_stmt 1 view -0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153 0000 10B5     		push	{r4, lr}
+ 154              		.save {r4, lr}
+ 155              	.LCFI4:
+ 156              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 7
 
 
- 627              		.align	2
- 628              		.set	.LANCHOR0,. + 0
- 629              	.LC0:
- 630 0000 00100140 		.word	1073811456
- 631 0004 0020     		.short	8192
- 632 0006 0000     		.space	2
- 633              		.text
- 634              	.Letext0:
- 635              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
- 636              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
- 637              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 638              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
- 639              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 640              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 641              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 642              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 643              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 644              		.file 11 "App/WS2812B/ws2812b.h"
- 645              		.file 12 "App/ModbusRTU/modbusRTU.h"
- 646              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 17
+ 157              		.cfi_offset 4, -8
+ 158              		.cfi_offset 14, -4
+  58:App/app.cpp   **** 
+ 159              		.loc 1 58 5 view .LVU18
+  58:App/app.cpp   **** 
+ 160              		.loc 1 58 14 is_stmt 0 view .LVU19
+ 161 0002 4FF47A70 		mov	r0, #1000
+ 162 0006 FFF7FEFF 		bl	HAL_Delay
+ 163              	.LVL10:
+  60:App/app.cpp   ****     // led.startCallbackClock();
+ 164              		.loc 1 60 5 is_stmt 1 view .LVU20
+  60:App/app.cpp   ****     // led.startCallbackClock();
+ 165              		.loc 1 60 13 is_stmt 0 view .LVU21
+ 166 000a 164C     		ldr	r4, .L19
+ 167 000c 0221     		movs	r1, #2
+ 168 000e 2046     		mov	r0, r4
+ 169 0010 FFF7FEFF 		bl	_ZN7WS2812B4initEh
+ 170              	.LVL11:
+  71:App/app.cpp   ****     led.render();
+ 171              		.loc 1 71 5 is_stmt 1 view .LVU22
+  71:App/app.cpp   ****     led.render();
+ 172              		.loc 1 71 19 is_stmt 0 view .LVU23
+ 173 0014 3B23     		movs	r3, #59
+ 174 0016 0022     		movs	r2, #0
+ 175 0018 4FF47F01 		mov	r1, #16711680
+ 176 001c 2046     		mov	r0, r4
+ 177 001e FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
+ 178              	.LVL12:
+  72:App/app.cpp   ****     for (int i = 0; i < led._ledsCount; i++)
+ 179              		.loc 1 72 5 is_stmt 1 view .LVU24
+  72:App/app.cpp   ****     for (int i = 0; i < led._ledsCount; i++)
+ 180              		.loc 1 72 15 is_stmt 0 view .LVU25
+ 181 0022 2046     		mov	r0, r4
+ 182 0024 FFF7FEFF 		bl	_ZN7WS2812B6renderEv
+ 183              	.LVL13:
+  73:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 184              		.loc 1 73 5 is_stmt 1 view .LVU26
+ 185              	.LBB2:
+  73:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 186              		.loc 1 73 14 is_stmt 0 view .LVU27
+ 187 0028 0024     		movs	r4, #0
+  73:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 188              		.loc 1 73 5 view .LVU28
+ 189 002a 07E0     		b	.L16
+ 190              	.LVL14:
+ 191              	.L17:
+  74:App/app.cpp   ****     printf("\n");
+ 192              		.loc 1 74 9 is_stmt 1 discriminator 3 view .LVU29
+  74:App/app.cpp   ****     printf("\n");
+ 193              		.loc 1 74 27 is_stmt 0 discriminator 3 view .LVU30
+ 194 002c 0D4B     		ldr	r3, .L19
+ 195 002e 9B69     		ldr	r3, [r3, #24]
+  74:App/app.cpp   ****     printf("\n");
+ 196              		.loc 1 74 15 discriminator 3 view .LVU31
+ 197 0030 53F82410 		ldr	r1, [r3, r4, lsl #2]
+ 198 0034 0C48     		ldr	r0, .L19+4
+ 199 0036 FFF7FEFF 		bl	printf
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 8
+
+
+ 200              	.LVL15:
+  73:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 201              		.loc 1 73 5 is_stmt 1 discriminator 3 view .LVU32
+ 202 003a 0134     		adds	r4, r4, #1
+ 203              	.LVL16:
+ 204              	.L16:
+  73:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 205              		.loc 1 73 23 discriminator 1 view .LVU33
+  73:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 206              		.loc 1 73 29 is_stmt 0 discriminator 1 view .LVU34
+ 207 003c 094B     		ldr	r3, .L19
+ 208 003e 1B89     		ldrh	r3, [r3, #8]
+  73:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 209              		.loc 1 73 23 discriminator 1 view .LVU35
+ 210 0040 A342     		cmp	r3, r4
+ 211 0042 F3DC     		bgt	.L17
+ 212              	.LBE2:
+  75:App/app.cpp   ****     HAL_Delay(2000);
+ 213              		.loc 1 75 5 is_stmt 1 view .LVU36
+  75:App/app.cpp   ****     HAL_Delay(2000);
+ 214              		.loc 1 75 11 is_stmt 0 view .LVU37
+ 215 0044 0A20     		movs	r0, #10
+ 216 0046 FFF7FEFF 		bl	putchar
+ 217              	.LVL17:
+  76:App/app.cpp   ****     // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+ 218              		.loc 1 76 5 is_stmt 1 view .LVU38
+  76:App/app.cpp   ****     // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+ 219              		.loc 1 76 14 is_stmt 0 view .LVU39
+ 220 004a 4FF4FA60 		mov	r0, #2000
+ 221 004e FFF7FEFF 		bl	HAL_Delay
+ 222              	.LVL18:
+  78:App/app.cpp   **** }
+ 223              		.loc 1 78 5 is_stmt 1 view .LVU40
+  78:App/app.cpp   **** }
+ 224              		.loc 1 78 19 is_stmt 0 view .LVU41
+ 225 0052 3B23     		movs	r3, #59
+ 226 0054 0022     		movs	r2, #0
+ 227 0056 4FF6FF71 		movw	r1, #65535
+ 228 005a 0248     		ldr	r0, .L19
+ 229 005c FFF7FEFF 		bl	_ZN7WS2812B10solidColorEmtt
+ 230              	.LVL19:
+  79:App/app.cpp   **** 
+ 231              		.loc 1 79 1 view .LVU42
+ 232 0060 10BD     		pop	{r4, pc}
+ 233              	.LVL20:
+ 234              	.L20:
+  79:App/app.cpp   **** 
+ 235              		.loc 1 79 1 view .LVU43
+ 236 0062 00BF     		.align	2
+ 237              	.L19:
+ 238 0064 00000000 		.word	led
+ 239 0068 00000000 		.word	.LC1
+ 240              		.cfi_endproc
+ 241              	.LFE67:
+ 242              		.fnend
+ 244              		.section	.text.loop,"ax",%progbits
+ 245              		.align	1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 9
+
+
+ 246              		.global	loop
+ 247              		.syntax unified
+ 248              		.thumb
+ 249              		.thumb_func
+ 251              	loop:
+ 252              		.fnstart
+ 253              	.LFB68:
+  88:App/app.cpp   ****     // if (!valueChanged)
+ 254              		.loc 1 88 1 is_stmt 1 view -0
+ 255              		.cfi_startproc
+ 256              		@ args = 0, pretend = 0, frame = 0
+ 257              		@ frame_needed = 0, uses_anonymous_args = 0
+ 258 0000 10B5     		push	{r4, lr}
+ 259              		.save {r4, lr}
+ 260              	.LCFI5:
+ 261              		.cfi_def_cfa_offset 8
+ 262              		.cfi_offset 4, -8
+ 263              		.cfi_offset 14, -4
+ 146:App/app.cpp   ****     HAL_Delay(10);
+ 264              		.loc 1 146 5 view .LVU45
+ 146:App/app.cpp   ****     HAL_Delay(10);
+ 265              		.loc 1 146 19 is_stmt 0 view .LVU46
+ 266 0002 0C48     		ldr	r0, .L25
+ 267 0004 FFF7FEFF 		bl	_ZN7WS2812B10transitionEv
+ 268              	.LVL21:
+ 147:App/app.cpp   ****     for (int i = 0; i < led._ledsCount; i++)
+ 269              		.loc 1 147 5 is_stmt 1 view .LVU47
+ 147:App/app.cpp   ****     for (int i = 0; i < led._ledsCount; i++)
+ 270              		.loc 1 147 14 is_stmt 0 view .LVU48
+ 271 0008 0A20     		movs	r0, #10
+ 272 000a FFF7FEFF 		bl	HAL_Delay
+ 273              	.LVL22:
+ 148:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 274              		.loc 1 148 5 is_stmt 1 view .LVU49
+ 275              	.LBB3:
+ 148:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 276              		.loc 1 148 14 is_stmt 0 view .LVU50
+ 277 000e 0024     		movs	r4, #0
+ 148:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 278              		.loc 1 148 5 view .LVU51
+ 279 0010 07E0     		b	.L22
+ 280              	.LVL23:
+ 281              	.L23:
+ 149:App/app.cpp   ****     printf("\n");
+ 282              		.loc 1 149 9 is_stmt 1 discriminator 3 view .LVU52
+ 149:App/app.cpp   ****     printf("\n");
+ 283              		.loc 1 149 27 is_stmt 0 discriminator 3 view .LVU53
+ 284 0012 084B     		ldr	r3, .L25
+ 285 0014 9B69     		ldr	r3, [r3, #24]
+ 149:App/app.cpp   ****     printf("\n");
+ 286              		.loc 1 149 15 discriminator 3 view .LVU54
+ 287 0016 53F82410 		ldr	r1, [r3, r4, lsl #2]
+ 288 001a 0748     		ldr	r0, .L25+4
+ 289 001c FFF7FEFF 		bl	printf
+ 290              	.LVL24:
+ 148:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 291              		.loc 1 148 5 is_stmt 1 discriminator 3 view .LVU55
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 10
+
+
+ 292 0020 0134     		adds	r4, r4, #1
+ 293              	.LVL25:
+ 294              	.L22:
+ 148:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 295              		.loc 1 148 23 discriminator 1 view .LVU56
+ 148:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 296              		.loc 1 148 29 is_stmt 0 discriminator 1 view .LVU57
+ 297 0022 044B     		ldr	r3, .L25
+ 298 0024 1B89     		ldrh	r3, [r3, #8]
+ 148:App/app.cpp   ****         printf("%x ", led._colorData[i]);
+ 299              		.loc 1 148 23 discriminator 1 view .LVU58
+ 300 0026 A342     		cmp	r3, r4
+ 301 0028 F3DC     		bgt	.L23
+ 302              	.LBE3:
+ 150:App/app.cpp   ****     // printf("%f\n", val);
+ 303              		.loc 1 150 5 is_stmt 1 view .LVU59
+ 150:App/app.cpp   ****     // printf("%f\n", val);
+ 304              		.loc 1 150 11 is_stmt 0 view .LVU60
+ 305 002a 0A20     		movs	r0, #10
+ 306 002c FFF7FEFF 		bl	putchar
+ 307              	.LVL26:
+ 152:App/app.cpp   **** 
+ 308              		.loc 1 152 1 view .LVU61
+ 309 0030 10BD     		pop	{r4, pc}
+ 310              	.LVL27:
+ 311              	.L26:
+ 152:App/app.cpp   **** 
+ 312              		.loc 1 152 1 view .LVU62
+ 313 0032 00BF     		.align	2
+ 314              	.L25:
+ 315 0034 00000000 		.word	led
+ 316 0038 00000000 		.word	.LC1
+ 317              		.cfi_endproc
+ 318              	.LFE68:
+ 319              		.fnend
+ 321              		.section	.text.HAL_TIM_PWM_PulseFinishedCallback,"ax",%progbits
+ 322              		.align	1
+ 323              		.global	HAL_TIM_PWM_PulseFinishedCallback
+ 324              		.syntax unified
+ 325              		.thumb
+ 326              		.thumb_func
+ 328              	HAL_TIM_PWM_PulseFinishedCallback:
+ 329              		.fnstart
+ 330              	.LVL28:
+ 331              	.LFB69:
+ 161:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+ 332              		.loc 1 161 1 is_stmt 1 view -0
+ 333              		.cfi_startproc
+ 334              		@ args = 0, pretend = 0, frame = 0
+ 335              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161:App/app.cpp   ****     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+ 336              		.loc 1 161 1 is_stmt 0 view .LVU64
+ 337 0000 08B5     		push	{r3, lr}
+ 338              		.save {r3, lr}
+ 339              	.LCFI6:
+ 340              		.cfi_def_cfa_offset 8
+ 341              		.cfi_offset 3, -8
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 11
+
+
+ 342              		.cfi_offset 14, -4
+ 162:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
+ 343              		.loc 1 162 5 is_stmt 1 view .LVU65
+ 162:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
+ 344              		.loc 1 162 25 is_stmt 0 view .LVU66
+ 345 0002 0021     		movs	r1, #0
+ 346 0004 0348     		ldr	r0, .L29
+ 347              	.LVL29:
+ 162:App/app.cpp   ****     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
+ 348              		.loc 1 162 25 view .LVU67
+ 349 0006 FFF7FEFF 		bl	HAL_TIM_PWM_Stop_DMA
+ 350              	.LVL30:
+ 163:App/app.cpp   **** }
+ 351              		.loc 1 163 5 is_stmt 1 view .LVU68
+ 163:App/app.cpp   **** }
+ 352              		.loc 1 163 22 is_stmt 0 view .LVU69
+ 353 000a 034B     		ldr	r3, .L29+4
+ 354 000c 0122     		movs	r2, #1
+ 355 000e 1A70     		strb	r2, [r3]
+ 164:App/app.cpp   **** 
+ 356              		.loc 1 164 1 view .LVU70
+ 357 0010 08BD     		pop	{r3, pc}
+ 358              	.L30:
+ 359 0012 00BF     		.align	2
+ 360              	.L29:
+ 361 0014 00000000 		.word	htim1
+ 362 0018 00000000 		.word	led
+ 363              		.cfi_endproc
+ 364              	.LFE69:
+ 365              		.fnend
+ 367              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 368              		.align	1
+ 369              		.global	HAL_TIM_PeriodElapsedCallback
+ 370              		.syntax unified
+ 371              		.thumb
+ 372              		.thumb_func
+ 374              	HAL_TIM_PeriodElapsedCallback:
+ 375              		.fnstart
+ 376              	.LVL31:
+ 377              	.LFB70:
+ 169:App/app.cpp   ****     callbackCounter++;
+ 378              		.loc 1 169 1 is_stmt 1 view -0
+ 379              		.cfi_startproc
+ 380              		@ args = 0, pretend = 0, frame = 16
+ 381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 170:App/app.cpp   ****     if (callbackCounter < CALLED_TIMES_UNTIL_TRIGGERED)
+ 382              		.loc 1 170 5 view .LVU72
+ 170:App/app.cpp   ****     if (callbackCounter < CALLED_TIMES_UNTIL_TRIGGERED)
+ 383              		.loc 1 170 20 is_stmt 0 view .LVU73
+ 384 0000 144A     		ldr	r2, .L38
+ 385 0002 1388     		ldrh	r3, [r2]
+ 386 0004 0133     		adds	r3, r3, #1
+ 387 0006 9BB2     		uxth	r3, r3
+ 388 0008 1380     		strh	r3, [r2]	@ movhi
+ 171:App/app.cpp   ****         return;
+ 389              		.loc 1 171 5 is_stmt 1 view .LVU74
+ 390 000a 41F66902 		movw	r2, #6249
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 12
+
+
+ 391 000e 9342     		cmp	r3, r2
+ 392 0010 00D8     		bhi	.L37
+ 393 0012 7047     		bx	lr
+ 394              	.L37:
+ 169:App/app.cpp   ****     callbackCounter++;
+ 395              		.loc 1 169 1 is_stmt 0 view .LVU75
+ 396 0014 00B5     		push	{lr}
+ 397              		.save {lr}
+ 398              	.LCFI7:
+ 399              		.cfi_def_cfa_offset 4
+ 400              		.cfi_offset 14, -4
+ 401              		.pad #28
+ 402 0016 87B0     		sub	sp, sp, #28
+ 403              	.LCFI8:
+ 404              		.cfi_def_cfa_offset 32
+ 174:App/app.cpp   ****     valueChanged = 1;
+ 405              		.loc 1 174 5 is_stmt 1 view .LVU76
+ 174:App/app.cpp   ****     valueChanged = 1;
+ 406              		.loc 1 174 25 is_stmt 0 view .LVU77
+ 407 0018 0223     		movs	r3, #2
+ 408 001a 0093     		str	r3, [sp]
+ 409 001c 0322     		movs	r2, #3
+ 410 001e 0121     		movs	r1, #1
+ 411 0020 0D48     		ldr	r0, .L38+4
+ 412              	.LVL32:
+ 174:App/app.cpp   ****     valueChanged = 1;
+ 413              		.loc 1 174 25 view .LVU78
+ 414 0022 FFF7FEFF 		bl	_ZN9ModbusRTU7requestEhhtt
+ 415              	.LVL33:
+ 175:App/app.cpp   ****     callbackCounter = 0;
+ 416              		.loc 1 175 5 is_stmt 1 view .LVU79
+ 175:App/app.cpp   ****     callbackCounter = 0;
+ 417              		.loc 1 175 18 is_stmt 0 view .LVU80
+ 418 0026 0D4B     		ldr	r3, .L38+8
+ 419 0028 0122     		movs	r2, #1
+ 420 002a 1A70     		strb	r2, [r3]
+ 176:App/app.cpp   **** 
+ 421              		.loc 1 176 5 is_stmt 1 view .LVU81
+ 176:App/app.cpp   **** 
+ 422              		.loc 1 176 21 is_stmt 0 view .LVU82
+ 423 002c 094B     		ldr	r3, .L38
+ 424 002e 0022     		movs	r2, #0
+ 425 0030 1A80     		strh	r2, [r3]	@ movhi
+ 178:App/app.cpp   **** }
+ 426              		.loc 1 178 5 is_stmt 1 view .LVU83
+ 427 0032 0B4B     		ldr	r3, .L38+12
+ 428 0034 02AA     		add	r2, sp, #8
+ 429 0036 93E80300 		ldm	r3, {r0, r1}
+ 430 003a 82E80300 		stm	r2, {r0, r1}
+ 431 003e 06AB     		add	r3, sp, #24
+ 432 0040 03E90300 		stmdb	r3, {r0, r1}
+ 433 0044 4FF40051 		mov	r1, #8192
+ 434 0048 0648     		ldr	r0, .L38+16
+ 435 004a FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 436              	.LVL34:
+ 437              		.loc 1 179 1 is_stmt 0 view .LVU84
+ 438 004e 07B0     		add	sp, sp, #28
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 13
+
+
+ 439              	.LCFI9:
+ 440              		.cfi_def_cfa_offset 4
+ 441              		@ sp needed
+ 442 0050 5DF804FB 		ldr	pc, [sp], #4
+ 443              	.L39:
+ 444              		.align	2
+ 445              	.L38:
+ 446 0054 00000000 		.word	callbackCounter
+ 447 0058 00000000 		.word	modbusClient
+ 448 005c 00000000 		.word	valueChanged
+ 449 0060 00000000 		.word	.LANCHOR0
+ 450 0064 00100140 		.word	1073811456
+ 451              		.cfi_endproc
+ 452              	.LFE70:
+ 453              		.fnend
+ 455              		.section	.text._GLOBAL__sub_I___io_putchar,"ax",%progbits
+ 456              		.align	1
+ 457              		.syntax unified
+ 458              		.thumb
+ 459              		.thumb_func
+ 461              	_GLOBAL__sub_I___io_putchar:
+ 462              		.fnstart
+ 463              	.LFB72:
+ 464              		.loc 1 179 1 is_stmt 1 view -0
+ 465              		.cfi_startproc
+ 466              		@ args = 0, pretend = 0, frame = 0
+ 467              		@ frame_needed = 0, uses_anonymous_args = 0
+ 468 0000 08B5     		push	{r3, lr}
+ 469              	.LCFI10:
+ 470              		.cfi_def_cfa_offset 8
+ 471              		.cfi_offset 3, -8
+ 472              		.cfi_offset 14, -4
+ 473              		.loc 1 179 1 is_stmt 0 view .LVU86
+ 474 0002 4FF6FF71 		movw	r1, #65535
+ 475 0006 0120     		movs	r0, #1
+ 476 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 477              	.LVL35:
+ 478 000c 08BD     		pop	{r3, pc}
+ 479              		.cfi_endproc
+ 480              	.LFE72:
+ 481              		.cantunwind
+ 482              		.fnend
+ 484              		.section	.init_array,"aw",%init_array
+ 485              		.align	2
+ 486 0000 00000000 		.word	_GLOBAL__sub_I___io_putchar(target1)
+ 487              		.global	callbackCounter
+ 488              		.section	.bss.callbackCounter,"aw",%nobits
+ 489              		.align	1
+ 492              	callbackCounter:
+ 493 0000 0000     		.space	2
+ 494              		.global	transitionTick
+ 495              		.section	.bss.transitionTick,"aw",%nobits
+ 496              		.align	2
+ 499              	transitionTick:
+ 500 0000 00000000 		.space	4
+ 501              		.global	curr_LSB
+ 502              		.section	.bss.curr_LSB,"aw",%nobits
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 14
+
+
+ 505              	curr_LSB:
+ 506 0000 00       		.space	1
+ 507              		.global	curr_MSB
+ 508              		.section	.bss.curr_MSB,"aw",%nobits
+ 511              	curr_MSB:
+ 512 0000 00       		.space	1
+ 513              		.global	volt_LSB
+ 514              		.section	.bss.volt_LSB,"aw",%nobits
+ 517              	volt_LSB:
+ 518 0000 00       		.space	1
+ 519              		.global	volt_MSB
+ 520              		.section	.bss.volt_MSB,"aw",%nobits
+ 523              	volt_MSB:
+ 524 0000 00       		.space	1
+ 525              		.global	valueChanged
+ 526              		.section	.bss.valueChanged,"aw",%nobits
+ 529              	valueChanged:
+ 530 0000 00       		.space	1
+ 531              		.global	modbusClient
+ 532              		.section	.bss.modbusClient,"aw",%nobits
+ 533              		.align	2
+ 536              	modbusClient:
+ 537 0000 00000000 		.space	20
+ 537      00000000 
+ 537      00000000 
+ 537      00000000 
+ 537      00000000 
+ 538              		.global	led
+ 539              		.section	.bss.led,"aw",%nobits
+ 540              		.align	2
+ 543              	led:
+ 544 0000 00000000 		.space	48
+ 544      00000000 
+ 544      00000000 
+ 544      00000000 
+ 544      00000000 
+ 545              		.section	.rodata
+ 546              		.align	2
+ 547              		.set	.LANCHOR0,. + 0
+ 548              	.LC0:
+ 549 0000 00100140 		.word	1073811456
+ 550 0004 0020     		.short	8192
+ 551 0006 0000     		.space	2
+ 552              		.text
+ 553              	.Letext0:
+ 554              		.file 2 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 555              		.file 3 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 556              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 557              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+ 558              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 559              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 560              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 561              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 562              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 563              		.file 11 "App/WS2812B/ws2812b.h"
+ 564              		.file 12 "App/ModbusRTU/modbusRTU.h"
+ 565              		.file 13 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\stdio.h"
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 15
+
+
+ 566              		.file 14 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app.cpp
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:19     .text._Z41__static_initialization_and_destruction_0v:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:24     .text._Z41__static_initialization_and_destruction_0v:00000000 _Z41__static_initialization_and_destruction_0v
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:53     .text._Z41__static_initialization_and_destruction_0v:00000018 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:624    .bss.led:00000000 led
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:617    .bss.modbusClient:00000000 modbusClient
-.ARM.exidx.text._Z41__static_initialization_and_destruction_0v:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:63     .text.__io_putchar:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:69     .text.__io_putchar:00000000 __io_putchar
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:109    .text.__io_putchar:0000001c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:19     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:24     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:74     .text._Z41__static_initialization_and_destruction_0ii:00000028 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:543    .bss.led:00000000 led
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:536    .bss.modbusClient:00000000 modbusClient
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:84     .text.__io_putchar:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:90     .text.__io_putchar:00000000 __io_putchar
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:130    .text.__io_putchar:0000001c $d
      .ARM.exidx.text.__io_putchar:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:115    .text.setup:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:121    .text.setup:00000000 setup
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:180    .text.setup:00000038 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:136    .rodata.setup.str1.4:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:140    .text.setup:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:146    .text.setup:00000000 setup
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:238    .text.setup:00000064 $d
             .ARM.exidx.text.setup:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:187    .text.loop:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:193    .text.loop:00000000 loop
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:396    .text.loop:000000ec $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:610    .bss.valueChanged:00000000 valueChanged
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:604    .bss.volt_MSB:00000000 volt_MSB
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:598    .bss.volt_LSB:00000000 volt_LSB
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:592    .bss.curr_MSB:00000000 curr_MSB
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:586    .bss.curr_LSB:00000000 curr_LSB
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:245    .text.loop:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:251    .text.loop:00000000 loop
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:315    .text.loop:00000034 $d
              .ARM.exidx.text.loop:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:412    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:418    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 HAL_TIM_PWM_PulseFinishedCallback
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:451    .text.HAL_TIM_PWM_PulseFinishedCallback:00000014 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:322    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:328    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 HAL_TIM_PWM_PulseFinishedCallback
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:361    .text.HAL_TIM_PWM_PulseFinishedCallback:00000014 $d
 .ARM.extab.text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $d
 .ARM.exidx.text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:458    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:464    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:536    .text.HAL_TIM_PeriodElapsedCallback:00000054 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:580    .bss.callbackCounter:00000000 callbackCounter
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:368    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:374    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:446    .text.HAL_TIM_PeriodElapsedCallback:00000054 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:492    .bss.callbackCounter:00000000 callbackCounter
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:529    .bss.valueChanged:00000000 valueChanged
 .ARM.exidx.text.HAL_TIM_PeriodElapsedCallback:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:546    .text._GLOBAL__sub_I___io_putchar:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:551    .text._GLOBAL__sub_I___io_putchar:00000000 _GLOBAL__sub_I___io_putchar
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:456    .text._GLOBAL__sub_I___io_putchar:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:461    .text._GLOBAL__sub_I___io_putchar:00000000 _GLOBAL__sub_I___io_putchar
 .ARM.exidx.text._GLOBAL__sub_I___io_putchar:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:573    .init_array:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:577    .bss.callbackCounter:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:587    .bss.curr_LSB:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:593    .bss.curr_MSB:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:599    .bss.volt_LSB:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:605    .bss.volt_MSB:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:611    .bss.valueChanged:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:614    .bss.modbusClient:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:621    .bss.led:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s:627    .rodata:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:485    .init_array:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:489    .bss.callbackCounter:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:499    .bss.transitionTick:00000000 transitionTick
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:496    .bss.transitionTick:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:505    .bss.curr_LSB:00000000 curr_LSB
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:506    .bss.curr_LSB:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:511    .bss.curr_MSB:00000000 curr_MSB
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:512    .bss.curr_MSB:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:517    .bss.volt_LSB:00000000 volt_LSB
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:518    .bss.volt_LSB:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:523    .bss.volt_MSB:00000000 volt_MSB
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:524    .bss.volt_MSB:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:530    .bss.valueChanged:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:533    .bss.modbusClient:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:540    .bss.led:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s:546    .rodata:00000000 $d
 
 UNDEFINED SYMBOLS
 _ZN7WS2812BC1EP17TIM_HandleTypeDefmt
 _ZN9ModbusRTUC1EP20__UART_HandleTypeDef
 htim1
 huart1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccoNQWbs.s 			page 17
+
+
 HAL_UART_Transmit
 huart2
 __aeabi_unwind_cpp_pr0
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc3CjPnW.s 			page 18
-
-
 HAL_Delay
 _ZN7WS2812B4initEh
-_ZN7WS2812B18startCallbackClockEv
-_ZN9ModbusRTU4initEv
-_ZN9ModbusRTU7requestEhhtt
-_ZN7WS2812B17stopCallbackClockEv
 _ZN7WS2812B10solidColorEmtt
 _ZN7WS2812B6renderEv
+printf
+putchar
+_ZN7WS2812B10transitionEv
 HAL_TIM_PWM_Stop_DMA
 __aeabi_unwind_cpp_pr1
+_ZN9ModbusRTU7requestEhhtt
 HAL_GPIO_TogglePin

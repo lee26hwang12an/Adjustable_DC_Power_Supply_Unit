@@ -45,6 +45,7 @@ ModbusRTU modbusClient = ModbusRTU(&huart1);
 
 uint8_t valueChanged = 0;
 uint8_t volt_MSB, volt_LSB, curr_MSB, curr_LSB;
+uint32_t transitionTick = 0;
 
 
 /*
@@ -57,10 +58,24 @@ void setup()
     HAL_Delay(1000);
 
     led.init();
-    led.startCallbackClock();
+    // led.startCallbackClock();
 
-    modbusClient.init();
-    modbusClient.request(0x01, 0x03, 0x00, 0x02);
+    // modbusClient.init();
+    // modbusClient.request(0x01, 0x03, 0x00, 0x02);
+
+    // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+    // led.render();
+    // HAL_Delay(500);
+
+    // led.gradient2Colors(0xFF0000, 0, 0x00FF00, 59);
+    led.solidColor(0xFF0000, 0, 59);
+    led.render();
+    for (int i = 0; i < led._ledsCount; i++)
+        printf("%x ", led._colorData[i]);
+    printf("\n");
+    HAL_Delay(2000);
+    // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+    led.solidColor(0x00FFFF, 0, 59);
 }
 
 
@@ -71,47 +86,69 @@ void setup()
 */
 void loop()
 {
-    if (!valueChanged)
-        return;
+    // if (!valueChanged)
+    //     return;
 
-    led.stopCallbackClock();
+    // led.stopCallbackClock();
 
-    if (modbusClient.receiveBuffer[3] != volt_MSB ||
-        modbusClient.receiveBuffer[4] != volt_LSB ||
-        modbusClient.receiveBuffer[5] != curr_MSB ||
-        modbusClient.receiveBuffer[6] != curr_LSB)
-    {
-        volt_MSB = modbusClient.receiveBuffer[3];
-        volt_LSB = modbusClient.receiveBuffer[4];
-        curr_MSB = modbusClient.receiveBuffer[5];
-        curr_LSB = modbusClient.receiveBuffer[6];
-    }
+    // if (modbusClient.receiveBuffer[3] != volt_MSB ||
+    //     modbusClient.receiveBuffer[4] != volt_LSB ||
+    //     modbusClient.receiveBuffer[5] != curr_MSB ||
+    //     modbusClient.receiveBuffer[6] != curr_LSB)
+    // {
+    //     volt_MSB = modbusClient.receiveBuffer[3];
+    //     volt_LSB = modbusClient.receiveBuffer[4];
+    //     curr_MSB = modbusClient.receiveBuffer[5];
+    //     curr_LSB = modbusClient.receiveBuffer[6];
+    // }
 
 
-    uint16_t volt = ((uint16_t)volt_MSB << 8) | ((uint16_t)volt_LSB << 0);
-    uint16_t curr = ((uint16_t)curr_MSB << 8) | ((uint16_t)curr_LSB << 0);
-    uint32_t ledColor;
+    // uint16_t volt = ((uint16_t)volt_MSB << 8) | ((uint16_t)volt_LSB << 0);
+    // uint16_t curr = ((uint16_t)curr_MSB << 8) | ((uint16_t)curr_LSB << 0);
+    // uint32_t ledColor;
 
-    if (__inProximity(volt, 250, 250))
-        ledColor = 0x0000FF;
-    else if (__inProximity(volt, 750, 250))
-        ledColor = 0x00FFFF;
-    else if (__inProximity(volt, 1250, 250))
-        ledColor = 0xFFFF00;
-    else if (__inProximity(volt, 1750, 250))
-        ledColor = 0xFF6600;
-    else if (__inProximity(volt, 2250, 250))
-        ledColor = 0xFF1F00;
-    else if (__inProximity(volt, 2750, 250))
-        ledColor = 0xFF0000;
-    else if (volt > 3000)
-        ledColor = 0x1100FF;
+    // if (__inProximity(volt, 250, 250))
+    //     ledColor = 0x0000FF;
+    // else if (__inProximity(volt, 750, 250))
+    //     ledColor = 0x00FFFF;
+    // else if (__inProximity(volt, 1250, 250))
+    //     ledColor = 0xFFFF00;
+    // else if (__inProximity(volt, 1750, 250))
+    //     ledColor = 0xFF6600;
+    // else if (__inProximity(volt, 2250, 250))
+    //     ledColor = 0xFF1F00;
+    // else if (__inProximity(volt, 2750, 250))
+    //     ledColor = 0xFF0000;
+    // else if (volt > 3000)
+    //     ledColor = 0x1100FF;
 
-    led.solidColor(ledColor, 0, 59);
-    led.render();
+//     led.solidColor(ledColor, 0, 59);
+//     led.render();
 
-    valueChanged = 0;
-    led.startCallbackClock();
+//     valueChanged = 0;
+//     led.startCallbackClock();
+
+    // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+    // while(led.transition());
+    // HAL_Delay(1000);
+    // led.gradient2Colors(0xFF0000, 0, 0x00FFFF, 59);
+    // led.transition();
+    // HAL_Delay(1000);
+
+    // led.gradient2Colors(0xFF0000, 0, 0x000000, 59);
+    // led.transition(transitionTick, 50);
+    // transitionTick++;
+    // for (int i = 0; i < led._ledsCount; i++)
+    //     printf("%f ", led._transStep[i]);
+    // printf("\n");
+
+    // float val = 19.3123f;
+    led.transition();
+    HAL_Delay(10);
+    for (int i = 0; i < led._ledsCount; i++)
+        printf("%x ", led._colorData[i]);
+    printf("\n");
+    // printf("%f\n", val);
 }
 
 

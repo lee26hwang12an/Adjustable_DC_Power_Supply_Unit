@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
   29:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****     (+) Exti line can be configured in 3 different modes
   30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****         (++) Interrupt
   31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****         (++) Event
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 2
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 2
 
 
   32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****         (++) Both of them
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
   86:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c **** #include "stm32f1xx_hal.h"
   87:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c **** 
   88:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c **** /** @addtogroup STM32F1xx_HAL_Driver
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 3
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 3
 
 
   89:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   * @{
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  143:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c **** {
   28              		.loc 1 143 1 view -0
   29              		.cfi_startproc
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 4
 
 
   30              		@ args = 0, pretend = 0, frame = 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
   63 0012 0120     		movs	r0, #1
   64              	.LVL2:
   65              		.loc 1 163 12 view .LVU17
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 5
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 5
 
 
   66 0014 9040     		lsls	r0, r0, r2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
   98              	.L7:
  186:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****     }
  187:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****     else
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 6
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 6
 
 
  188:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****     {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  219:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   if ((pExtiConfig->Mode & EXTI_MODE_EVENT) != 0x00u)
  122              		.loc 1 219 3 is_stmt 1 view .LVU40
  123              		.loc 1 219 19 is_stmt 0 view .LVU41
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 7
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 7
 
 
  124 0058 4B68     		ldr	r3, [r1, #4]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  163 007a 154D     		ldr	r5, .L18
  164 007c EC68     		ldr	r4, [r5, #12]
  189:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****     }
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 8
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 8
 
 
  165              		.loc 1 189 18 view .LVU53
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  204              	.LVL12:
  205              	.L8:
  214:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   }
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 9
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 9
 
 
  206              		.loc 1 214 5 is_stmt 1 view .LVU69
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  250 00d4 00000140 		.word	1073807360
  251              		.cfi_endproc
  252              	.LFE65:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 10
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 10
 
 
  254              		.section	.text.HAL_EXTI_GetConfigLine,"ax",%progbits
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  253:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   pExtiConfig->Line = hexti->Line;
  285              		.loc 1 253 3 view .LVU90
  286              		.loc 1 253 28 is_stmt 0 view .LVU91
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 11
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 11
 
 
  287 000a 0468     		ldr	r4, [r0]
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  275:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****     pExtiConfig->Mode |= EXTI_MODE_EVENT;
  320              		.loc 1 275 5 is_stmt 1 view .LVU106
  321              		.loc 1 275 16 is_stmt 0 view .LVU107
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 12
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 12
 
 
  322 002c 4868     		ldr	r0, [r1, #4]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  294:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****     {
  295:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****       pExtiConfig->Trigger |= EXTI_TRIGGER_FALLING;
  358              		.loc 1 295 7 is_stmt 1 view .LVU123
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 13
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 13
 
 
  359              		.loc 1 295 18 is_stmt 0 view .LVU124
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  393              		.loc 1 304 7 is_stmt 1 view .LVU136
  304:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****     }
  394              		.loc 1 304 76 is_stmt 0 view .LVU137
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 14
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 14
 
 
  395 0082 04F00303 		and	r3, r4, #3
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  440              		.align	2
  441              	.L36:
  442 00a4 00040140 		.word	1073808384
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 15
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 15
 
 
  443 00a8 00000140 		.word	1073807360
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  332:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   linepos = (hexti->Line & EXTI_PIN_MASK);
  476              		.loc 1 332 3 view .LVU157
  477              		.loc 1 332 19 is_stmt 0 view .LVU158
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 16
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 16
 
 
  478 0008 0468     		ldr	r4, [r0]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  519              		.loc 1 345 23 is_stmt 0 view .LVU179
  520 003a D368     		ldr	r3, [r2, #12]
  521              		.loc 1 345 30 view .LVU180
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 17
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 17
 
 
  522 003c 0EEA0303 		and	r3, lr, r3
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  353:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****       AFIO->EXTICR[linepos >> 2u] = regval;
  556              		.loc 1 353 38 view .LVU195
  557 0064 0F22     		movs	r2, #15
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 18
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 18
 
 
  558 0066 A240     		lsls	r2, r2, r4
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  608              	.LFB68:
  360:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c **** 
  361:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c **** /**
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 19
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 19
 
 
  362:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   * @brief  Register callback for a dedicated Exti line.
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  640              		.global	HAL_EXTI_GetHandle
  641              		.syntax unified
  642              		.thumb
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 20
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 20
 
 
  643              		.thumb_func
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  671              		.loc 1 411 1 view .LVU225
  672 000a 7047     		bx	lr
  673              		.cfi_endproc
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 21
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 21
 
 
  674              	.LFE69:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  701              		.loc 1 440 35 view .LVU232
  702 0004 03F01F02 		and	r2, r3, #31
  703              		.loc 1 440 12 view .LVU233
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 22
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 22
 
 
  704 0008 0123     		movs	r3, #1
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  744              		.syntax unified
  745              		.thumb
  746              		.thumb_func
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 23
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 23
 
 
  748              	HAL_EXTI_GetPending:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  484:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   /* return 1 if bit is set else 0 */
  485:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   regval = ((EXTI->PR & maskline) >> linepos);
  774              		.loc 1 485 3 is_stmt 1 view .LVU259
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 24
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 24
 
 
  775              		.loc 1 485 18 is_stmt 0 view .LVU260
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  813              		.loc 1 503 3 view .LVU268
  504:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   assert_param(IS_EXTI_CONFIG_LINE(hexti->Line));
  814              		.loc 1 504 3 view .LVU269
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 25
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 25
 
 
  505:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   assert_param(IS_EXTI_PENDING_EDGE(Edge));
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  852              		@ frame_needed = 0, uses_anonymous_args = 0
  853              		@ link register save eliminated.
  524:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c ****   uint32_t maskline;
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 26
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 26
 
 
  854              		.loc 1 524 3 view .LVU280
@@ -1538,40 +1538,40 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 1
  877              	.LFE73:
  879              		.text
  880              	.Letext0:
- 881              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
- 882              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 881              		.file 2 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 882              		.file 3 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\_stdint.h"
  883              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  884              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  885              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s 			page 27
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s 			page 27
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_exti.c
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:19     .text.HAL_EXTI_SetConfigLine:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:25     .text.HAL_EXTI_SetConfigLine:00000000 HAL_EXTI_SetConfigLine
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:249    .text.HAL_EXTI_SetConfigLine:000000d0 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:255    .text.HAL_EXTI_GetConfigLine:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:261    .text.HAL_EXTI_GetConfigLine:00000000 HAL_EXTI_GetConfigLine
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:442    .text.HAL_EXTI_GetConfigLine:000000a4 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:448    .text.HAL_EXTI_ClearConfigLine:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:454    .text.HAL_EXTI_ClearConfigLine:00000000 HAL_EXTI_ClearConfigLine
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:594    .text.HAL_EXTI_ClearConfigLine:0000007c $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:600    .text.HAL_EXTI_RegisterCallback:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:606    .text.HAL_EXTI_RegisterCallback:00000000 HAL_EXTI_RegisterCallback
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:639    .text.HAL_EXTI_GetHandle:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:645    .text.HAL_EXTI_GetHandle:00000000 HAL_EXTI_GetHandle
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:677    .text.HAL_EXTI_IRQHandler:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:683    .text.HAL_EXTI_IRQHandler:00000000 HAL_EXTI_IRQHandler
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:737    .text.HAL_EXTI_IRQHandler:00000020 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:742    .text.HAL_EXTI_GetPending:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:748    .text.HAL_EXTI_GetPending:00000000 HAL_EXTI_GetPending
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:793    .text.HAL_EXTI_GetPending:00000014 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:798    .text.HAL_EXTI_ClearPending:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:804    .text.HAL_EXTI_ClearPending:00000000 HAL_EXTI_ClearPending
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:835    .text.HAL_EXTI_ClearPending:00000010 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:840    .text.HAL_EXTI_GenerateSWI:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:846    .text.HAL_EXTI_GenerateSWI:00000000 HAL_EXTI_GenerateSWI
-C:\Users\DARSTE~1\AppData\Local\Temp\cc5AXMzk.s:875    .text.HAL_EXTI_GenerateSWI:00000010 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:19     .text.HAL_EXTI_SetConfigLine:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:25     .text.HAL_EXTI_SetConfigLine:00000000 HAL_EXTI_SetConfigLine
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:249    .text.HAL_EXTI_SetConfigLine:000000d0 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:255    .text.HAL_EXTI_GetConfigLine:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:261    .text.HAL_EXTI_GetConfigLine:00000000 HAL_EXTI_GetConfigLine
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:442    .text.HAL_EXTI_GetConfigLine:000000a4 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:448    .text.HAL_EXTI_ClearConfigLine:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:454    .text.HAL_EXTI_ClearConfigLine:00000000 HAL_EXTI_ClearConfigLine
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:594    .text.HAL_EXTI_ClearConfigLine:0000007c $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:600    .text.HAL_EXTI_RegisterCallback:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:606    .text.HAL_EXTI_RegisterCallback:00000000 HAL_EXTI_RegisterCallback
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:639    .text.HAL_EXTI_GetHandle:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:645    .text.HAL_EXTI_GetHandle:00000000 HAL_EXTI_GetHandle
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:677    .text.HAL_EXTI_IRQHandler:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:683    .text.HAL_EXTI_IRQHandler:00000000 HAL_EXTI_IRQHandler
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:737    .text.HAL_EXTI_IRQHandler:00000020 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:742    .text.HAL_EXTI_GetPending:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:748    .text.HAL_EXTI_GetPending:00000000 HAL_EXTI_GetPending
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:793    .text.HAL_EXTI_GetPending:00000014 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:798    .text.HAL_EXTI_ClearPending:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:804    .text.HAL_EXTI_ClearPending:00000000 HAL_EXTI_ClearPending
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:835    .text.HAL_EXTI_ClearPending:00000010 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:840    .text.HAL_EXTI_GenerateSWI:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:846    .text.HAL_EXTI_GenerateSWI:00000000 HAL_EXTI_GenerateSWI
+C:\Users\DARSTE~1\AppData\Local\Temp\cc1PReXU.s:875    .text.HAL_EXTI_GenerateSWI:00000010 $d
 
 NO UNDEFINED SYMBOLS
