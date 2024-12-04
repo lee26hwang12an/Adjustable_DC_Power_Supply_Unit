@@ -58,6 +58,11 @@ void WS2812B::render()
     while (UPDATE_STATE == WS2812B_UPDATE_ONGOING);
 }
 
+ void WS2812B::startCallbackClock()
+ { HAL_TIM_Base_Start_IT(_PWMgenerator); }
+  void WS2812B::stopCallbackClock()
+ { HAL_TIM_Base_Stop_IT(_PWMgenerator); }
+
 uint8_t WS2812B::extractRed(uint32_t RGB)
 { return (uint8_t)((RGB >> 16) & 0xFF); }
 uint8_t WS2812B::extractGreen(uint32_t RGB)

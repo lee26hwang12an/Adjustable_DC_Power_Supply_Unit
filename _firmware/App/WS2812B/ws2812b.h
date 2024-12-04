@@ -66,6 +66,14 @@ public:
     Push all color data to the LED strip.
     */
     void render();
+    /*
+    Start callback clock of the PWM generator timer, if one wishes to.
+    */
+    void startCallbackClock();
+    /*
+    Stop callback clock of the PWM generator timer, if one wishes to.
+    */
+    void stopCallbackClock();
 
 private:
     /* Extract color RED from given RGB. */

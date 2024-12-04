@@ -5,9 +5,11 @@
 #include <stdio.h>
 
 
-extern TIM_HandleTypeDef htim1;
-extern DMA_HandleTypeDef hdma_tim1_ch1;
-extern UART_HandleTypeDef huart1;
+/*
+=====================================================================
+    MISCELLANEOUS
+=====================================================================
+*/
 extern UART_HandleTypeDef huart2;
 #ifdef __cplusplus
 extern "C" {
@@ -28,8 +30,21 @@ PUTCHAR_PROTOTYPE
 #endif /* __cplusplus */
 
 
-WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 10);
+/*
+=====================================================================
+    INSTANCING
+=====================================================================
+*/
+
+extern TIM_HandleTypeDef htim1;
+extern DMA_HandleTypeDef hdma_tim1_ch1;
+WS2812B led = WS2812B(&htim1, TIM_CHANNEL_1, 60);
+
+extern UART_HandleTypeDef huart1;
 ModbusRTU modbusClient = ModbusRTU(&huart1);
+
+uint8_t valueChanged = 0;
+uint8_t volt_MSB, volt_LSB, curr_MSB, curr_LSB;
 
 
 /*
@@ -42,8 +57,9 @@ void setup()
     HAL_Delay(1000);
 
     led.init();
-    modbusClient.init();
+    led.startCallbackClock();
 
+    modbusClient.init();
     modbusClient.request(0x01, 0x03, 0x00, 0x02);
 }
 
@@ -55,23 +71,47 @@ void setup()
 */
 void loop()
 {
-    // led.solidColor(0xFF0000, 0, 29);
-    // // led.solidColor(0x000000, 2, 2);
-    // led.solidColor(0x000000, 30, 59);
-    // led.render();
-    // HAL_Delay(200);
-    // led.solidColor(0x000000, 0, 29);
-    // // led.solidColor(0x000000, 2, 2);
-    // led.solidColor(0x0000FF, 30, 59);
-    // led.render();
-    // HAL_Delay(200);
+    if (!valueChanged)
+        return;
 
-    modbusClient.request(0x01, MODBUS_RTU_READ_HOLDING_REGISTERS, 0x0002, 0x02);
-    HAL_Delay(1000);
-    for (uint8_t i = 0; i < 9; i++)
-        printf("%x ", modbusClient.receiveBuffer[i]);
-    printf("\n");
-    HAL_Delay(1000);
+    led.stopCallbackClock();
+
+    if (modbusClient.receiveBuffer[3] != volt_MSB ||
+        modbusClient.receiveBuffer[4] != volt_LSB ||
+        modbusClient.receiveBuffer[5] != curr_MSB ||
+        modbusClient.receiveBuffer[6] != curr_LSB)
+    {
+        volt_MSB = modbusClient.receiveBuffer[3];
+        volt_LSB = modbusClient.receiveBuffer[4];
+        curr_MSB = modbusClient.receiveBuffer[5];
+        curr_LSB = modbusClient.receiveBuffer[6];
+    }
+
+
+    uint16_t volt = ((uint16_t)volt_MSB << 8) | ((uint16_t)volt_LSB << 0);
+    uint16_t curr = ((uint16_t)curr_MSB << 8) | ((uint16_t)curr_LSB << 0);
+    uint32_t ledColor;
+
+    if (__inProximity(volt, 250, 250))
+        ledColor = 0x0000FF;
+    else if (__inProximity(volt, 750, 250))
+        ledColor = 0x00FFFF;
+    else if (__inProximity(volt, 1250, 250))
+        ledColor = 0xFFFF00;
+    else if (__inProximity(volt, 1750, 250))
+        ledColor = 0xFF6600;
+    else if (__inProximity(volt, 2250, 250))
+        ledColor = 0xFF1F00;
+    else if (__inProximity(volt, 2750, 250))
+        ledColor = 0xFF0000;
+    else if (volt > 3000)
+        ledColor = 0x1100FF;
+
+    led.solidColor(ledColor, 0, 59);
+    led.render();
+
+    valueChanged = 0;
+    led.startCallbackClock();
 }
 
 
@@ -84,4 +124,19 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 {
     HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
     led.UPDATE_STATE = WS2812B_UPDATE_FINISHED;
+}
+
+#define CALLED_TIMES_UNTIL_TRIGGERED (3125 * 2) // 2-second callback
+uint16_t callbackCounter = 0;
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    callbackCounter++;
+    if (callbackCounter < CALLED_TIMES_UNTIL_TRIGGERED)
+        return;
+
+    modbusClient.request(0x01, MODBUS_RTU_READ_HOLDING_REGISTERS, 0x0002, 0x02);
+    valueChanged = 1;
+    callbackCounter = 0;
+
+    __STM32flipGPIO(PC13);
 }

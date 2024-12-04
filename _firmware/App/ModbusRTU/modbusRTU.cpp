@@ -35,6 +35,12 @@ void ModbusRTU::init()
 
 void ModbusRTU::request(uint8_t slaveAddress, uint8_t funcCode, uint16_t startReg, uint16_t regCount)
 {
+    if (funcCode != MODBUS_RTU_READ_COIL &&
+        funcCode != MODBUS_RTU_READ_DISCRETE_INPUTS &&
+        funcCode != MODBUS_RTU_READ_HOLDING_REGISTERS &&
+        funcCode != MODBUS_RTU_READ_INPUT_REGISTERS)
+        return;
+
     // Prepare send buffer:
     _sendBuffer[0] = slaveAddress;
     _sendBuffer[1] = funcCode;
@@ -54,13 +60,6 @@ void ModbusRTU::request(uint8_t slaveAddress, uint8_t funcCode, uint16_t startRe
 
     // Send to modbus server, then listen:
     ModbusRTU::send();
-
-    if (funcCode != MODBUS_RTU_READ_COIL &&
-        funcCode != MODBUS_RTU_READ_DISCRETE_INPUTS &&
-        funcCode != MODBUS_RTU_READ_HOLDING_REGISTERS &&
-        funcCode != MODBUS_RTU_READ_INPUT_REGISTERS)
-        return;
-
     ModbusRTU::receive();
 }
 
@@ -88,5 +87,5 @@ void ModbusRTU::send()
 void ModbusRTU::receive()
 {
     HAL_UART_Receive(_serial, receiveBuffer, _requestedBytes + 5, 100);
-    __STM32flipGPIO(PC13);
+    // __STM32flipGPIO(PC13);
 }
