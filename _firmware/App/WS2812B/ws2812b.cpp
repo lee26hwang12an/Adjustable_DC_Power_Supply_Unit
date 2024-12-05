@@ -89,50 +89,50 @@ void WS2812B::render()
 
 WS2812B_CONST WS2812B::transition()
 {
-    // uint16_t checkDifference = 0;
-    // for (uint16_t ledIterate = 0; ledIterate < _ledsCount; ledIterate++)
-    // {
-    //     if (_colorData[ledIterate] == _targetColorData[ledIterate])
-    //     {
-    //         checkDifference++;
-    //         continue;
-    //     }
+    uint16_t checkDifference = 0;
+    for (uint16_t ledIterate = 0; ledIterate < _ledsCount; ledIterate++)
+    {
+        if (_colorData[ledIterate] == _targetColorData[ledIterate])
+        {
+            checkDifference++;
+            continue;
+        }
 
-    //     uint8_t currentRed = WS2812B::extractRed(_colorData[ledIterate]);
-    //     uint8_t currentGreen = WS2812B::extractGreen(_colorData[ledIterate]);
-    //     uint8_t currentBlue = WS2812B::extractBlue(_colorData[ledIterate]);
+        uint8_t currentRed = WS2812B::extractRed(_colorData[ledIterate]);
+        uint8_t currentGreen = WS2812B::extractGreen(_colorData[ledIterate]);
+        uint8_t currentBlue = WS2812B::extractBlue(_colorData[ledIterate]);
 
-    //     uint8_t targetRed = WS2812B::extractRed(_targetColorData[ledIterate]);
-    //     uint8_t targetGreen = WS2812B::extractGreen(_targetColorData[ledIterate]);
-    //     uint8_t targetBlue = WS2812B::extractBlue(_targetColorData[ledIterate]);
+        uint8_t targetRed = WS2812B::extractRed(_targetColorData[ledIterate]);
+        uint8_t targetGreen = WS2812B::extractGreen(_targetColorData[ledIterate]);
+        uint8_t targetBlue = WS2812B::extractBlue(_targetColorData[ledIterate]);
 
-    //     if (currentRed < targetRed) currentRed++;
-    //     else if (currentRed > targetRed) currentRed--;
+        if (currentRed < targetRed) currentRed++;
+        else if (currentRed > targetRed) currentRed--;
 
-    //     if (currentGreen < targetGreen) currentGreen++;
-    //     else if (currentGreen > targetGreen) currentGreen--;
+        if (currentGreen < targetGreen) currentGreen++;
+        else if (currentGreen > targetGreen) currentGreen--;
 
-    //     if (currentBlue < targetBlue) currentBlue++;
-    //     else if (currentBlue > targetBlue) currentBlue--;
+        if (currentBlue < targetBlue) currentBlue++;
+        else if (currentBlue > targetBlue) currentBlue--;
 
-    //     _colorData[ledIterate] = WS2812B::combineRGB(currentRed, currentGreen, currentBlue);
-    // }
+        _colorData[ledIterate] = WS2812B::combineRGB(currentRed, currentGreen, currentBlue);
+    }
 
-    // if (checkDifference == _ledsCount)
-    //     return WS2812B_TRANSITION_FINISHED;
+    if (checkDifference == _ledsCount)
+        return WS2812B_TRANSITION_FINISHED;
 
-    // WS2812B::updateBuffer();
+    WS2812B::updateBuffer();
 
-    // HAL_TIM_PWM_Start_DMA(
-    //     _PWMgenerator, _channel,
-    //     (uint32_t *)_buffer,
-    //     _ledsCount * _bufferDataMultiplier
-    // );
+    HAL_TIM_PWM_Start_DMA(
+        _PWMgenerator, _channel,
+        (uint32_t *)_buffer,
+        _ledsCount * _bufferDataMultiplier
+    );
 
-    // UPDATE_STATE = WS2812B_UPDATE_ONGOING;
-    // while (UPDATE_STATE == WS2812B_UPDATE_ONGOING);
+    UPDATE_STATE = WS2812B_UPDATE_ONGOING;
+    while (UPDATE_STATE == WS2812B_UPDATE_ONGOING);
 
-    // return (WS2812B_CONST)0;
+    return (WS2812B_CONST)0;
 }
 
 WS2812B_CONST WS2812B::transition(float *timeTick, float duration)
