@@ -65,3 +65,34 @@ And finally, the prototype: (Please excuse the cables, it was still in developme
 <div align="justify">
 Okay, I know what you're thinking, what does Modbus RTU have to do with this amature PSU, and why even bother adding LEDs? Well, first, I like LEDs and making colors. Second, I like to make consumers-targetted products, so appearance definitely matters. Third, screw you all who say Functionalities over Aesthetics. Aesthetics is the key force that drives functionalities forward. Think of a Ford car at the very beginning of the automobile age, then think of any modern day cars: If they didn't want to imporve on the aesthetic aspect, why would you need complex CAN and LIN buses inside a thing made purely for traveling and not for entertaining or showing off purposes? I'm not saying Aesthetics over Functionalities, but in general they should be put side by side. To me, a good design has to base its functionalities around aesthetics, and the chosen aesthetics must revolve around its predetermined functionalities. Now back to fourth, the XY-6014 buck actually has a wifi module that could communicate with the base circuit through Serial using Modbus RTU. I did not, however, get the wifi version, so I have the Serial port hanging there for free doing nothing. And if it's there and I paid for it, it would be a sin not to utilize the product to its fullest.
 </div>
+
+##
+### WS2812B with STM32 Timer and DMA
+<div align="justify">
+Why didn't I just use already existing libraries for driving these LEDs, such as FastLED or something like that? Well 3 reasons: Number 1, I don't know how to port those to the STM32 platform, number 2, those libraries don't have the functions and effects that I need, and number 3, those libraries have the functions and effects that I do not need. So I thought I would write my own program, with my own effects and functions.
+</div>
+
+######
+<div align="justify">
+I will not go into details on how to actually setup and configure STM32 peripherals and DMA to write data to the LEDs here since there have been countless tutorials online. I will, however, leave a link here to another repository of mine that is dedicated to solely driving WS2812B LEDs with STM32 Timer and DMA. If the link is not available, come back later, I didn't have the time to write a complete README yet.
+</div>
+
+######
+Regarding ModbusRTU, it's the same. It is actually quite easy in terms of programming, since making a ModbusRTU client to send and read data on holding registers is rather simple, compared to writing a program for an RTU server.
+
+######
+So basically this is the flowchart for my STM32 ModbusRTU client + LEDs driver:
+<div align="center"><img src="_assets/flowchart.png" alt="Flowchart" width="450"/></div>
+
+######
+The STM32 client requests data from the XY-6014 server every 2 seconds by calling:
+```cpp
+modbusClient.request(XY_6014_SERVER_ADDRESS, MODBUS_RTU_READ_HOLDING_REGISTERS, START_ADDRESS, DATA_BYTES_COUNT);
+```
+Then by switching the received values for Voltage and Current, the colors for the LEDs are decided. This scheme is arbitrary, but I'm choosing: Blue for 0-5V 0-1A, Cyan for 5-10V 1-3A, Green for 10-15V 3-5A, Yellow for 15-20V 5-7A, Orange for 20-25V 7-10A, Red for 25-30V 10A-12A, Purple for 30V+ 12A+.
+```cpp
+led.gradient2Colors(voltColor, startLED, ampColor, endLED);
+led.transition(HAL_GetTick(), TRANSITION_DURATION_MS);
+```
+And the result:
+(To be updated)
