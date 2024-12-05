@@ -19,6 +19,7 @@ typedef enum
     WS2812B_DMA_INCREMENT_32BIT = 1,
     WS2812B_UPDATE_FINISHED = 1,
     WS2812B_UPDATE_ONGOING = 0,
+    WS2812B_TRANSITION_FINISHED = 1,
 } WS2812B_CONST;
 
 class WS2812B
@@ -34,15 +35,15 @@ public:
 public:
     volatile uint8_t UPDATE_STATE;
 
-// private:
+private:
     TIM_HandleTypeDef *_PWMgenerator;
     uint16_t _ledsCount;
     uint32_t _channel;
     uint32_t _BIT_1_HIGH, _BIT_0_HIGH;
     uint32_t *_colorData;
     uint32_t *_targetColorData;
-    float *_transStep;
-    uint8_t _transCalced;
+    uint32_t *_prevColorData;
+    float *_transRed, *_transGreen, *_transBlue;
     uint32_t *_buffer;
     uint8_t _bufferDataMultiplier;
 
@@ -78,11 +79,18 @@ public:
     */
     void render();
     /*
-    Render color data to the LED strip with a transition based on time tick.
-    @param timeTick_ms The current time tick, used for calculating instantaneous color set to the LED strip.
-    @param duration_ms The total length of the fading transition, in miliseconds.
+    Render color data to the LED strip with a fading transition.
+    @return WS2812B_TRANSITION_FINISHED once the entire transition is complete.
     */
-    uint8_t transition();
+    WS2812B_CONST transition();
+    /*
+    Render color data to the LED strip with a transition based on a function of time.
+    Set the transition profile function by calling the method setTransitionProfile().
+    @param timeTick The current time tick, used for calculating instantaneous color set to the LED strip.
+    @param duration The total length of the fading transition.
+    @return WS2812B_TRANSITION_FINISHED once the entire transition is complete.
+    */
+    WS2812B_CONST transition(float *timeTick, float duration);
     /*
     Start callback clock of the PWM generator timer, if one wishes to.
     */

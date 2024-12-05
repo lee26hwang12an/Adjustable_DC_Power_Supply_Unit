@@ -67,15 +67,12 @@ void setup()
     // led.render();
     // HAL_Delay(500);
 
-    // led.gradient2Colors(0xFF0000, 0, 0x00FF00, 59);
-    led.solidColor(0xFF0000, 0, 59);
+    led.gradient2Colors(0xFF0000, 0, 0x00ffFF, 59);
+    // led.solidColor(0xFF0000, 0, 59);
     led.render();
-    for (int i = 0; i < led._ledsCount; i++)
-        printf("%x ", led._colorData[i]);
-    printf("\n");
-    HAL_Delay(2000);
-    // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
-    led.solidColor(0x00FFFF, 0, 59);
+    // HAL_Delay(2000);
+    led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
+    // led.solidColor(0x00FFFF, 0, 59);
 }
 
 
@@ -84,6 +81,7 @@ void setup()
     MAIN LOOP
 =====================================================================
 */
+float tick = 0.00f;
 void loop()
 {
     // if (!valueChanged)
@@ -128,27 +126,9 @@ void loop()
 //     valueChanged = 0;
 //     led.startCallbackClock();
 
-    // led.gradient2Colors(0xFF0000, 0, 0x0000FF, 59);
-    // while(led.transition());
-    // HAL_Delay(1000);
-    // led.gradient2Colors(0xFF0000, 0, 0x00FFFF, 59);
-    // led.transition();
-    // HAL_Delay(1000);
-
-    // led.gradient2Colors(0xFF0000, 0, 0x000000, 59);
-    // led.transition(transitionTick, 50);
-    // transitionTick++;
-    // for (int i = 0; i < led._ledsCount; i++)
-    //     printf("%f ", led._transStep[i]);
-    // printf("\n");
-
-    // float val = 19.3123f;
-    led.transition();
-    HAL_Delay(10);
-    for (int i = 0; i < led._ledsCount; i++)
-        printf("%x ", led._colorData[i]);
-    printf("\n");
-    // printf("%f\n", val);
+    while (led.transition(&tick, 1000) != WS2812B_TRANSITION_FINISHED)
+        tick += 0.1f;
+    printf("DONE\n");
 }
 
 
