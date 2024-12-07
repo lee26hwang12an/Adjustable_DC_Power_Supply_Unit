@@ -27,7 +27,7 @@ WS2812B::WS2812B(TIM_HandleTypeDef *PWMgenerator, uint32_t channel, uint16_t num
 =====================================================================
 */
 
-void WS2812B::init(uint8_t DMAincrement)
+void WS2812B::init(WS2812B_STATUS DMAincrement)
 {
     _colorData = (uint32_t *)calloc(_ledsCount, sizeof(uint32_t));
     _targetColorData = (uint32_t *)calloc(_ledsCount, sizeof(uint32_t));
@@ -42,8 +42,8 @@ void WS2812B::init(uint8_t DMAincrement)
 void WS2812B::solidColor(uint32_t color, uint16_t start, uint16_t end)
 {
     // color = WS2812B::toGRB(color);
-    for (uint16_t ledIndex = start; ledIndex <= end; ledIndex++)
-        _targetColorData[ledIndex] = color;
+    for (uint16_t ledIterate = start; ledIterate <= end; ledIterate++)
+        _targetColorData[ledIterate] = color;
 }
 
 void WS2812B::gradient2Colors(uint32_t startColor, uint16_t start, uint32_t endColor, uint16_t end)
@@ -72,6 +72,24 @@ void WS2812B::gradient2Colors(uint32_t startColor, uint16_t start, uint32_t endC
     }
 }
 
+void WS2812B::rotate(WS2812B_STATUS direction)
+{
+    if (direction == WS2812B_ROTATE_TO_TAIL)
+    for (uint16_t ledIterate = _ledsCount - 1;
+        ledIterate > 0; ledIterate--)
+    {
+            _targetColorData[0] = _targetColorData[_ledsCount - 1];
+            _targetColorData[ledIterate] = _targetColorData[ledIterate - 1];
+    }
+    else if (direction == WS2812B_ROTATE_TO_HEAD)
+    for (uint16_t ledIterate = 0;
+        ledIterate < _ledsCount - 1; ledIterate++)
+    {
+            _targetColorData[_ledsCount - 1] = _targetColorData[0];
+            _targetColorData[ledIterate] = _targetColorData[ledIterate + 1];
+    }
+}
+
 void WS2812B::render()
 {
     memcpy(_colorData, _targetColorData, _ledsCount * 4);
@@ -87,7 +105,7 @@ void WS2812B::render()
     while (UPDATE_STATE == WS2812B_UPDATE_ONGOING);
 }
 
-WS2812B_CONST WS2812B::transition()
+WS2812B_STATUS WS2812B::transition()
 {
     uint16_t checkDifference = 0;
     for (uint16_t ledIterate = 0; ledIterate < _ledsCount; ledIterate++)
@@ -132,10 +150,10 @@ WS2812B_CONST WS2812B::transition()
     UPDATE_STATE = WS2812B_UPDATE_ONGOING;
     while (UPDATE_STATE == WS2812B_UPDATE_ONGOING);
 
-    return (WS2812B_CONST)0;
+    return (WS2812B_STATUS)0;
 }
 
-WS2812B_CONST WS2812B::transition(float *timeTick, float duration)
+WS2812B_STATUS WS2812B::transition(float *timeTick, float duration)
 {
     if (*timeTick > duration)
     {
@@ -185,7 +203,7 @@ WS2812B_CONST WS2812B::transition(float *timeTick, float duration)
     UPDATE_STATE = WS2812B_UPDATE_ONGOING;
     while (UPDATE_STATE == WS2812B_UPDATE_ONGOING);
 
-    return (WS2812B_CONST)0;
+    return (WS2812B_STATUS)0;
 }
 
  void WS2812B::startCallbackClock()
@@ -221,10 +239,10 @@ uint32_t WS2812B::toGRB(uint32_t RGB)
 void WS2812B::updateBuffer()
 {
     uint32_t bufferIndex = 0;
-    for (uint16_t ledIndex = 0; ledIndex < _ledsCount; ledIndex++)
+    for (uint16_t ledIterate = 0; ledIterate < _ledsCount; ledIterate++)
         for (int8_t bitIndex = 23; bitIndex >= 0; bitIndex--)
         {
-            _buffer[bufferIndex] = ((WS2812B::toGRB(_colorData[ledIndex]) >> bitIndex) & 0b1) ? _BIT_1_HIGH : _BIT_0_HIGH;
+            _buffer[bufferIndex] = ((WS2812B::toGRB(_colorData[ledIterate]) >> bitIndex) & 0b1) ? _BIT_1_HIGH : _BIT_0_HIGH;
             bufferIndex++;
         }
     for (bufferIndex; bufferIndex < _ledsCount * 24 + WS2812B_RESET_CODE_PADDING; bufferIndex++)

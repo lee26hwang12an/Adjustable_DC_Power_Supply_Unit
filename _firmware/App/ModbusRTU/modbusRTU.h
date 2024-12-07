@@ -28,6 +28,7 @@ public:
     ModbusRTU(UART_HandleTypeDef *hserial);
 
 public:
+    // uint8_t receiveBuffer[7];
     uint8_t *receiveBuffer;
 
 private:

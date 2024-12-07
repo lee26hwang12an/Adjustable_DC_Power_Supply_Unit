@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
   30:Core/Src/syscalls.c **** #include <sys/time.h>
   31:Core/Src/syscalls.c **** #include <sys/times.h>
   32:Core/Src/syscalls.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 2
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 2
 
 
   33:Core/Src/syscalls.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
   66              	.LVL0:
   67              	.LFB27:
   52:Core/Src/syscalls.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 3
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 3
 
 
   53:Core/Src/syscalls.c **** int _kill(int pid, int sig)
@@ -141,7 +141,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
   80              		.loc 1 57 3 view .LVU9
   81 0002 FFF7FEFF 		bl	__errno
   82              	.LVL1:
-  83              		.loc 1 57 9 is_stmt 0 view .LVU10
+  83              		.loc 1 57 9 is_stmt 0 discriminator 1 view .LVU10
   84 0006 1623     		movs	r3, #22
   85 0008 0360     		str	r3, [r0]
   58:Core/Src/syscalls.c ****   return -1;
@@ -178,16 +178,16 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
   63:Core/Src/syscalls.c ****   _kill(status, -1);
  114              		.loc 1 63 3 is_stmt 1 view .LVU15
  115 0002 4FF0FF31 		mov	r1, #-1
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 4
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 4
 
 
  116 0006 FFF7FEFF 		bl	_kill
  117              	.LVL3:
  118              	.L6:
   64:Core/Src/syscalls.c ****   while (1) {}    /* Make sure we hang here */
- 119              		.loc 1 64 3 discriminator 1 view .LVU16
- 120              		.loc 1 64 14 discriminator 1 view .LVU17
- 121              		.loc 1 64 9 discriminator 1 view .LVU18
+ 119              		.loc 1 64 3 view .LVU16
+ 120              		.loc 1 64 14 view .LVU17
+ 121              		.loc 1 64 9 view .LVU18
  122 000a FEE7     		b	.L6
  123              		.cfi_endproc
  124              	.LFE28:
@@ -234,24 +234,24 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  159              	.L10:
   73:Core/Src/syscalls.c ****   {
   74:Core/Src/syscalls.c ****     *ptr++ = __io_getchar();
- 160              		.loc 1 74 5 is_stmt 1 discriminator 3 view .LVU26
- 161              		.loc 1 74 14 is_stmt 0 discriminator 3 view .LVU27
+ 160              		.loc 1 74 5 is_stmt 1 view .LVU26
+ 161              		.loc 1 74 14 is_stmt 0 view .LVU27
  162 000a FFF7FEFF 		bl	__io_getchar
  163              	.LVL7:
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 5
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 5
 
 
- 164              		.loc 1 74 9 discriminator 3 view .LVU28
+ 164              		.loc 1 74 9 discriminator 1 view .LVU28
  165 000e 2146     		mov	r1, r4
  166              	.LVL8:
- 167              		.loc 1 74 12 discriminator 3 view .LVU29
+ 167              		.loc 1 74 12 discriminator 1 view .LVU29
  168 0010 01F8010B 		strb	r0, [r1], #1
  169              	.LVL9:
   72:Core/Src/syscalls.c ****   {
  170              		.loc 1 72 43 is_stmt 1 discriminator 3 view .LVU30
  171 0014 0135     		adds	r5, r5, #1
  172              	.LVL10:
- 173              		.loc 1 74 9 is_stmt 0 discriminator 3 view .LVU31
+ 173              		.loc 1 74 9 is_stmt 0 discriminator 1 view .LVU31
  174 0016 0C46     		mov	r4, r1
  175              	.LVL11:
  176              	.L9:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  211 0004 1646     		mov	r6, r2
   82:Core/Src/syscalls.c ****   (void)file;
  212              		.loc 1 82 3 is_stmt 1 view .LVU38
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 6
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 6
 
 
   83:Core/Src/syscalls.c ****   int DataIdx;
@@ -315,11 +315,11 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  221              	.L14:
   86:Core/Src/syscalls.c ****   {
   87:Core/Src/syscalls.c ****     __io_putchar(*ptr++);
- 222              		.loc 1 87 5 is_stmt 1 discriminator 3 view .LVU43
- 223              		.loc 1 87 5 is_stmt 0 discriminator 3 view .LVU44
+ 222              		.loc 1 87 5 is_stmt 1 view .LVU43
+ 223              		.loc 1 87 5 is_stmt 0 view .LVU44
  224 000a 14F8010B 		ldrb	r0, [r4], #1	@ zero_extendqisi2
  225              	.LVL15:
- 226              		.loc 1 87 5 discriminator 3 view .LVU45
+ 226              		.loc 1 87 5 view .LVU45
  227 000e FFF7FEFF 		bl	__io_putchar
  228              	.LVL16:
   85:Core/Src/syscalls.c ****   {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  256              		@ args = 0, pretend = 0, frame = 0
  257              		@ frame_needed = 0, uses_anonymous_args = 0
  258              		@ link register save eliminated.
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 7
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 7
 
 
   94:Core/Src/syscalls.c ****   (void)file;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  306              	.LVL22:
  307              	.LFB33:
  105:Core/Src/syscalls.c **** 
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 8
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 8
 
 
  106:Core/Src/syscalls.c **** int _isatty(int file)
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  352              		.global	_open
  353              		.syntax unified
  354              		.thumb
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 9
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 9
 
 
  355              		.thumb_func
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  401              		@ args = 0, pretend = 0, frame = 0
  402              		@ frame_needed = 0, uses_anonymous_args = 0
  403              		.loc 1 129 1 is_stmt 0 view .LVU83
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 10
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 10
 
 
  404 0000 08B5     		push	{r3, lr}
@@ -552,7 +552,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  410              		.loc 1 131 3 view .LVU85
  411 0002 FFF7FEFF 		bl	__errno
  412              	.LVL29:
- 413              		.loc 1 131 9 is_stmt 0 view .LVU86
+ 413              		.loc 1 131 9 is_stmt 0 discriminator 1 view .LVU86
  414 0006 0A23     		movs	r3, #10
  415 0008 0360     		str	r3, [r0]
  132:Core/Src/syscalls.c ****   return -1;
@@ -591,14 +591,14 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  444              		.loc 1 138 3 view .LVU92
  445 0002 FFF7FEFF 		bl	__errno
  446              	.LVL31:
- 447              		.loc 1 138 9 is_stmt 0 view .LVU93
+ 447              		.loc 1 138 9 is_stmt 0 discriminator 1 view .LVU93
  448 0006 0223     		movs	r3, #2
  449 0008 0360     		str	r3, [r0]
  139:Core/Src/syscalls.c ****   return -1;
  450              		.loc 1 139 3 is_stmt 1 view .LVU94
  140:Core/Src/syscalls.c **** }
  451              		.loc 1 140 1 is_stmt 0 view .LVU95
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 11
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 11
 
 
  452 000a 4FF0FF30 		mov	r0, #-1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  499              		.loc 1 151 15 is_stmt 0 view .LVU104
  500 0000 4FF40053 		mov	r3, #8192
  501 0004 4B60     		str	r3, [r1, #4]
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 12
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 12
 
 
  152:Core/Src/syscalls.c ****   return 0;
@@ -701,7 +701,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  533              		.loc 1 159 3 view .LVU112
  534 0002 FFF7FEFF 		bl	__errno
  535              	.LVL37:
- 536              		.loc 1 159 9 is_stmt 0 view .LVU113
+ 536              		.loc 1 159 9 is_stmt 0 discriminator 1 view .LVU113
  537 0006 1F23     		movs	r3, #31
  538 0008 0360     		str	r3, [r0]
  160:Core/Src/syscalls.c ****   return -1;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  549              		.syntax unified
  550              		.thumb
  551              		.thumb_func
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 13
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 13
 
 
  553              	_fork:
@@ -739,7 +739,7 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  564              		.loc 1 165 3 view .LVU117
  565 0002 FFF7FEFF 		bl	__errno
  566              	.LVL38:
- 567              		.loc 1 165 9 is_stmt 0 view .LVU118
+ 567              		.loc 1 165 9 is_stmt 0 discriminator 1 view .LVU118
  568 0006 0B23     		movs	r3, #11
  569 0008 0360     		str	r3, [r0]
  166:Core/Src/syscalls.c ****   return -1;
@@ -778,14 +778,14 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  598              		.loc 1 172 3 view .LVU124
  173:Core/Src/syscalls.c ****   (void)env;
  599              		.loc 1 173 3 view .LVU125
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 14
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 14
 
 
  174:Core/Src/syscalls.c ****   errno = ENOMEM;
  600              		.loc 1 174 3 view .LVU126
  601 0002 FFF7FEFF 		bl	__errno
  602              	.LVL40:
- 603              		.loc 1 174 9 is_stmt 0 view .LVU127
+ 603              		.loc 1 174 9 is_stmt 0 discriminator 1 view .LVU127
  604 0006 0C23     		movs	r3, #12
  605 0008 0360     		str	r3, [r0]
  175:Core/Src/syscalls.c ****   return -1;
@@ -810,59 +810,59 @@ ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 1
  628              		.weak	__io_getchar
  629              		.text
  630              	.Letext0:
- 631              		.file 2 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\machine\\_default_types.h"
- 632              		.file 3 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\_types.h"
- 633              		.file 4 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\_timeval.h"
- 634              		.file 5 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\_timespec.h"
- 635              		.file 6 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\types.h"
- 636              		.file 7 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\stat.h"
- 637              		.file 8 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\times.h"
- 638              		.file 9 "c:\\msys64\\mingw64\\arm-none-eabi\\include\\sys\\errno.h"
-ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s 			page 15
+ 631              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 632              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_types.h"
+ 633              		.file 4 "C:/msys64/mingw64/arm-none-eabi/include/sys/_timeval.h"
+ 634              		.file 5 "C:/msys64/mingw64/arm-none-eabi/include/sys/_timespec.h"
+ 635              		.file 6 "C:/msys64/mingw64/arm-none-eabi/include/sys/types.h"
+ 636              		.file 7 "C:/msys64/mingw64/arm-none-eabi/include/sys/stat.h"
+ 637              		.file 8 "C:/msys64/mingw64/arm-none-eabi/include/sys/times.h"
+ 638              		.file 9 "C:/msys64/mingw64/arm-none-eabi/include/sys/errno.h"
+ARM GAS  C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 syscalls.c
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:19     .text.initialise_monitor_handles:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:25     .text.initialise_monitor_handles:00000000 initialise_monitor_handles
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:38     .text._getpid:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:44     .text._getpid:00000000 _getpid
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:59     .text._kill:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:65     .text._kill:00000000 _kill
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:94     .text._exit:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:100    .text._exit:00000000 _exit
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:127    .text._read:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:133    .text._read:00000000 _read
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:189    .text._write:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:195    .text._write:00000000 _write
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:245    .text._close:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:251    .text._close:00000000 _close
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:270    .text._fstat:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:276    .text._fstat:00000000 _fstat
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:299    .text._isatty:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:305    .text._isatty:00000000 _isatty
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:324    .text._lseek:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:330    .text._lseek:00000000 _lseek
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:351    .text._open:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:357    .text._open:00000000 _open
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:390    .text._wait:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:396    .text._wait:00000000 _wait
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:424    .text._unlink:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:430    .text._unlink:00000000 _unlink
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:458    .text._times:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:464    .text._times:00000000 _times
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:483    .text._stat:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:489    .text._stat:00000000 _stat
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:512    .text._link:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:518    .text._link:00000000 _link
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:547    .text._fork:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:553    .text._fork:00000000 _fork
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:578    .text._execve:00000000 $t
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:584    .text._execve:00000000 _execve
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:618    .data.environ:00000000 environ
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:615    .data.environ:00000000 $d
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:625    .bss.__env:00000000 __env
-C:\Users\DARSTE~1\AppData\Local\Temp\ccbRxF18.s:622    .bss.__env:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:19     .text.initialise_monitor_handles:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:25     .text.initialise_monitor_handles:00000000 initialise_monitor_handles
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:38     .text._getpid:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:44     .text._getpid:00000000 _getpid
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:59     .text._kill:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:65     .text._kill:00000000 _kill
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:94     .text._exit:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:100    .text._exit:00000000 _exit
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:127    .text._read:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:133    .text._read:00000000 _read
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:189    .text._write:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:195    .text._write:00000000 _write
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:245    .text._close:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:251    .text._close:00000000 _close
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:270    .text._fstat:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:276    .text._fstat:00000000 _fstat
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:299    .text._isatty:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:305    .text._isatty:00000000 _isatty
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:324    .text._lseek:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:330    .text._lseek:00000000 _lseek
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:351    .text._open:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:357    .text._open:00000000 _open
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:390    .text._wait:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:396    .text._wait:00000000 _wait
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:424    .text._unlink:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:430    .text._unlink:00000000 _unlink
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:458    .text._times:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:464    .text._times:00000000 _times
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:483    .text._stat:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:489    .text._stat:00000000 _stat
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:512    .text._link:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:518    .text._link:00000000 _link
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:547    .text._fork:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:553    .text._fork:00000000 _fork
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:578    .text._execve:00000000 $t
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:584    .text._execve:00000000 _execve
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:618    .data.environ:00000000 environ
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:615    .data.environ:00000000 $d
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:625    .bss.__env:00000000 __env
+C:\Users\DARSTE~1\AppData\Local\Temp\cchq2yE3.s:622    .bss.__env:00000000 $d
 
 UNDEFINED SYMBOLS
 __errno

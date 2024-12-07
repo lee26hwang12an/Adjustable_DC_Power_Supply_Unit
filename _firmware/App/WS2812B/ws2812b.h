@@ -20,7 +20,9 @@ typedef enum
     WS2812B_UPDATE_FINISHED = 1,
     WS2812B_UPDATE_ONGOING = 0,
     WS2812B_TRANSITION_FINISHED = 1,
-} WS2812B_CONST;
+    WS2812B_ROTATE_TO_TAIL = 1,
+    WS2812B_ROTATE_TO_HEAD = 0,
+} WS2812B_STATUS;
 
 class WS2812B
 {
@@ -58,7 +60,7 @@ public:
 
     - WS2812B_DMA_INCREMENT_32BIT if DMA is configured to increment by Word
     */
-    void init(uint8_t DMAincrement = WS2812B_DMA_INCREMENT_16BIT);
+    void init(WS2812B_STATUS DMAincrement = WS2812B_DMA_INCREMENT_16BIT);
     /*
     Paint LEDs with an RGB solid color.
     @param color RGB value of the color.
@@ -75,6 +77,11 @@ public:
     */
     void gradient2Colors(uint32_t startColor, uint16_t start, uint32_t endColor, uint16_t end);
     /*
+    Rotate color of the entire strip by 1 towards specified direction.
+    @param direction The direction of rotation: WS2812B_ROTATE_TO_TAIL or WS2812B_ROTATE_TO_HEAD.
+    */
+    void rotate(WS2812B_STATUS direction);
+    /*
     Push all color data to the LED strip.
     */
     void render();
@@ -82,7 +89,7 @@ public:
     Render color data to the LED strip with a fading transition.
     @return WS2812B_TRANSITION_FINISHED once the entire transition is complete.
     */
-    WS2812B_CONST transition();
+    WS2812B_STATUS transition();
     /*
     Render color data to the LED strip with a transition based on a function of time.
     Set the transition profile function by calling the method setTransitionProfile().
@@ -90,7 +97,7 @@ public:
     @param duration The total length of the fading transition.
     @return WS2812B_TRANSITION_FINISHED once the entire transition is complete.
     */
-    WS2812B_CONST transition(float *timeTick, float duration);
+    WS2812B_STATUS transition(float *timeTick, float duration);
     /*
     Start callback clock of the PWM generator timer, if one wishes to.
     */
